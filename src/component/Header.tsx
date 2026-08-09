@@ -5,499 +5,220 @@ import LogoSvg from "../assets/images/svg/logo.svg";
 import menu2 from "../assets/images/svg/menu2.svg";
 import CloseIcon from "../assets/images/svg/close-icon.svg";
 import DropdownArrow from "../assets/images/svg/dropdown-arrow.svg";
-import headphoneIcon from "../assets/images/svg/headphone-icon.svg";
 import CrossArrow from "../assets/images/svg/cross-arrow.svg";
 
-
 interface MenuChild {
-    label: string;
-    link: string;
+  label: string;
+  link: string;
 }
 
+interface MenuItem {
+  label: string;
+  children: MenuChild[];
+}
 
 const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<number | null>(null);
 
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [openDropdown, setOpenDropdown] = useState<number | null>(null);
+  const location = useLocation();
 
-    const location = useLocation();
+  const toggleDropdown = (index: number) => {
+    setOpenDropdown(openDropdown === index ? null : index);
+  };
 
+  const isParentActive = (children: MenuChild[]) => {
+    return children.some((child) => child.link === location.pathname);
+  };
 
-    const toggleDropdown = (index:number) => {
-        setOpenDropdown(
-            openDropdown === index ? null : index
-        );
-    };
+  const closeMenu = () => {
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  };
 
+  const menuItems: MenuItem[] = [
+    {
+      label: "Businesses",
+      children: [
+        { label: "Joki Print", link: "/services" },
+        { label: "Graphic Design", link: "/services" },
+        { label: "Large Format Printing", link: "/services" },
+        { label: "Digital & Web", link: "/services" },
+        { label: "Creative Services", link: "/services" },
+      ],
+    },
+    {
+      label: "Work",
+      children: [
+        { label: "Portfolio", link: "/properties" },
+        { label: "Case Studies", link: "/properties" },
+      ],
+    },
+    {
+      label: "Company",
+      children: [
+        { label: "About Joki Holdings", link: "/about" },
+        { label: "Our Approach", link: "/about" },
+      ],
+    },
+    {
+      label: "Insights",
+      children: [
+        { label: "Creative & Business Insights", link: "/blog" },
+        { label: "Design & Print Guides", link: "/blog" },
+      ],
+    },
+  ];
 
-    const isParentActive = (children:MenuChild[]) => {
+  return (
+    <>
+      {menuOpen && (
+        <div
+          className="overlay active"
+          onClick={closeMenu}
+          aria-hidden="true"
+        />
+      )}
 
-        return children.some(
-            child => child.link === location.pathname
-        );
+      <header className="header" id="top-navbar">
+        <div className="header-container">
 
-    };
+          <Link
+            to="/"
+            className="logo joki-logo"
+            onClick={closeMenu}
+          >
+            <img
+              src={LogoSvg}
+              alt="Joki Holdings"
+            />
+          </Link>
 
+          <button
+            type="button"
+            className="hamburger"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+            aria-expanded={menuOpen}
+          >
+            {!menuOpen ? (
+              <img
+                src={menu2}
+                className="menu-icon"
+                alt=""
+              />
+            ) : (
+              <img
+                src={CloseIcon}
+                className="close-icon"
+                alt=""
+              />
+            )}
+          </button>
 
+          <nav className={`nav ${menuOpen ? "open" : ""}`}>
+            <div className="for-mobile-menu position-relative">
 
-    const menuItems = [
-
-        {
-            label:"Services",
-            children:[
-                {
-                    label:"All Services",
-                    link:"/services"
-                },
-                {
-                    label:"Construction & Repair",
-                    link:"/services"
-                },
-                {
-                    label:"Safety & Maintenance",
-                    link:"/services"
-                },
-                {
-                    label:"Smart Home Solutions",
-                    link:"/smart-home"
-                },
-                {
-                    label:"Lifestyle Enhancements",
-                    link:"/services"
-                }
-            ]
-        },
-
-
-        {
-            label:"Projects",
-            children:[
-                {
-                    label:"Residential Projects",
-                    link:"/properties"
-                },
-                {
-                    label:"Commercial Projects",
-                    link:"/properties"
-                },
-                {
-                    label:"Smart Home Installations",
-                    link:"/properties"
-                }
-            ]
-        },
-
-
-        {
-            label:"Company",
-            children:[
-                {
-                    label:"About Nyumba Dynamics",
-                    link:"/about"
-                },
-                {
-                    label:"Our Team",
-                    link:"/team"
-                },
-                {
-                    label:"Request a Quote",
-                    link:"/consultation"
-                }
-            ]
-        },
-
-
-        {
-            label:"Insights",
-            children:[
-                {
-                    label:"Home Maintenance Tips",
-                    link:"/blog"
-                },
-                {
-                    label:"Smart Living Guides",
-                    link:"/blog"
-                }
-            ]
-        }
-
-    ];
-
-
-
-
-    return (
-
-        <>
-
-
-            {
-                menuOpen &&
-
-                <div
-                    className="overlay active"
-                    onClick={() => setMenuOpen(false)}
+              <Link
+                to="/"
+                className="mobile-logo joki-mobile-logo"
+                onClick={closeMenu}
+              >
+                <img
+                  src={LogoSvg}
+                  alt="Joki Holdings"
                 />
+              </Link>
 
-            }
+              <ul className="menu">
 
+                <li className="dropdown">
+                  <Link
+                    to="/"
+                    className={`dropdown-btn ${
+                      location.pathname === "/" ? "active" : ""
+                    }`}
+                    onClick={closeMenu}
+                  >
+                    Home
+                  </Link>
+                </li>
 
-
-
-            <header 
-                className="header"
-                id="top-navbar"
-            >
-
-
-
-                <div className="header-container">
-
-
-
-                    <Link
-                        to="/"
-                        className="logo nyumba-logo"
+                {menuItems.map((item, index) => (
+                  <li
+                    key={item.label}
+                    className="dropdown"
+                  >
+                    <button
+                      type="button"
+                      className={`dropdown-btn ${
+                        isParentActive(item.children) ? "active" : ""
+                      }`}
+                      onClick={() => toggleDropdown(index)}
                     >
+                      {item.label}
 
-                        <img
-                            src={LogoSvg}
-                            alt="Nyumba Dynamics - Home and Enterprise Maintenance Services"
-                        />
+                      <img
+                        src={DropdownArrow}
+                        alt=""
+                      />
 
-                    </Link>
+                      <span className="dots-circle" />
+                    </button>
 
-
-
-
-                    <div
-                        className="hamburger"
-                        onClick={() => setMenuOpen(!menuOpen)}
-                    >
-
-
-                        {
-
-                            !menuOpen &&
-
-                            <img
-                                src={menu2}
-                                className="menu-icon"
-                                alt="Open menu"
-                            />
-
-                        }
-
-
-
-                        {
-
-                            menuOpen &&
-
-                            <img
-                                src={CloseIcon}
-                                className="close-icon"
-                                alt="Close menu"
-                            />
-
-                        }
-
-
-                    </div>
-
-
-
-
-
-
-
-                    <nav
-                        className={`nav ${menuOpen ? "open" : ""}`}
-                    >
-
-
-
-
-                        <div className="for-mobile-menu position-relative">
-
-
-
+                    {openDropdown === index && (
+                      <ul className="dropdown-menu">
+                        {item.children.map((sub) => (
+                          <li key={sub.label}>
                             <Link
-                                to="/"
-                                className="mobile-logo nyumba-mobile-logo"
+                              to={sub.link}
+                              className={
+                                location.pathname === sub.link
+                                  ? "active"
+                                  : ""
+                              }
+                              onClick={closeMenu}
                             >
-
-                                <img
-                                    src={LogoSvg}
-                                    alt="Nyumba Dynamics Logo"
-                                />
-
-
+                              {sub.label}
                             </Link>
-
-
-
-
-
-                            <ul className="menu">
-
-
-                            <li className="dropdown">
-                                <Link
-                                    to="/"
-                                    className={`dropdown-btn ${location.pathname === "/" ? "active" : ""}`}
-                                >
-                                    Home
-                                </Link>
-                            </li>
-
-
-                            {
-
-                                menuItems.map((item,index)=>(
-
-
-                                    <li
-                                        key={index}
-                                        className="dropdown"
-                                    >
-
-
-
-
-                                        <button
-                                            className={
-                                                `dropdown-btn ${
-                                                    isParentActive(item.children)
-                                                    ? "active"
-                                                    :""
-                                                }`
-                                            }
-
-                                            onClick={() =>
-                                                toggleDropdown(index)
-                                            }
-                                        >
-
-
-                                            {item.label}
-
-
-
-                                            <img
-                                                src={DropdownArrow}
-                                                alt="Dropdown arrow"
-                                            />
-
-
-
-                                            <span className="dots-circle"></span>
-
-
-
-                                        </button>
-
-
-
-
-
-                                        <ul
-                                            className={
-                                                `submenu ${
-                                                    openDropdown === index
-                                                    ? "open"
-                                                    :""
-                                                }`
-                                            }
-                                        >
-
-
-
-                                            {
-
-                                                item.children.map(
-                                                    (sub,i)=>(
-
-
-                                                        <li
-                                                            key={i}
-                                                        >
-
-
-                                                            <Link
-
-                                                                to={sub.link}
-
-                                                                className={
-                                                                    location.pathname === sub.link
-                                                                    ?"active"
-                                                                    :""
-                                                                }
-
-
-                                                                onClick={() =>
-                                                                    setMenuOpen(false)
-                                                                }
-
-                                                            >
-
-                                                                {sub.label}
-
-                                                            </Link>
-
-
-                                                        </li>
-
-
-                                                    )
-
-                                                )
-
-                                            }
-
-
-
-                                        </ul>
-
-
-
-
-                                    </li>
-
-
-                                ))
-
-                            }
-
-
-
-                                <li>
-
-                                    <Link
-                                        to="/contact"
-                                        onClick={() =>
-                                            setMenuOpen(false)
-                                        }
-                                    >
-
-                                        Contact
-
-                                    </Link>
-
-
-                                </li>
-
-
-                            </ul>
-
-
-                        </div>
-
-
-
-
-
-
-
-
-                        <div className="nav-actions">
-
-
-
-
-
-                            <div className="call">
-
-
-                                <div className="headphone-main">
-
-
-                                    <img
-                                        src={headphoneIcon}
-                                        alt="Contact Nyumba Dynamics"
-                                    />
-
-
-                                </div>
-
-
-
-
-                                <div className="need-help-main">
-
-
-                                    <p>
-                                        Talk To An Expert
-                                    </p>
-
-
-                                    <a href="tel:+256761648679">
-
-                                        +256 7616 48679
-
-                                    </a>
-
-
-                                </div>
-
-
-
-                            </div>
-
-
-
-
-
-
-
-                            <Link
-                                to="/consultation"
-                                className="btn-quote get-quote-btn"
-                            >
-
-
-                                Get Free Quote
-
-
-
-                                <img
-                                    src={CrossArrow}
-                                    alt="Arrow"
-                                />
-
-
-                            </Link>
-
-
-
-
-
-                        </div>
-
-
-
-
-
-                    </nav>
-
-
-
-
-
-                </div>
-
-
-
-            </header>
-
-
-
-
-        </>
-
-    );
-
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
+                ))}
+
+                <li>
+                  <Link
+                    to="/contact"
+                    onClick={closeMenu}
+                  >
+                    Contact
+                  </Link>
+                </li>
+
+              </ul>
+            </div>
+
+            <div className="nav-actions">
+              <Link
+                to="/contact"
+                className="btn-quote get-quote-btn"
+                onClick={closeMenu}
+              >
+                Talk To Us
+
+                <img
+                  src={CrossArrow}
+                  alt=""
+                />
+              </Link>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </>
+  );
 };
-
 
 export default Header;
