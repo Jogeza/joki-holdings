@@ -34,7 +34,7 @@ import ScrollToTopButton from "./component/ScrollToTopButton.tsx";
 import MobileBottomNav from "./component/MobileBottomNav.tsx";
 import SmoothScroll from "./hooks/SmoothScroll.ts";
 import ContactForm from "./component/ContactForm.tsx";
-import WhatsAppFloat from "./components/WhatsAppFloat";
+import WhatsAppFloat from "./component/WhatsAppFloat";
 
 
 function App() {
