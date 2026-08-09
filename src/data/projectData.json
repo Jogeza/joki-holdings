@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "title": "Ntinda Family Home Renovation",
+        "category": "Renovations",
+        "description": "Full interior refresh \u2014 electrical rewiring, plumbing upgrades, and repainting for a family home in Ntinda.",
+        "image": "project-img1.jpg",
+        "link": "/property/1"
+    },
+    {
+        "id": 2,
+        "title": "Kololo Office CCTV Installation",
+        "category": "CCTV Installations",
+        "description": "Full-perimeter HD camera coverage with remote monitoring for a commercial office block in Kololo.",
+        "image": "project-img2.jpg",
+        "link": "/property/2"
+    },
+    {
+        "id": 3,
+        "title": "Muyenga Smart Home Fit-Out",
+        "category": "Smart Home Installations",
+        "description": "Smart locks, lighting, and home automation installed and connected to a single app for a hillside residence.",
+        "image": "project-img3.jpg",
+        "link": "/property/3"
+    },
+    {
+        "id": 4,
+        "title": "Bugolobi Apartment Interiors",
+        "category": "Interior Design",
+        "description": "Space planning, finishes, and fittings for a modern two-bedroom apartment interior.",
+        "image": "project-img4.jpg",
+        "link": "/property/4"
+    },
+    {
+        "id": 5,
+        "title": "Naguru Residential Build",
+        "category": "Residential Projects",
+        "description": "Masonry, carpentry, and finishing works for a new residential build in Naguru.",
+        "image": "project-img5.jpg",
+        "link": "/property/5"
+    },
+    {
+        "id": 6,
+        "title": "Nakawa Retail Space Fit-Out",
+        "category": "Commercial Projects",
+        "description": "Electrical, painting, and interior fit-out for a retail unit in Nakawa.",
+        "image": "project-img6.jpg",
+        "link": "/property/6"
+    },
+    {
+        "id": 7,
+        "title": "Kira Road Security Upgrade",
+        "category": "CCTV Installations",
+        "description": "CCTV and access-control integration for a gated compound on Kira Road.",
+        "image": "project-img7.jpg",
+        "link": "/property/7"
+    },
+    {
+        "id": 8,
+        "title": "Bukoto Commercial Renovation",
+        "category": "Renovations",
+        "description": "Structural repair, painting, and plumbing overhaul for a commercial property in Bukoto.",
+        "image": "project-img8.jpg",
+        "link": "/property/8"
+    }
+]
