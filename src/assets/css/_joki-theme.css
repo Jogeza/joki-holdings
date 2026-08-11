@@ -1,0 +1,53 @@
+/* Joki Holdings design tokens
+   Location: src/assets/css/_joki-theme.css
+   Purpose: centralize brand colors, spacing, typography tokens for the Joki Holdings rebrand.
+*/
+:root{
+  /* Core brand colors */
+  --joki-teal: #075B59;
+  --joki-gold: #FFC800;
+  --joki-charcoal: #1F1F1F;
+  --joki-offwhite: #F8F6F2;
+
+  /* Neutral system */
+  --white: #ffffff;
+  --muted: #6b6b6b;
+  --border: #e6e6e6;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+
+  /* Radii */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+
+  /* Typography */
+  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --font-heading: 'Montserrat', var(--font-sans);
+
+  --container-max-width: 1200px;
+}
+
+/* Utility classes for brand accents */
+.btn-joki{
+  background: var(--joki-teal);
+  color: var(--white);
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+}
+
+.btn-joki-outline{
+  background: transparent;
+  color: var(--joki-teal);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(7,91,89,0.12);
+}
