@@ -66,9 +66,10 @@ const ContactForm: React.FC = () => {
             return;
         }
 
-        // NOTE: no backend is wired up yet. This mailto: is a working
-        // placeholder so the form is functional today — swap for a real
-        // API/CRM submission (e.g. a serverless form endpoint) when ready.
+        // NOTE: There is no backend submission configured in this repository.
+        // We open the user's email application with a prepared draft (mailto:) addressed to the
+        // official contact email. This makes the form functional in a simple, client-only way.
+        // Do NOT claim delivery — the user must send the email from their mail client.
         const subject = encodeURIComponent(`${requestType}: ${serviceNeeded}`);
         const body = encodeURIComponent(
             `Name: ${formValues.name}\nEmail: ${formValues.email}\nPhone: ${formValues.phone}\n` +
@@ -78,8 +79,11 @@ const ContactForm: React.FC = () => {
                 ? `(${images.length} image${images.length > 1 ? "s" : ""} attached in the form — please re-attach to this email)`
                 : "")
         );
-        window.location.href = `mailto:info@nyumbadynamics.com?subject=${subject}&body=${body}`;
 
+        // Use the official Joki Holdings email as the mailto destination.
+        window.location.href = `mailto:info@jokiholdings.com?subject=${subject}&body=${body}`;
+
+        // Show an instructional confirmation (do not claim the message was delivered).
         setSubmitted(true);
     };
 
@@ -91,25 +95,24 @@ const ContactForm: React.FC = () => {
                         <div className="row form-sec-row">
 
                             <div className="col-xxl-6 col-xl-6 col-lg-5">
-                                <p className="cap-text fade_up">contact nyumba dynamics</p>
+                                <p className="cap-text fade_up">contact Joki Holdings</p>
                                 <h2 className="sec-text get-toch fade_up">Get In Touch With Us</h2>
                                 <p className="sec-sub-text fade_up">
-                                    Request a service, ask for a quotation, or register as a partner or vendor —
-                                    our team responds fast, every day of the week.
+                                    Request information, ask a question, or express interest in working with us.
                                 </p>
 
                                 <p className="call-support-text">Call Us</p>
-                                <a href="tel:+256761648679" className="tel-num">+256 7513 53757</a>
+                                <a href="tel:+256778283522" className="tel-num">+256 778 283522</a>
 
                                 <div className="adres-main-home fade_up">
                                     <div>
                                         <p className="call-support-text">Our Address</p>
-                                        <p className="tel-num addees">Opposite St. Francis Primary School, Ntinda, Kampala, Uganda</p>
+                                        <p className="tel-num addees">BH 340, Blue Heights, Nasser Road, Kampala, Uganda</p>
                                     </div>
                                     <div>
                                         <p className="call-support-text">Our Mail Address</p>
-                                        <a href="mailto:info@nyumbadynamics.com" className="tel-num addees">
-                                            info@nyumbadynamics.com
+                                        <a href="mailto:info@jokiholdings.com" className="tel-num addees">
+                                            info@jokiholdings.com
                                         </a>
                                     </div>
                                 </div>
@@ -118,14 +121,12 @@ const ContactForm: React.FC = () => {
                             <div className="col-xxl-6 col-xl-6 col-lg-7">
                                 {submitted ? (
                                     <div className="contac-form-main zoom_in" style={{ textAlign: 'center' }}>
-                                        <h3 className="rich">Thanks — we've got your request.</h3>
+                                        <h3 className="rich">Email draft opened</h3>
                                         <p className="clane" style={{ marginTop: 10 }}>
-                                            Your email app should have opened with the details filled in. Send it
-                                            across and our team will follow up shortly. You can also reach us
-                                            directly on WhatsApp for a faster response.
+                                            Your email application should have opened with the details filled in. Please send the email from your mail client to complete the request. If you prefer, you can also reach us on WhatsApp for a faster response.
                                         </p>
                                         <a
-                                            href="https://wa.me/256761648679"
+                                            href="https://wa.me/256778283522"
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="btn-quote btn-whatsapp"
@@ -300,10 +301,10 @@ const ContactForm: React.FC = () => {
                         {location.pathname === "/contact" && (
                             <iframe
                                 className="map-iframe"
-                                src="https://www.google.com/maps?q=St.+Francis+Primary+School+Ntinda+Kampala+Uganda&output=embed"
+                                src="https://www.google.com/maps?q=BH+340+Blue+Heights+Nasser+Road+Kampala+Uganda&output=embed"
                                 allowFullScreen
                                 loading="lazy"
-                                title="Nyumba Dynamics location - Ntinda, Kampala, Uganda"
+                                title="Joki Holdings location - Kampala, Uganda"
                                 referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>
                         )}
