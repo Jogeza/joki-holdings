@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import LogoSvg from "../assets/images/svg/logo.svg";
+import Logo from "../component/Logo";
 import menu2 from "../assets/images/svg/menu2.svg";
 import CloseIcon from "../assets/images/svg/close-icon.svg";
 import DropdownArrow from "../assets/images/svg/dropdown-arrow.svg";
@@ -14,7 +14,7 @@ interface MenuChild {
 
 interface MenuItem {
   label: string;
-  children: MenuChild[];
+  children?: MenuChild[];
 }
 
 const Header = () => {
@@ -27,7 +27,8 @@ const Header = () => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
 
-  const isParentActive = (children: MenuChild[]) => {
+  const isParentActive = (children: MenuChild[] | undefined) => {
+    if (!children) return false;
     return children.some((child) => child.link === location.pathname);
   };
 
@@ -37,37 +38,10 @@ const Header = () => {
   };
 
   const menuItems: MenuItem[] = [
-    {
-      label: "Businesses",
-      children: [
-        { label: "Joki Print", link: "/services" },
-        { label: "Graphic Design", link: "/services" },
-        { label: "Large Format Printing", link: "/services" },
-        { label: "Digital & Web", link: "/services" },
-        { label: "Creative Services", link: "/services" },
-      ],
-    },
-    {
-      label: "Work",
-      children: [
-        { label: "Portfolio", link: "/properties" },
-        { label: "Case Studies", link: "/properties" },
-      ],
-    },
-    {
-      label: "Company",
-      children: [
-        { label: "About Joki Holdings", link: "/about" },
-        { label: "Our Approach", link: "/about" },
-      ],
-    },
-    {
-      label: "Insights",
-      children: [
-        { label: "Creative & Business Insights", link: "/blog" },
-        { label: "Design & Print Guides", link: "/blog" },
-      ],
-    },
+    { label: "Our Businesses", children: [ { label: "Overview", link: "/our-businesses" } ] },
+    { label: "Ventures", children: [ { label: "Overview", link: "/ventures" } ] },
+    { label: "Insights", children: [ { label: "Articles", link: "/insights" } ] },
+    { label: "About", children: [ { label: "About Joki Holdings", link: "/about" } ] },
   ];
 
   return (
@@ -88,10 +62,7 @@ const Header = () => {
             className="logo joki-logo"
             onClick={closeMenu}
           >
-            <img
-              src={LogoSvg}
-              alt="Joki Holdings"
-            />
+            <Logo />
           </Link>
 
           <button
@@ -124,10 +95,7 @@ const Header = () => {
                 className="mobile-logo joki-mobile-logo"
                 onClick={closeMenu}
               >
-                <img
-                  src={LogoSvg}
-                  alt="Joki Holdings"
-                />
+                <Logo variant="compact" />
               </Link>
 
               <ul className="menu">
@@ -166,7 +134,7 @@ const Header = () => {
                       <span className="dots-circle" />
                     </button>
 
-                    {openDropdown === index && (
+                    {openDropdown === index && item.children && (
                       <ul className="dropdown-menu">
                         {item.children.map((sub) => (
                           <li key={sub.label}>
@@ -203,7 +171,7 @@ const Header = () => {
             <div className="nav-actions">
               <Link
                 to="/contact"
-                className="btn-quote get-quote-btn"
+                className="btn-quote get-quote-btn btn-joki"
                 onClick={closeMenu}
               >
                 Talk To Us
