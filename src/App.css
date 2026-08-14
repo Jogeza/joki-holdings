@@ -1073,3 +1073,680 @@
     height: 25px;
   }
 }
+
+/* =========================================================
+   JOKI DESIGN PAGE
+   ========================================================= */
+
+.joki-design-page {
+  overflow: hidden;
+  background: var(--joki-offwhite, #f8f6f2);
+}
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.joki-design-hero {
+  padding: 110px 0 100px;
+}
+
+.joki-design-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 80px;
+  align-items: center;
+}
+
+.joki-design-hero-copy {
+  max-width: 760px;
+}
+
+.joki-design-hero-copy h1 {
+  margin: 22px 0 28px;
+  font-size: clamp(4rem, 7vw, 7.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+  font-weight: 600;
+}
+
+.joki-design-hero-copy h1 span {
+  display: block;
+  color: var(--joki-teal, #075b59);
+}
+
+.joki-design-hero-copy p {
+  max-width: 620px;
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  color: rgba(31, 31, 31, 0.72);
+}
+
+.joki-design-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-top: 38px;
+}
+
+.joki-design-hero-visual {
+  min-width: 0;
+}
+
+.joki-design-visual-frame {
+  position: relative;
+  min-height: 560px;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--joki-teal, #075b59);
+  color: #fff;
+  overflow: hidden;
+}
+
+.joki-design-visual-frame::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.joki-design-visual-frame::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(255, 200, 0, 0.55);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.joki-design-visual-top,
+.joki-design-visual-bottom {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+}
+
+.joki-design-visual-center {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.joki-design-visual-center span,
+.joki-design-visual-center strong {
+  display: block;
+}
+
+.joki-design-visual-center span {
+  font-size: 1rem;
+  letter-spacing: 0.35em;
+}
+
+.joki-design-visual-center strong {
+  margin-top: 5px;
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+/* ---------------------------------------------------------
+   INTRO
+   --------------------------------------------------------- */
+
+.joki-design-intro {
+  padding: 110px 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-design-intro-grid {
+  display: grid;
+  grid-template-columns: 0.35fr 1fr;
+  gap: 80px;
+}
+
+.joki-section-number {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--joki-teal, #075b59);
+}
+
+.joki-design-intro h2,
+.joki-design-services-heading h2,
+.joki-design-work-heading h2,
+.joki-design-process-heading h2 {
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  font-weight: 600;
+}
+
+.joki-design-intro h2 span,
+.joki-design-services-heading h2 span,
+.joki-design-work-heading h2 span,
+.joki-design-process-heading h2 span,
+.joki-design-cta h2 span {
+  color: var(--joki-teal, #075b59);
+}
+
+.joki-design-intro p {
+  max-width: 680px;
+  margin: 28px 0 0;
+  font-size: 1.08rem;
+  line-height: 1.8;
+  color: rgba(31, 31, 31, 0.7);
+}
+
+/* ---------------------------------------------------------
+   SERVICES
+   --------------------------------------------------------- */
+
+.joki-design-services {
+  padding: 120px 0;
+  background: #fff;
+}
+
+.joki-design-services-heading {
+  max-width: 850px;
+  margin-bottom: 70px;
+}
+
+.joki-design-services-heading .joki-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.joki-design-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid rgba(31, 31, 31, 0.15);
+}
+
+.joki-design-service {
+  position: relative;
+  display: grid;
+  grid-template-columns: 60px 1fr 30px;
+  gap: 25px;
+  align-items: start;
+  padding: 34px 0;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.15);
+  transition:
+    padding-left 0.25s ease,
+    background 0.25s ease;
+}
+
+.joki-design-service:nth-child(odd) {
+  padding-right: 45px;
+  border-right: 1px solid rgba(31, 31, 31, 0.15);
+}
+
+.joki-design-service:nth-child(even) {
+  padding-left: 45px;
+}
+
+.joki-design-service:hover {
+  padding-left: 18px;
+}
+
+.joki-design-service-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--joki-gold, #ffc800);
+}
+
+.joki-design-service h3 {
+  margin: 0;
+  font-size: 1.45rem;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.joki-design-service p {
+  margin: 10px 0 0;
+  max-width: 420px;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(31, 31, 31, 0.65);
+}
+
+.joki-design-service-arrow {
+  font-size: 1.2rem;
+  transition: transform 0.25s ease;
+}
+
+.joki-design-service:hover .joki-design-service-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* ---------------------------------------------------------
+   SELECTED WORK
+   --------------------------------------------------------- */
+
+.joki-design-work {
+  padding: 120px 0;
+}
+
+.joki-design-work-heading {
+  display: grid;
+  grid-template-columns: 1fr 0.65fr;
+  gap: 80px;
+  align-items: end;
+  margin-bottom: 70px;
+}
+
+.joki-design-work-heading .joki-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.joki-design-work-heading p {
+  max-width: 480px;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(31, 31, 31, 0.65);
+}
+
+.joki-design-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 70px 30px;
+}
+
+.joki-design-project-1,
+.joki-design-project-4 {
+  margin-top: 70px;
+}
+
+.joki-project-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #e7e4dd;
+}
+
+.joki-project-placeholder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(7, 91, 89, 0.08),
+      transparent 45%
+    ),
+    #e7e4dd;
+  color: var(--joki-teal, #075b59);
+}
+
+.joki-project-placeholder::before,
+.joki-project-placeholder::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(7, 91, 89, 0.2);
+  border-radius: 50%;
+}
+
+.joki-project-placeholder::before {
+  width: 220px;
+  height: 220px;
+}
+
+.joki-project-placeholder::after {
+  width: 130px;
+  height: 130px;
+}
+
+.joki-project-placeholder span,
+.joki-project-placeholder strong {
+  position: relative;
+  z-index: 2;
+}
+
+.joki-project-placeholder span {
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+}
+
+.joki-project-placeholder strong {
+  margin-top: 6px;
+  font-size: 2.5rem;
+  letter-spacing: -0.05em;
+}
+
+.joki-project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+  padding-top: 18px;
+}
+
+.joki-project-meta span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--joki-teal, #075b59);
+}
+
+.joki-project-meta h3 {
+  margin: 7px 0 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.025em;
+}
+
+.joki-project-arrow {
+  font-size: 1.2rem !important;
+  color: var(--joki-charcoal, #1f1f1f) !important;
+  letter-spacing: 0 !important;
+}
+
+/* ---------------------------------------------------------
+   PROCESS
+   --------------------------------------------------------- */
+
+.joki-design-process {
+  padding: 120px 0;
+  background: #fff;
+}
+
+.joki-design-process-heading {
+  max-width: 760px;
+  margin-bottom: 70px;
+}
+
+.joki-design-process-heading .joki-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+}
+
+.joki-design-process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-top: 1px solid rgba(31, 31, 31, 0.15);
+}
+
+.joki-design-process-item {
+  padding: 30px 30px 0 0;
+  border-right: 1px solid rgba(31, 31, 31, 0.15);
+}
+
+.joki-design-process-item:not(:first-child) {
+  padding-left: 30px;
+}
+
+.joki-design-process-item:last-child {
+  border-right: 0;
+}
+
+.joki-design-process-item > span {
+  display: block;
+  margin-bottom: 60px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--joki-gold, #ffc800);
+}
+
+.joki-design-process-item h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.joki-design-process-item p {
+  margin: 12px 0 0;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: rgba(31, 31, 31, 0.65);
+}
+
+/* ---------------------------------------------------------
+   CTA
+   --------------------------------------------------------- */
+
+.joki-design-cta {
+  padding: 30px 0 110px;
+  background: #fff;
+}
+
+.joki-design-cta-inner {
+  position: relative;
+  padding: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 60px;
+  background: var(--joki-charcoal, #1f1f1f);
+  color: #fff;
+  overflow: hidden;
+}
+
+.joki-design-cta-inner::before {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(255, 200, 0, 0.22);
+  border-radius: 50%;
+  right: -100px;
+  top: -180px;
+}
+
+.joki-design-cta-inner > * {
+  position: relative;
+  z-index: 2;
+}
+
+.joki-design-cta .joki-eyebrow {
+  display: block;
+  margin-bottom: 22px;
+  color: var(--joki-gold, #ffc800);
+}
+
+.joki-design-cta h2 {
+  max-width: 700px;
+  margin: 0;
+  font-size: clamp(3rem, 6vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.06em;
+}
+
+.joki-design-cta h2 span {
+  color: var(--joki-gold, #ffc800);
+}
+
+.joki-design-cta p {
+  max-width: 600px;
+  margin: 25px 0 0;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.68);
+}
+
+.joki-button-light {
+  flex-shrink: 0;
+  background: #fff;
+  color: var(--joki-charcoal, #1f1f1f);
+}
+
+.joki-button-light:hover {
+  background: var(--joki-gold, #ffc800);
+  color: var(--joki-charcoal, #1f1f1f);
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .joki-design-hero {
+    padding: 80px 0;
+  }
+
+  .joki-design-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 55px;
+  }
+
+  .joki-design-visual-frame {
+    min-height: 480px;
+  }
+
+  .joki-design-intro-grid,
+  .joki-design-work-heading {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .joki-design-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joki-design-service:nth-child(odd) {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .joki-design-service:nth-child(even) {
+    padding-left: 0;
+  }
+
+  .joki-design-project-grid {
+    gap: 55px 20px;
+  }
+
+  .joki-design-process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .joki-design-process-item {
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(31, 31, 31, 0.15);
+  }
+
+  .joki-design-process-item:nth-child(2) {
+    border-right: 0;
+  }
+
+  .joki-design-process-item:nth-child(3),
+  .joki-design-process-item:nth-child(4) {
+    padding-top: 40px;
+    border-bottom: 0;
+  }
+
+  .joki-design-cta-inner {
+    padding: 60px 45px;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  .joki-design-hero {
+    padding: 60px 0;
+  }
+
+  .joki-design-hero-copy h1 {
+    font-size: clamp(3.3rem, 17vw, 5rem);
+  }
+
+  .joki-design-hero-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .joki-design-visual-frame {
+    min-height: 390px;
+    padding: 20px;
+  }
+
+  .joki-design-visual-center strong {
+    font-size: 3rem;
+  }
+
+  .joki-design-intro,
+  .joki-design-services,
+  .joki-design-work,
+  .joki-design-process {
+    padding: 80px 0;
+  }
+
+  .joki-design-services-heading,
+  .joki-design-work-heading,
+  .joki-design-process-heading {
+    margin-bottom: 45px;
+  }
+
+  .joki-design-service {
+    grid-template-columns: 40px 1fr 20px;
+    gap: 15px;
+  }
+
+  .joki-design-service h3 {
+    font-size: 1.2rem;
+  }
+
+  .joki-design-project-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .joki-design-project-1,
+  .joki-design-project-4 {
+    margin-top: 0;
+  }
+
+  .joki-design-process-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joki-design-process-item,
+  .joki-design-process-item:not(:first-child) {
+    padding: 30px 0;
+    border-right: 0;
+    border-bottom: 1px solid rgba(31, 31, 31, 0.15);
+  }
+
+  .joki-design-process-item:last-child {
+    border-bottom: 0;
+  }
+
+  .joki-design-process-item > span {
+    margin-bottom: 30px;
+  }
+
+  .joki-design-cta {
+    padding-bottom: 60px;
+  }
+
+  .joki-design-cta-inner {
+    padding: 50px 28px;
+  }
+
+  .joki-design-cta h2 {
+    font-size: clamp(3rem, 14vw, 4.5rem);
+  }
+}
