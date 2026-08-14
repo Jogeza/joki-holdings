@@ -2521,3 +2521,289 @@
     margin-top: 22px;
   }
 }
+
+/* =========================================================
+   JOKI ABOUT PAGE
+   ========================================================= */
+
+.joki-about-page {
+  overflow: hidden;
+}
+
+.joki-about-hero {
+  max-width: 1000px;
+}
+
+
+/* ABOUT INTRO */
+
+.joki-about-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.8fr);
+  gap: 80px;
+  padding: 110px 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.14);
+}
+
+.joki-about-copy {
+  max-width: 780px;
+}
+
+.joki-about-copy p {
+  max-width: 700px;
+}
+
+.joki-about-copy .joki-large-text {
+  margin-bottom: 32px;
+}
+
+
+/* APPROACH */
+
+.joki-about-approach {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px;
+  padding: 110px 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.14);
+  border-bottom: 1px solid rgba(31, 31, 31, 0.14);
+}
+
+.joki-about-approach-heading h2 {
+  margin: 24px 0 0;
+  max-width: 600px;
+}
+
+.joki-about-approach-heading h2 span,
+.joki-about-services-header h2 span,
+.joki-about-statement h2 span {
+  display: block;
+  color: var(--joki-teal);
+}
+
+.joki-about-approach-content {
+  max-width: 650px;
+}
+
+.joki-about-approach-content p {
+  margin-bottom: 28px;
+}
+
+
+/* SERVICES */
+
+.joki-about-services {
+  padding: 120px 0;
+}
+
+.joki-about-services-header {
+  max-width: 750px;
+  margin-bottom: 65px;
+}
+
+.joki-about-services-header h2 {
+  margin-top: 24px;
+}
+
+.joki-about-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.joki-about-service-card {
+  position: relative;
+  min-height: 350px;
+  padding: 36px;
+  border: 1px solid rgba(31, 31, 31, 0.14);
+  background: var(--joki-offwhite);
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.joki-about-service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--joki-teal);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
+}
+
+.joki-about-service-card > span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--joki-teal);
+}
+
+.joki-about-service-card h3 {
+  margin: 55px 0 18px;
+  font-size: 30px;
+}
+
+.joki-about-service-card p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+.joki-about-service-card a {
+  margin-top: auto;
+  padding-top: 30px;
+  color: var(--joki-charcoal);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.joki-about-service-card a:hover {
+  color: var(--joki-teal);
+}
+
+
+/* VALUES */
+
+.joki-values {
+  padding: 110px 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.14);
+}
+
+.joki-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 60px;
+}
+
+.joki-values-grid > div {
+  padding-top: 25px;
+  border-top: 2px solid var(--joki-charcoal);
+}
+
+.joki-values-grid > div > span {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--joki-teal);
+}
+
+.joki-values-grid h3 {
+  margin: 30px 0 14px;
+  font-size: 23px;
+}
+
+.joki-values-grid p {
+  margin: 0;
+  line-height: 1.7;
+}
+
+
+/* BELIEF STATEMENT */
+
+.joki-about-statement {
+  padding: 120px 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.14);
+}
+
+.joki-about-statement h2 {
+  max-width: 950px;
+  margin: 28px 0 35px;
+}
+
+.joki-about-statement p {
+  max-width: 650px;
+  line-height: 1.8;
+}
+
+
+/* CTA */
+
+.joki-about-page .joki-page-cta {
+  margin-top: 0;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .joki-about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 80px 0;
+  }
+
+  .joki-about-approach {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 80px 0;
+  }
+
+  .joki-about-services {
+    padding: 90px 0;
+  }
+
+  .joki-about-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joki-about-service-card {
+    min-height: auto;
+  }
+
+  .joki-values {
+    padding: 90px 0;
+  }
+
+  .joki-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .joki-about-statement {
+    padding: 90px 0;
+  }
+}
+
+
+@media (max-width: 600px) {
+
+  .joki-about-grid,
+  .joki-about-approach,
+  .joki-about-statement {
+    padding: 65px 0;
+  }
+
+  .joki-about-services {
+    padding: 70px 0;
+  }
+
+  .joki-about-services-header {
+    margin-bottom: 40px;
+  }
+
+  .joki-about-service-card {
+    padding: 28px;
+  }
+
+  .joki-about-service-card h3 {
+    margin-top: 40px;
+    font-size: 26px;
+  }
+
+  .joki-values {
+    padding: 70px 0;
+  }
+
+  .joki-values-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    margin-top: 40px;
+  }
+
+  .joki-about-statement h2 {
+    margin-top: 22px;
+  }
+}
