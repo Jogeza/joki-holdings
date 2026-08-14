@@ -5,6 +5,8 @@
   --joki-offwhite: #f8f6f2;
   --joki-white: #ffffff;
   --joki-border: rgba(31, 31, 31, 0.14);
+  --joki-muted: rgba(31, 31, 31, 0.68);
+  --joki-radius: 4px;
 }
 
 .joki-site {
@@ -12,12 +14,18 @@
   overflow: hidden;
 }
 
+/* =========================================================
+   CONTAINER
+========================================================= */
+
 .joki-container {
   width: min(1200px, calc(100% - 48px));
   margin: 0 auto;
 }
 
-/* HEADER */
+/* =========================================================
+   HEADER
+========================================================= */
 
 .joki-header {
   position: sticky;
@@ -25,7 +33,7 @@
   z-index: 1000;
   background: rgba(248, 246, 242, 0.96);
   border-bottom: 1px solid var(--joki-border);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 }
 
 .joki-header-inner {
@@ -34,6 +42,12 @@
   align-items: center;
   justify-content: space-between;
   gap: 32px;
+}
+
+.joki-logo {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .joki-logo img {
@@ -49,17 +63,18 @@
 
 .joki-nav a {
   position: relative;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.05em;
+  padding: 8px 0;
 }
 
 .joki-nav a::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -8px;
+  bottom: 0;
   width: 0;
   height: 2px;
   background: var(--joki-gold);
@@ -72,53 +87,86 @@
 }
 
 .joki-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: var(--joki-teal);
-  color: white;
-  padding: 13px 20px;
+  color: var(--joki-white);
+  padding: 13px 21px;
   border-radius: 100px;
-  font-weight: 700;
   font-size: 13px;
+  font-weight: 800;
   white-space: nowrap;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
-.joki-header-cta span {
-  margin-left: 8px;
+.joki-header-cta:hover {
+  color: var(--joki-white);
+  background: #064c4a;
+  transform: translateY(-2px);
 }
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
 .joki-menu-toggle {
+  width: 42px;
+  height: 42px;
   display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
   border: 0;
-  background: none;
-  padding: 8px;
+  background: transparent;
+  cursor: pointer;
 }
 
 .joki-menu-toggle span {
-  display: block;
-  width: 25px;
+  width: 24px;
   height: 2px;
-  margin: 5px 0;
+  display: block;
   background: var(--joki-charcoal);
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
 }
 
-/* BUTTONS */
-
-.joki-actions {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+.joki-menu-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
+
+.joki-menu-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.joki-menu-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
 
 .joki-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  padding: 15px 23px;
+  min-height: 50px;
+  padding: 14px 23px;
   border-radius: 100px;
   border: 1px solid transparent;
   font-size: 14px;
   font-weight: 800;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .joki-button:hover {
@@ -127,7 +175,22 @@
 
 .joki-button-primary {
   background: var(--joki-teal);
-  color: white;
+  color: var(--joki-white);
+}
+
+.joki-button-primary:hover {
+  background: #064c4a;
+  color: var(--joki-white);
+}
+
+.joki-button-link {
+  color: var(--joki-charcoal);
+  border-color: var(--joki-border);
+}
+
+.joki-button-link:hover {
+  border-color: var(--joki-charcoal);
+  color: var(--joki-charcoal);
 }
 
 .joki-button-outline {
@@ -141,10 +204,53 @@
 
 .joki-button-dark {
   background: var(--joki-charcoal);
-  color: white;
+  color: var(--joki-white);
 }
 
-/* HERO */
+.joki-button-dark:hover {
+  background: #000;
+  color: var(--joki-white);
+}
+
+.joki-actions,
+.joki-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   EYEBROWS / LABELS
+========================================================= */
+
+.joki-eyebrow,
+.joki-section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.joki-eyebrow {
+  color: var(--joki-teal);
+  margin-bottom: 24px;
+}
+
+.joki-section-number {
+  display: block;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--joki-teal);
+}
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .joki-hero {
   background: var(--joki-offwhite);
@@ -158,67 +264,67 @@
   align-items: center;
 }
 
-.joki-eyebrow,
-.joki-section-label {
-  display: inline-block;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-}
-
-.joki-eyebrow {
-  color: var(--joki-teal);
-  margin-bottom: 24px;
+.joki-hero-copy {
+  position: relative;
+  z-index: 2;
 }
 
 .joki-hero h1 {
+  max-width: 760px;
   margin: 0;
   font-size: clamp(52px, 7vw, 100px);
   line-height: 0.92;
-  letter-spacing: -0.06em;
+  letter-spacing: -0.065em;
 }
 
-.joki-hero-text {
+.joki-hero h1 span {
+  color: var(--joki-teal);
+}
+
+.joki-hero p {
   max-width: 560px;
   margin: 34px 0;
-  font-size: 19px;
-  line-height: 1.6;
-  color: rgba(31, 31, 31, 0.7);
+  font-size: 18px;
+  line-height: 1.65;
+  color: var(--joki-muted);
 }
 
 .joki-hero-visual {
-  min-height: 530px;
   position: relative;
+  min-height: 530px;
   background: var(--joki-teal);
-  padding: 35px;
-  border-radius: 4px;
+  border-radius: var(--joki-radius);
+  overflow: hidden;
 }
 
 .joki-visual-card {
   position: absolute;
   width: 250px;
   padding: 25px;
-  background: white;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.14);
+  background: var(--joki-white);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
 }
 
 .joki-visual-card span {
   display: block;
-  font-size: 12px;
-  font-weight: 800;
   margin-bottom: 50px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
 }
 
 .joki-visual-card strong {
   display: block;
   font-size: 30px;
+  line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .joki-visual-card p {
-  margin-bottom: 0;
-  color: rgba(31,31,31,.65);
+  margin: 18px 0 0;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(31, 31, 31, 0.65);
 }
 
 .joki-visual-main {
@@ -236,64 +342,72 @@
   left: 90px;
   bottom: 35px;
   background: var(--joki-charcoal);
-  color: white;
+  color: var(--joki-white);
 }
 
 .joki-visual-web p {
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
 }
 
-.joki-circle {
-  position: absolute;
-  right: 35px;
-  bottom: 30px;
-  width: 90px;
-  height: 90px;
-  border: 1px solid rgba(255,255,255,.5);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: white;
-  font-weight: 900;
-  font-size: 13px;
-}
-
-/* INTRO */
+/* =========================================================
+   INTRO
+========================================================= */
 
 .joki-intro {
   padding: 130px 0;
-  background: white;
+  background: var(--joki-white);
 }
 
 .joki-intro-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 100px;
-  margin-top: 50px;
+  align-items: start;
 }
 
 .joki-intro h2 {
   margin: 0;
   font-size: clamp(40px, 5vw, 68px);
   line-height: 1;
-  letter-spacing: -0.05em;
-}
-
-.joki-intro h2 span {
-  color: var(--joki-teal);
+  letter-spacing: -0.055em;
 }
 
 .joki-intro p {
+  max-width: 650px;
+  margin: 32px 0;
   font-size: 18px;
   line-height: 1.7;
-  color: rgba(31,31,31,.68);
+  color: var(--joki-muted);
 }
 
-/* SERVICES */
+.joki-text-link {
+  display: inline-flex;
+  align-items: center;
+  color: var(--joki-teal);
+  font-size: 14px;
+  font-weight: 800;
+  border-bottom: 2px solid var(--joki-gold);
+  padding-bottom: 4px;
+}
+
+/* =========================================================
+   SERVICES
+========================================================= */
 
 .joki-services {
-  padding: 100px 0;
+  padding: 110px 0;
   background: var(--joki-offwhite);
+}
+
+.joki-section-heading {
+  margin-bottom: 55px;
+}
+
+.joki-section-heading h2 {
+  margin: 0;
+  font-size: clamp(45px, 6vw, 78px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
 }
 
 .joki-services-grid {
@@ -305,75 +419,88 @@
   min-height: 430px;
   padding: 42px;
   border: 1px solid var(--joki-border);
+  background: var(--joki-white);
   display: flex;
   flex-direction: column;
-  transition: transform .25s ease;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
 }
 
 .joki-service-card:hover {
   transform: translateY(-8px);
+  background: var(--joki-teal);
+  color: var(--joki-white);
 }
 
-.joki-service-card.service-dark {
-  background: var(--joki-charcoal);
-  color: white;
-}
-
-.service-number {
+.joki-service-card > span {
   font-size: 12px;
   font-weight: 900;
+  letter-spacing: 0.1em;
 }
 
 .joki-service-card h3 {
   margin-top: auto;
-  font-size: 50px;
-  letter-spacing: -0.05em;
+  margin-bottom: 18px;
+  font-size: 52px;
+  line-height: 1;
+  letter-spacing: -0.055em;
 }
 
 .joki-service-card p {
-  max-width: 300px;
-  line-height: 1.6;
-  opacity: .72;
+  max-width: 320px;
+  margin: 0;
+  line-height: 1.65;
+  color: var(--joki-muted);
 }
 
-.service-link {
+.joki-service-card:hover p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.joki-service-card strong {
   margin-top: 25px;
-  font-weight: 800;
   font-size: 13px;
 }
 
-/* STATEMENT */
-
-.joki-statement {
-  padding: 100px 0;
-  background: var(--joki-teal);
+.joki-service-card:nth-child(2):hover {
+  background: var(--joki-gold);
+  color: var(--joki-charcoal);
 }
 
-.joki-statement-box {
-  text-align: center;
-  padding: 100px 30px;
-  color: white;
+.joki-service-card:nth-child(2):hover p {
+  color: rgba(31, 31, 31, 0.7);
 }
 
-.joki-statement-box > span {
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .15em;
+.joki-service-card:nth-child(3):hover {
+  background: var(--joki-charcoal);
+  color: var(--joki-white);
 }
 
-.joki-statement h2 {
-  margin: 30px auto 45px;
-  font-size: clamp(46px, 7vw, 90px);
-  line-height: .95;
-  letter-spacing: -.06em;
+/* =========================================================
+   GOLD CTA
+========================================================= */
+
+.joki-gold-section {
+  padding: 130px 0;
+  background: var(--joki-gold);
 }
 
-.joki-statement em {
-  color: var(--joki-gold);
-  font-style: normal;
+.joki-gold-section .joki-eyebrow {
+  color: var(--joki-charcoal);
 }
 
-/* INNER HERO */
+.joki-gold-section h2 {
+  margin: 30px 0 40px;
+  font-size: clamp(50px, 7vw, 90px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
+}
+
+/* =========================================================
+   INNER PAGE HERO
+========================================================= */
 
 .joki-page-hero {
   padding: 130px 0 110px;
@@ -384,8 +511,8 @@
   max-width: 1000px;
   margin: 0;
   font-size: clamp(55px, 8vw, 110px);
-  line-height: .92;
-  letter-spacing: -.065em;
+  line-height: 0.92;
+  letter-spacing: -0.065em;
 }
 
 .joki-page-hero h1 span {
@@ -397,19 +524,21 @@
   margin-top: 40px;
   font-size: 20px;
   line-height: 1.65;
-  color: rgba(31,31,31,.7);
+  color: var(--joki-muted);
 }
 
-/* CONTENT */
+/* =========================================================
+   CONTENT
+========================================================= */
 
 .joki-content-section {
   padding: 130px 0;
-  background: white;
+  background: var(--joki-white);
 }
 
 .joki-content-grid {
   display: grid;
-  grid-template-columns: .9fr 1.1fr;
+  grid-template-columns: 0.9fr 1.1fr;
   gap: 100px;
 }
 
@@ -418,7 +547,7 @@
   margin-top: 30px;
   font-size: clamp(40px, 5vw, 65px);
   line-height: 1;
-  letter-spacing: -.05em;
+  letter-spacing: -0.05em;
 }
 
 .joki-list > div {
@@ -432,49 +561,66 @@
 
 .joki-list p {
   line-height: 1.65;
-  color: rgba(31,31,31,.65);
+  color: var(--joki-muted);
 }
 
-/* DARK SECTION */
+/* =========================================================
+   DARK SECTION
+========================================================= */
 
 .joki-dark-section {
   padding: 130px 0;
   background: var(--joki-charcoal);
-  color: white;
+  color: var(--joki-white);
 }
 
 .joki-dark-section h2 {
   margin: 30px 0 45px;
   font-size: clamp(46px, 6vw, 80px);
-  line-height: .95;
-  letter-spacing: -.06em;
+  line-height: 0.95;
+  letter-spacing: -0.06em;
 }
 
 .joki-dark-section h2 span {
   color: var(--joki-gold);
 }
 
-/* GOLD */
+/* =========================================================
+   STATEMENT
+========================================================= */
 
-.joki-gold-section {
-  padding: 130px 0;
-  background: var(--joki-gold);
+.joki-statement {
+  padding: 100px 0;
+  background: var(--joki-teal);
 }
 
-.joki-gold-section span {
+.joki-statement-box {
+  padding: 100px 30px;
+  text-align: center;
+  color: var(--joki-white);
+}
+
+.joki-statement-box > span {
   font-size: 12px;
   font-weight: 900;
-  letter-spacing: .15em;
+  letter-spacing: 0.15em;
 }
 
-.joki-gold-section h2 {
-  margin: 30px 0 40px;
-  font-size: clamp(50px, 7vw, 90px);
-  line-height: .95;
-  letter-spacing: -.06em;
+.joki-statement h2 {
+  margin: 30px auto 45px;
+  font-size: clamp(46px, 7vw, 90px);
+  line-height: 0.95;
+  letter-spacing: -0.06em;
 }
 
-/* ABOUT */
+.joki-statement em {
+  color: var(--joki-gold);
+  font-style: normal;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
 
 .joki-about-grid {
   display: grid;
@@ -484,7 +630,7 @@
 
 .joki-about-grid p {
   line-height: 1.8;
-  color: rgba(31,31,31,.7);
+  color: var(--joki-muted);
 }
 
 .joki-large-text {
@@ -501,7 +647,6 @@
 .joki-values-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0;
   margin-top: 60px;
 }
 
@@ -519,23 +664,25 @@
   font-size: 30px;
 }
 
-/* CONTACT */
+/* =========================================================
+   CONTACT
+========================================================= */
 
 .joki-contact-section {
   padding: 120px 0;
-  background: white;
+  background: var(--joki-white);
 }
 
 .joki-contact-grid {
   display: grid;
-  grid-template-columns: .8fr 1.2fr;
+  grid-template-columns: 0.8fr 1.2fr;
   gap: 100px;
 }
 
 .joki-contact-info h2 {
   font-size: 60px;
-  line-height: .95;
-  letter-spacing: -.05em;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
 }
 
 .joki-contact-details {
@@ -549,12 +696,12 @@
 
 .joki-contact-details span {
   display: block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  font-weight: 900;
   margin-bottom: 8px;
   color: var(--joki-teal);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .joki-contact-details a {
@@ -572,16 +719,16 @@
   font-size: 12px;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
 }
 
 .joki-contact-form input,
 .joki-contact-form textarea,
 .joki-contact-form select {
   width: 100%;
+  padding: 17px;
   border: 1px solid var(--joki-border);
   background: var(--joki-offwhite);
-  padding: 17px;
   outline: none;
   font-size: 15px;
   font-weight: 400;
@@ -600,7 +747,9 @@
   font-weight: 700;
 }
 
-/* 404 */
+/* =========================================================
+   404
+========================================================= */
 
 .joki-not-found {
   padding: 180px 0;
@@ -608,8 +757,8 @@
 
 .joki-not-found h1 {
   font-size: clamp(60px, 9vw, 120px);
-  line-height: .9;
-  letter-spacing: -.07em;
+  line-height: 0.9;
+  letter-spacing: -0.07em;
 }
 
 .joki-not-found h1 span {
@@ -620,17 +769,19 @@
   margin: 30px 0;
 }
 
-/* FOOTER */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 .joki-footer {
-  background: var(--joki-charcoal);
-  color: white;
   padding: 80px 0 25px;
+  background: var(--joki-charcoal);
+  color: var(--joki-white);
 }
 
 .joki-footer-top {
   display: grid;
-  grid-template-columns: 1.5fr .7fr 1fr 1fr;
+  grid-template-columns: 1.5fr 0.7fr 1fr 1fr;
   gap: 60px;
   padding-bottom: 70px;
 }
@@ -643,7 +794,7 @@
 .joki-footer-brand p {
   max-width: 350px;
   line-height: 1.7;
-  color: rgba(255,255,255,.62);
+  color: rgba(255, 255, 255, 0.62);
 }
 
 .joki-footer-column {
@@ -653,34 +804,36 @@
 }
 
 .joki-footer-column h4 {
-  color: var(--joki-gold);
   margin: 0 0 15px;
-  text-transform: uppercase;
+  color: var(--joki-gold);
   font-size: 11px;
-  letter-spacing: .12em;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
 }
 
 .joki-footer-column a,
 .joki-footer-column span {
-  color: rgba(255,255,255,.7);
+  color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
 }
 
 .joki-footer-column a:hover {
-  color: white;
+  color: var(--joki-white);
 }
 
 .joki-footer-bottom {
-  padding-top: 25px;
-  border-top: 1px solid rgba(255,255,255,.12);
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  color: rgba(255,255,255,.45);
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.45);
   font-size: 12px;
 }
 
-/* WHATSAPP */
+/* =========================================================
+   WHATSAPP
+========================================================= */
 
 .joki-whatsapp {
   position: fixed;
@@ -693,21 +846,63 @@
   padding: 13px 17px;
   border-radius: 100px;
   background: var(--joki-teal);
-  color: white;
-  box-shadow: 0 10px 35px rgba(0,0,0,.18);
+  color: var(--joki-white);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
   font-size: 13px;
   font-weight: 800;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.joki-whatsapp:hover {
+  color: var(--joki-white);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
 }
 
 .joki-whatsapp-icon {
-  font-size: 19px;
+  width: 21px;
+  height: 21px;
+  display: block;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
-/* MOBILE */
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 1000px) {
+  .joki-nav {
+    gap: 18px;
+  }
+
+  .joki-header-inner {
+    gap: 20px;
+  }
+
+  .joki-hero-grid {
+    gap: 45px;
+  }
+
+  .joki-footer-top {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media (max-width: 900px) {
   .joki-container {
     width: min(100% - 32px, 700px);
+  }
+
+  .joki-menu-toggle {
+    display: flex;
+  }
+
+  .joki-header-cta {
+    display: none;
   }
 
   .joki-nav {
@@ -716,27 +911,25 @@
     top: 84px;
     left: 0;
     right: 0;
-    padding: 25px 20px 35px;
+    padding: 25px 24px 32px;
     background: var(--joki-offwhite);
     border-bottom: 1px solid var(--joki-border);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
     flex-direction: column;
     align-items: flex-start;
+    gap: 18px;
   }
 
   .joki-nav.is-open {
     display: flex;
   }
 
-  .joki-header-cta {
-    display: none;
-  }
-
-  .joki-menu-toggle {
-    display: block;
+  .joki-nav a {
+    font-size: 14px;
   }
 
   .joki-hero {
-    padding: 70px 0;
+    padding: 70px 0 85px;
   }
 
   .joki-hero-grid,
@@ -763,32 +956,48 @@
   .joki-values-grid {
     grid-template-columns: 1fr 1fr;
   }
-
-  .joki-footer-top {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 @media (max-width: 550px) {
+  .joki-container {
+    width: calc(100% - 32px);
+  }
+
+  .joki-header-inner {
+    min-height: 74px;
+  }
+
   .joki-logo img {
     width: 125px;
+  }
+
+  .joki-nav {
+    top: 74px;
+  }
+
+  .joki-hero {
+    padding: 60px 0 70px;
   }
 
   .joki-hero h1 {
     font-size: 55px;
   }
 
-  .joki-page-hero {
-    padding: 90px 0 75px;
+  .joki-hero p {
+    font-size: 16px;
   }
 
-  .joki-page-hero h1 {
-    font-size: 58px;
+  .joki-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .joki-button {
+    width: 100%;
   }
 
   .joki-hero-visual {
     min-height: 390px;
-    padding: 15px;
   }
 
   .joki-visual-card {
@@ -804,6 +1013,10 @@
     font-size: 22px;
   }
 
+  .joki-visual-card p {
+    font-size: 12px;
+  }
+
   .joki-visual-main {
     top: 25px;
     left: 20px;
@@ -817,6 +1030,18 @@
   .joki-visual-web {
     left: 45px;
     bottom: 20px;
+  }
+
+  .joki-intro,
+  .joki-services,
+  .joki-content-section,
+  .joki-contact-section {
+    padding: 85px 0;
+  }
+
+  .joki-gold-section,
+  .joki-dark-section {
+    padding: 90px 0;
   }
 
   .joki-values-grid,
@@ -842,61 +1067,9 @@
     padding: 0;
     justify-content: center;
   }
-}
-.joki-whatsapp {
-  position: fixed;
-  right: 22px;
-  bottom: 22px;
-  z-index: 900;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 13px 17px;
-  border-radius: 100px;
-  background: #075B59;
-  color: white;
-  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.18);
-  font-size: 13px;
-  font-weight: 800;
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.joki-whatsapp:hover {
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.24);
-}
-
-.joki-whatsapp-icon {
-  width: 21px;
-  height: 21px;
-  object-fit: contain;
-  display: block;
-}
-
-@media (max-width: 550px) {
-  .joki-whatsapp-label {
-    display: none;
-  }
-
-  .joki-whatsapp {
-    width: 52px;
-    height: 52px;
-    padding: 0;
-    justify-content: center;
-  }
 
   .joki-whatsapp-icon {
     width: 25px;
     height: 25px;
   }
 }
-
-.joki-whatsapp-icon {
-  width: 21px;
-  height: 21px;
-  display: block;
-  flex-shrink: 0;
-}
-

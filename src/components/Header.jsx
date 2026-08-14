@@ -16,18 +16,28 @@ function Header() {
   return (
     <header className="joki-header">
       <div className="joki-container joki-header-inner">
-        <Link to="/" className="joki-logo" onClick={() => setOpen(false)}>
-          <img src="/brand-assets/joki-logo.svg" alt="Joki Holdings Ltd" />
+
+        <Link
+          to="/"
+          className="joki-logo"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src="/brand-assets/joki-logo.svg"
+            alt="Joki Holdings Ltd"
+          />
         </Link>
 
         <button
           type="button"
-          className="joki-menu-toggle"
+          className={`joki-menu-toggle ${open ? "is-open" : ""}`}
           onClick={() => setOpen(!open)}
-          aria-label="Toggle navigation"
+          aria-label={open ? "Close navigation" : "Open navigation"}
           aria-expanded={open}
         >
-          {open ? "?" : "?"}
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
 
         <nav className={`joki-nav ${open ? "is-open" : ""}`}>
@@ -37,7 +47,9 @@ function Header() {
               to={link.to}
               end={link.to === "/"}
               onClick={() => setOpen(false)}
-              className={({ isActive }) => (isActive ? "active" : "")}
+              className={({ isActive }) =>
+                isActive ? "active" : ""
+              }
             >
               {link.label}
             </NavLink>
@@ -51,6 +63,7 @@ function Header() {
         >
           Talk to Us
         </Link>
+
       </div>
     </header>
   );

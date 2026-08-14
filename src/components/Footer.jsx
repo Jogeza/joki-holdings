@@ -34,13 +34,13 @@ function Footer() {
           <div className="joki-footer-column">
             <h4>Start a Project</h4>
             <span>Have an idea?</span>
-            <Link to="/contact">Talk to Us ?</Link>
+            <Link to="/contact">Talk to Us</Link>
           </div>
         </div>
 
         <div className="joki-footer-bottom">
-          <span>© {new Date().getFullYear()} Joki Holdings Ltd.</span>
-          <span>Creative • Print • Digital</span>
+          <span>ï¿½ {new Date().getFullYear()} Joki Holdings Ltd.</span>
+          <span>Creative ï¿½ Print ï¿½ Digital</span>
         </div>
       </div>
     </footer>

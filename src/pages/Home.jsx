@@ -31,7 +31,7 @@ export default function Home() {
               </Link>
 
               <Link to="/design" className="joki-button joki-button-link">
-                Explore our work ?
+                Explore our work
               </Link>
             </div>
 
@@ -39,7 +39,7 @@ export default function Home() {
 
           <div className="joki-hero-visual">
 
-            <div className="joki-visual-main">
+            <div className="joki-visual-card joki-visual-main">
               <span>01</span>
               <strong>DESIGN</strong>
               <p>
@@ -82,7 +82,7 @@ export default function Home() {
             </p>
 
             <Link to="/about" className="joki-text-link">
-              More about Joki ?
+              More about Joki
             </Link>
           </div>
 
@@ -113,7 +113,7 @@ export default function Home() {
                 Branding, graphic design, marketing materials,
                 social media artwork and visual identity.
               </p>
-              <strong>Explore Design ?</strong>
+              <strong>Explore Design</strong>
             </Link>
 
             <Link to="/print" className="joki-service-card">
@@ -123,7 +123,7 @@ export default function Home() {
                 Business stationery, promotional materials,
                 signage, large-format work and commercial printing.
               </p>
-              <strong>Explore Print ?</strong>
+              <strong>Explore Print</strong>
             </Link>
 
             <Link to="/web" className="joki-service-card">
@@ -133,7 +133,7 @@ export default function Home() {
                 Modern websites and digital experiences designed
                 around your business goals.
               </p>
-              <strong>Explore Web ?</strong>
+              <strong>Explore Web</strong>
             </Link>
 
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
           </h2>
 
           <Link to="/contact" className="joki-button joki-button-dark">
-            Talk to Us ?
+            Talk to Us
           </Link>
 
         </div>
