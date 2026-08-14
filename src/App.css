@@ -769,66 +769,386 @@
   margin: 30px 0;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+ /* =========================================================
+    JOKI HOLDINGS — FOOTER
+    ========================================================= */
 
 .joki-footer {
   padding: 80px 0 25px;
   background: var(--joki-charcoal);
-  color: var(--joki-white);
+  color: var(--white);
 }
+
 
 .joki-footer-top {
   display: grid;
   grid-template-columns: 1.5fr 0.7fr 1fr 1fr;
   gap: 60px;
+
   padding-bottom: 70px;
 }
 
+
+/* ---------------------------------------------------------
+   BRAND
+   --------------------------------------------------------- */
+
+.joki-footer-brand {
+  min-width: 0;
+}
+
+
 .joki-footer-brand img {
+  display: block;
+
   width: 150px;
+  height: auto;
+
   filter: brightness(0) invert(1);
 }
 
+
 .joki-footer-brand p {
   max-width: 350px;
-  line-height: 1.7;
+
+  margin: 24px 0 0;
+
   color: rgba(255, 255, 255, 0.62);
+
+  font-family: var(--font-sans);
+  font-size: 14px;
+
+  line-height: 1.7;
 }
+
+
+/* ---------------------------------------------------------
+   FOOTER COLUMNS
+   --------------------------------------------------------- */
 
 .joki-footer-column {
   display: flex;
   flex-direction: column;
+
+  align-items: flex-start;
+
   gap: 12px;
+
+  min-width: 0;
 }
+
 
 .joki-footer-column h4 {
   margin: 0 0 15px;
+
   color: var(--joki-gold);
+
+  font-family: var(--font-sans);
   font-size: 11px;
+  font-weight: 600;
+
+  line-height: 1.3;
+
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
 
+
 .joki-footer-column a,
 .joki-footer-column span {
   color: rgba(255, 255, 255, 0.7);
+
+  font-family: var(--font-sans);
   font-size: 14px;
+
+  line-height: 1.5;
+
+  text-decoration: none;
+
+  transition:
+    color 180ms ease,
+    transform 180ms ease;
 }
 
+
 .joki-footer-column a:hover {
-  color: var(--joki-white);
+  color: var(--white);
+  transform: translateX(3px);
 }
+
+
+/* Talk to Us */
+
+.joki-footer-column:last-child a {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 8px;
+
+  padding: 11px 18px;
+
+  border-radius: var(--radius-sm);
+
+  background: var(--joki-gold);
+  color: var(--joki-charcoal);
+
+  font-weight: 600;
+}
+
+
+.joki-footer-column:last-child a:hover {
+  background: var(--joki-gold-light);
+  color: var(--joki-charcoal);
+
+  transform: translateY(-2px);
+}
+
+
+/* ---------------------------------------------------------
+   BOTTOM BAR
+   --------------------------------------------------------- */
 
 .joki-footer-bottom {
   display: flex;
+
+  align-items: center;
   justify-content: space-between;
+
   gap: 20px;
+
   padding-top: 25px;
+
   border-top: 1px solid rgba(255, 255, 255, 0.12);
+
   color: rgba(255, 255, 255, 0.45);
+
+  font-family: var(--font-sans);
   font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .joki-footer-top {
+    grid-template-columns: 1.4fr 1fr 1fr;
+
+    gap: 40px;
+  }
+
+
+  .joki-footer-brand {
+    grid-column: 1 / -1;
+  }
+
+
+  .joki-footer-brand p {
+    max-width: 520px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .joki-footer {
+    padding: 60px 0 22px;
+  }
+
+
+  /*
+     IMPORTANT:
+     Everything becomes a single vertical flow.
+  */
+
+  .joki-footer-top {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 42px;
+
+    padding-bottom: 45px;
+  }
+
+
+  /* -------------------------------------------------------
+     BRAND
+     ------------------------------------------------------- */
+
+  .joki-footer-brand {
+    width: 100%;
+  }
+
+
+  .joki-footer-brand img {
+    width: 135px;
+  }
+
+
+  .joki-footer-brand p {
+    max-width: 440px;
+
+    margin-top: 18px;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+  }
+
+
+  /* -------------------------------------------------------
+     COLUMNS
+     ------------------------------------------------------- */
+
+  .joki-footer-column {
+    width: 100%;
+
+    gap: 10px;
+  }
+
+
+  .joki-footer-column h4 {
+    width: 100%;
+
+    margin-bottom: 10px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+
+  .joki-footer-column a,
+  .joki-footer-column span {
+    font-size: 14px;
+  }
+
+
+  /*
+     Make navigation links easier to tap.
+  */
+
+  .joki-footer-column a {
+    display: block;
+
+    width: 100%;
+
+    padding: 3px 0;
+  }
+
+
+  /*
+     Contact information should remain readable,
+     but not stretch unnecessarily.
+  */
+
+  .joki-footer-column:nth-child(3) a,
+  .joki-footer-column:nth-child(3) span {
+    width: auto;
+  }
+
+
+  /*
+     Start a Project gets stronger visual separation.
+  */
+
+  .joki-footer-column:last-child {
+    padding: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+
+  .joki-footer-column:last-child h4 {
+    border-bottom: none;
+
+    padding-bottom: 0;
+  }
+
+
+  .joki-footer-column:last-child a {
+    width: auto;
+
+    margin-top: 8px;
+
+    padding: 12px 20px;
+  }
+
+
+  /* -------------------------------------------------------
+     BOTTOM
+     ------------------------------------------------------- */
+
+  .joki-footer-bottom {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    padding-top: 22px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .joki-footer {
+    padding-top: 50px;
+  }
+
+
+  .joki-footer-top {
+    gap: 36px;
+
+    padding-bottom: 38px;
+  }
+
+
+  .joki-footer-brand img {
+    width: 125px;
+  }
+
+
+  .joki-footer-brand p {
+    font-size: 13px;
+  }
+
+
+  .joki-footer-column h4 {
+    font-size: 10px;
+  }
+
+
+  .joki-footer-column a,
+  .joki-footer-column span {
+    font-size: 13px;
+  }
+
+
+  .joki-footer-column:last-child {
+    padding: 20px;
+  }
 }
 
 /* =========================================================
@@ -2522,288 +2842,3 @@
   }
 }
 
-/* =========================================================
-   JOKI ABOUT PAGE
-   ========================================================= */
-
-.joki-about-page {
-  overflow: hidden;
-}
-
-.joki-about-hero {
-  max-width: 1000px;
-}
-
-
-/* ABOUT INTRO */
-
-.joki-about-grid {
-  display: grid;
-  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.8fr);
-  gap: 80px;
-  padding: 110px 0;
-  border-top: 1px solid rgba(31, 31, 31, 0.14);
-}
-
-.joki-about-copy {
-  max-width: 780px;
-}
-
-.joki-about-copy p {
-  max-width: 700px;
-}
-
-.joki-about-copy .joki-large-text {
-  margin-bottom: 32px;
-}
-
-
-/* APPROACH */
-
-.joki-about-approach {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 80px;
-  padding: 110px 0;
-  border-top: 1px solid rgba(31, 31, 31, 0.14);
-  border-bottom: 1px solid rgba(31, 31, 31, 0.14);
-}
-
-.joki-about-approach-heading h2 {
-  margin: 24px 0 0;
-  max-width: 600px;
-}
-
-.joki-about-approach-heading h2 span,
-.joki-about-services-header h2 span,
-.joki-about-statement h2 span {
-  display: block;
-  color: var(--joki-teal);
-}
-
-.joki-about-approach-content {
-  max-width: 650px;
-}
-
-.joki-about-approach-content p {
-  margin-bottom: 28px;
-}
-
-
-/* SERVICES */
-
-.joki-about-services {
-  padding: 120px 0;
-}
-
-.joki-about-services-header {
-  max-width: 750px;
-  margin-bottom: 65px;
-}
-
-.joki-about-services-header h2 {
-  margin-top: 24px;
-}
-
-.joki-about-services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.joki-about-service-card {
-  position: relative;
-  min-height: 350px;
-  padding: 36px;
-  border: 1px solid rgba(31, 31, 31, 0.14);
-  background: var(--joki-offwhite);
-  display: flex;
-  flex-direction: column;
-  transition:
-    transform 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
-
-.joki-about-service-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--joki-teal);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08);
-}
-
-.joki-about-service-card > span {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--joki-teal);
-}
-
-.joki-about-service-card h3 {
-  margin: 55px 0 18px;
-  font-size: 30px;
-}
-
-.joki-about-service-card p {
-  margin: 0;
-  line-height: 1.75;
-}
-
-.joki-about-service-card a {
-  margin-top: auto;
-  padding-top: 30px;
-  color: var(--joki-charcoal);
-  font-weight: 700;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.joki-about-service-card a:hover {
-  color: var(--joki-teal);
-}
-
-
-/* VALUES */
-
-.joki-values {
-  padding: 110px 0;
-  border-top: 1px solid rgba(31, 31, 31, 0.14);
-}
-
-.joki-values-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  margin-top: 60px;
-}
-
-.joki-values-grid > div {
-  padding-top: 25px;
-  border-top: 2px solid var(--joki-charcoal);
-}
-
-.joki-values-grid > div > span {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--joki-teal);
-}
-
-.joki-values-grid h3 {
-  margin: 30px 0 14px;
-  font-size: 23px;
-}
-
-.joki-values-grid p {
-  margin: 0;
-  line-height: 1.7;
-}
-
-
-/* BELIEF STATEMENT */
-
-.joki-about-statement {
-  padding: 120px 0;
-  border-top: 1px solid rgba(31, 31, 31, 0.14);
-}
-
-.joki-about-statement h2 {
-  max-width: 950px;
-  margin: 28px 0 35px;
-}
-
-.joki-about-statement p {
-  max-width: 650px;
-  line-height: 1.8;
-}
-
-
-/* CTA */
-
-.joki-about-page .joki-page-cta {
-  margin-top: 0;
-}
-
-
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-  .joki-about-grid {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding: 80px 0;
-  }
-
-  .joki-about-approach {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 80px 0;
-  }
-
-  .joki-about-services {
-    padding: 90px 0;
-  }
-
-  .joki-about-services-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .joki-about-service-card {
-    min-height: auto;
-  }
-
-  .joki-values {
-    padding: 90px 0;
-  }
-
-  .joki-values-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .joki-about-statement {
-    padding: 90px 0;
-  }
-}
-
-
-@media (max-width: 600px) {
-
-  .joki-about-grid,
-  .joki-about-approach,
-  .joki-about-statement {
-    padding: 65px 0;
-  }
-
-  .joki-about-services {
-    padding: 70px 0;
-  }
-
-  .joki-about-services-header {
-    margin-bottom: 40px;
-  }
-
-  .joki-about-service-card {
-    padding: 28px;
-  }
-
-  .joki-about-service-card h3 {
-    margin-top: 40px;
-    font-size: 26px;
-  }
-
-  .joki-values {
-    padding: 70px 0;
-  }
-
-  .joki-values-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-    margin-top: 40px;
-  }
-
-  .joki-about-statement h2 {
-    margin-top: 22px;
-  }
-}

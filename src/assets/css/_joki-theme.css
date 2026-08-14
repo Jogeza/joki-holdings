@@ -1,53 +1,809 @@
-/* Joki Holdings design tokens
+ /* =========================================================
+   JOKI HOLDINGS LTD — DESIGN SYSTEM
    Location: src/assets/css/_joki-theme.css
-   Purpose: centralize brand colors, spacing, typography tokens for the Joki Holdings rebrand.
-*/
-:root{
-  /* Core brand colors */
+
+   Purpose:
+   Centralized brand colors, typography, spacing, layout,
+   buttons, borders, shadows, motion and responsive tokens.
+
+   Brand:
+   Joki Holdings Ltd
+   Design. Print. Web.
+   ========================================================= */
+
+
+/* =========================================================
+   01. ROOT DESIGN TOKENS
+   ========================================================= */
+
+:root {
+
+  /* -------------------------------------------------------
+     BRAND COLORS
+     ------------------------------------------------------- */
+
   --joki-teal: #075B59;
+  --joki-teal-dark: #044442;
+  --joki-teal-light: #0A706D;
+
   --joki-gold: #FFC800;
+  --joki-gold-dark: #D9A900;
+  --joki-gold-light: #FFD633;
+
   --joki-charcoal: #1F1F1F;
+  --joki-charcoal-soft: #333333;
+
   --joki-offwhite: #F8F6F2;
+  --joki-offwhite-dark: #EFEBE4;
 
-  /* Neutral system */
-  --white: #ffffff;
-  --muted: #6b6b6b;
-  --border: #e6e6e6;
 
-  /* Spacing */
+  /* -------------------------------------------------------
+     NEUTRALS
+     ------------------------------------------------------- */
+
+  --white: #FFFFFF;
+  --black: #000000;
+
+  --muted: #6B6B6B;
+  --muted-light: #8A8A8A;
+
+  --border: #E6E6E6;
+  --border-dark: #D4D4D4;
+
+  --surface: #FFFFFF;
+  --surface-soft: #F8F6F2;
+
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------- */
+
+  --font-sans:
+    'Poppins',
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
+
+  --font-heading:
+    'Montserrat',
+    var(--font-sans);
+
+
+  /* Font sizes */
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+
+  --text-xl: 24px;
+  --text-2xl: 32px;
+  --text-3xl: 44px;
+  --text-4xl: 56px;
+  --text-5xl: 72px;
+
+
+  /* Font weights */
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+
+  /* Line heights */
+
+  --leading-tight: 1.05;
+  --leading-snug: 1.2;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+
+
+  /* Letter spacing */
+
+  --tracking-tight: -0.03em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-wider: 0.08em;
+
+
+  /* -------------------------------------------------------
+     SPACING
+     ------------------------------------------------------- */
+
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
   --space-lg: 24px;
   --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 128px;
 
-  /* Radii */
-  --radius-sm: 6px;
-  --radius-md: 8px;
 
-  /* Typography */
-  --font-sans: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  --font-heading: 'Montserrat', var(--font-sans);
+  /* -------------------------------------------------------
+     LAYOUT
+     ------------------------------------------------------- */
 
   --container-max-width: 1200px;
+
+  --container-padding: 24px;
+
+  --section-padding-y: 96px;
+  --section-padding-y-large: 128px;
+
+
+  /* -------------------------------------------------------
+     BORDERS & RADII
+     ------------------------------------------------------- */
+
+  --border-width: 1px;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --radius-pill: 999px;
+
+
+  /* -------------------------------------------------------
+     SHADOWS
+     ------------------------------------------------------- */
+
+  --shadow-sm:
+    0 2px 8px rgba(0, 0, 0, 0.05);
+
+  --shadow-md:
+    0 8px 24px rgba(0, 0, 0, 0.08);
+
+  --shadow-lg:
+    0 16px 40px rgba(0, 0, 0, 0.12);
+
+
+  /* -------------------------------------------------------
+     MOTION
+     ------------------------------------------------------- */
+
+  --ease-standard:
+    cubic-bezier(0.2, 0.65, 0.3, 1);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 450ms;
+
+
+  /* -------------------------------------------------------
+     Z-INDEX
+     ------------------------------------------------------- */
+
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 500;
+  --z-header: 1000;
+  --z-modal: 2000;
+
+
+  /* -------------------------------------------------------
+     FOCUS
+     ------------------------------------------------------- */
+
+  --focus-ring:
+    0 0 0 3px rgba(255, 200, 0, 0.35);
 }
 
-/* Utility classes for brand accents */
-.btn-joki{
+
+/* =========================================================
+   02. GLOBAL JOKI FOUNDATION
+   ========================================================= */
+
+.joki-container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+
+.joki-eyebrow {
+  display: inline-block;
+
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+
+  color: var(--joki-teal);
+}
+
+
+.joki-section-number {
+  display: inline-block;
+
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+
+  color: var(--muted);
+}
+
+
+/* =========================================================
+   03. BUTTON SYSTEM
+   ========================================================= */
+
+.joki-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: var(--space-sm);
+
+  min-height: 48px;
+
+  padding: 12px 22px;
+
+  border: var(--border-width) solid transparent;
+  border-radius: var(--radius-sm);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    color var(--duration-normal) var(--ease-standard),
+    border-color var(--duration-normal) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+
+.joki-button:hover {
+  transform: translateY(-2px);
+}
+
+
+.joki-button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+
+/* Primary */
+
+.joki-button-primary {
   background: var(--joki-teal);
   color: var(--white);
-  padding: 12px 20px;
-  border-radius: var(--radius-sm);
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  border: none;
 }
 
-.btn-joki-outline{
+
+.joki-button-primary:hover {
+  background: var(--joki-teal-dark);
+}
+
+
+/* Gold / dark button */
+
+.joki-button-dark {
+  background: var(--joki-charcoal);
+  color: var(--white);
+}
+
+
+.joki-button-dark:hover {
+  background: var(--black);
+}
+
+
+/* Link-style button */
+
+.joki-button-link {
   background: transparent;
   color: var(--joki-teal);
-  padding: 10px 18px;
+
+  padding-inline: 8px;
+}
+
+
+.joki-button-link:hover {
+  color: var(--joki-teal-dark);
+}
+
+
+/* Generic utility buttons */
+
+.btn-joki {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 12px 20px;
+
+  border: none;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(7,91,89,0.12);
+
+  background: var(--joki-teal);
+  color: var(--white);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+
+  line-height: 1;
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard);
+}
+
+
+.btn-joki:hover {
+  background: var(--joki-teal-dark);
+  transform: translateY(-2px);
+}
+
+
+.btn-joki-outline {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 18px;
+
+  border: 1px solid rgba(7, 91, 89, 0.25);
+  border-radius: var(--radius-sm);
+
+  background: transparent;
+  color: var(--joki-teal);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+
+  text-decoration: none;
+
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    color var(--duration-normal) var(--ease-standard),
+    border-color var(--duration-normal) var(--ease-standard);
+}
+
+
+.btn-joki-outline:hover {
+  background: var(--joki-teal);
+  border-color: var(--joki-teal);
+  color: var(--white);
+}
+
+
+/* =========================================================
+   04. TEXT LINKS
+   ========================================================= */
+
+.joki-text-link {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  color: var(--joki-teal);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+
+  text-decoration: none;
+
+  transition:
+    color var(--duration-fast) var(--ease-standard),
+    gap var(--duration-fast) var(--ease-standard);
+}
+
+
+.joki-text-link:hover {
+  color: var(--joki-teal-dark);
+  gap: 12px;
+}
+
+
+/* =========================================================
+   05. HERO SYSTEM
+   ========================================================= */
+
+.joki-hero {
+  position: relative;
+
+  background: var(--joki-offwhite);
+
+  overflow: hidden;
+}
+
+
+.joki-hero h1 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+
+  color: var(--joki-charcoal);
+}
+
+
+.joki-hero h1 span {
+  color: var(--joki-gold);
+}
+
+
+.joki-hero-copy p {
+  max-width: 620px;
+
+  margin-top: var(--space-lg);
+
+  color: var(--muted);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+
+  line-height: var(--leading-relaxed);
+}
+
+
+.joki-hero-actions {
+  display: flex;
+
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: var(--space-md);
+
+  margin-top: var(--space-xl);
+}
+
+
+/* =========================================================
+   06. INTRO SECTION
+   ========================================================= */
+
+.joki-intro {
+  padding-block: var(--section-padding-y);
+
+  background: var(--white);
+}
+
+
+.joki-intro h2,
+.joki-section-heading h2,
+.joki-gold-section h2 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
+
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+
+  color: var(--joki-charcoal);
+}
+
+
+.joki-intro p {
+  max-width: 650px;
+
+  margin-top: var(--space-lg);
+
+  color: var(--muted);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+
+  line-height: var(--leading-relaxed);
+}
+
+
+/* =========================================================
+   07. SERVICES
+   ========================================================= */
+
+.joki-services {
+  padding-block: var(--section-padding-y);
+
+  background: var(--joki-offwhite);
+}
+
+
+.joki-section-heading {
+  margin-bottom: var(--space-2xl);
+}
+
+
+.joki-section-heading h2 {
+  margin-top: var(--space-md);
+}
+
+
+.joki-service-card {
+  display: block;
+
+  padding: var(--space-xl);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-md);
+
+  background: var(--white);
+
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform var(--duration-normal) var(--ease-standard),
+    box-shadow var(--duration-normal) var(--ease-standard),
+    border-color var(--duration-normal) var(--ease-standard);
+}
+
+
+.joki-service-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(7, 91, 89, 0.25);
+
+  box-shadow: var(--shadow-md);
+}
+
+
+.joki-service-card > span {
+  display: block;
+
+  margin-bottom: var(--space-xl);
+
+  color: var(--joki-teal);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+
+  letter-spacing: var(--tracking-wider);
+}
+
+
+.joki-service-card h3 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+
+  line-height: var(--leading-snug);
+
+  color: var(--joki-charcoal);
+}
+
+
+.joki-service-card p {
+  margin-top: var(--space-md);
+
+  color: var(--muted);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+
+  line-height: var(--leading-relaxed);
+}
+
+
+.joki-service-card strong {
+  display: inline-block;
+
+  margin-top: var(--space-xl);
+
+  color: var(--joki-teal);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+
+/* =========================================================
+   08. GOLD CTA SECTION
+   ========================================================= */
+
+.joki-gold-section {
+  padding-block: var(--section-padding-y-large);
+
+  background: var(--joki-gold);
+
+  color: var(--joki-charcoal);
+}
+
+
+.joki-gold-section .joki-eyebrow {
+  color: var(--joki-charcoal);
+}
+
+
+.joki-gold-section h2 {
+  margin-top: var(--space-md);
+
+  color: var(--joki-charcoal);
+}
+
+
+.joki-gold-section .joki-button {
+  margin-top: var(--space-xl);
+}
+
+
+/* =========================================================
+   09. FORM ELEMENTS
+   ========================================================= */
+
+.joki-input,
+.joki-textarea,
+.joki-select {
+  width: 100%;
+
+  padding: 13px 16px;
+
+  border: 1px solid var(--border-dark);
+  border-radius: var(--radius-sm);
+
+  background: var(--white);
+  color: var(--joki-charcoal);
+
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+
+  outline: none;
+
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+
+.joki-input:focus,
+.joki-textarea:focus,
+.joki-select:focus {
+  border-color: var(--joki-teal);
+  box-shadow: var(--focus-ring);
+}
+
+
+.joki-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+
+/* =========================================================
+   10. RESPONSIVE BEHAVIOR
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
+  :root {
+    --container-padding: 20px;
+  }
+
+  .joki-hero h1 {
+    font-size: var(--text-4xl);
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  :root {
+    --container-padding: 18px;
+
+    --section-padding-y: 72px;
+    --section-padding-y-large: 88px;
+
+    --text-3xl: 36px;
+    --text-4xl: 44px;
+    --text-5xl: 52px;
+  }
+
+
+  .joki-hero h1 {
+    font-size: var(--text-4xl);
+  }
+
+
+  .joki-intro h2,
+  .joki-section-heading h2,
+  .joki-gold-section h2 {
+    font-size: var(--text-3xl);
+  }
+
+
+  .joki-hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+
+  .joki-button {
+    width: 100%;
+  }
+
+
+  .joki-button-link {
+    width: auto;
+    align-self: flex-start;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  :root {
+    --container-padding: 16px;
+
+    --text-2xl: 28px;
+    --text-3xl: 32px;
+    --text-4xl: 38px;
+  }
+
+
+  .joki-hero h1 {
+    font-size: var(--text-4xl);
+  }
+
+
+  .joki-service-card {
+    padding: var(--space-lg);
+  }
+
+}
+
+
+/* =========================================================
+   11. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
 }
