@@ -2043,3 +2043,195 @@
     padding: 1rem 0;
   }
 }
+
+/* =========================================================
+   JOKI WEB SERVICES PAGE
+   ========================================================= */
+
+.joki-page-web {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Web page visual accent */
+.joki-page-web::before {
+  content: "";
+  position: absolute;
+  top: 7rem;
+  right: -10rem;
+  width: 28rem;
+  height: 28rem;
+  border: 1px solid rgba(7, 91, 89, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.joki-page-web::after {
+  content: "";
+  position: absolute;
+  top: 11rem;
+  right: -6rem;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid rgba(255, 200, 0, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Hero */
+.joki-page-web .joki-page-hero {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.joki-page-web .joki-page-hero h1 {
+  max-width: 780px;
+}
+
+.joki-page-web .joki-page-hero p {
+  max-width: 650px;
+}
+
+/* Main content */
+.joki-page-web .joki-content-grid {
+  position: relative;
+  z-index: 1;
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(31, 31, 31, 0.15);
+}
+
+/* Service list */
+.joki-page-web .joki-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-page-web .joki-list > div {
+  position: relative;
+  padding: 1.5rem 2rem 1.5rem 0;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  transition:
+    color 180ms ease,
+    padding-left 180ms ease;
+}
+
+.joki-page-web .joki-list > div::before {
+  content: "↗";
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--joki-gold);
+  font-size: 1.1rem;
+  opacity: 0;
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.joki-page-web .joki-list > div:hover {
+  color: var(--joki-teal);
+  padding-left: 0.5rem;
+}
+
+.joki-page-web .joki-list > div:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0.25rem);
+}
+
+/* Digital capability strip */
+.joki-web-capabilities {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 5rem;
+}
+
+.joki-web-capability {
+  min-height: 170px;
+  padding: 1.75rem;
+  background: var(--joki-charcoal);
+  color: var(--joki-offwhite);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.joki-web-capability-number {
+  color: var(--joki-gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.joki-web-capability strong {
+  display: block;
+  max-width: 220px;
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.joki-web-capability p {
+  margin: 0.5rem 0 0;
+  color: rgba(248, 246, 242, 0.7);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* CTA */
+.joki-page-web .joki-page-cta {
+  position: relative;
+  z-index: 1;
+  margin-top: 7rem;
+}
+
+.joki-page-web .joki-page-cta h2 {
+  max-width: 600px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .joki-page-web .joki-list {
+    grid-template-columns: 1fr;
+  }
+
+  .joki-web-capabilities {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .joki-page-web::before,
+  .joki-page-web::after {
+    display: none;
+  }
+
+  .joki-page-web .joki-content-grid {
+    margin-top: 4rem;
+  }
+
+  .joki-page-web .joki-list > div {
+    padding: 1.25rem 2rem 1.25rem 0;
+  }
+
+  .joki-web-capabilities {
+    margin-top: 4rem;
+  }
+
+  .joki-web-capability {
+    min-height: 145px;
+  }
+
+  .joki-page-web .joki-page-cta {
+    margin-top: 5rem;
+  }
+}
