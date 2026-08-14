@@ -892,3 +892,11 @@
     height: 25px;
   }
 }
+
+.joki-whatsapp-icon {
+  width: 21px;
+  height: 21px;
+  display: block;
+  flex-shrink: 0;
+}
+
