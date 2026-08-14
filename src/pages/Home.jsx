@@ -40,6 +40,10 @@ export default function Home() {
 
   return (
     <>
+      {/* =====================================================
+          HERO
+      ====================================================== */}
+
       <section className="joki-hero">
         <div className="joki-container joki-hero-grid">
 
@@ -62,6 +66,7 @@ export default function Home() {
             </p>
 
             <div className="joki-hero-actions">
+
               <Link
                 to="/contact"
                 className="joki-button joki-button-primary"
@@ -75,32 +80,48 @@ export default function Home() {
               >
                 Explore our work
               </Link>
+
             </div>
 
           </div>
 
+          {/* =================================================
+              HERO ARTWORK
+          ================================================== */}
+
           <div className="joki-hero-visual">
 
-            <div className="joki-visual-card joki-visual-main">
-              <span>01</span>
+            <div className="joki-home-art joki-home-art-design">
+              <img
+                src="/images/home/home-design.webp"
+                alt="Joki Holdings design work"
+              />
 
-              <strong>DESIGN</strong>
-
-              <p>
-                Identity, graphics, campaigns and visual communication.
-              </p>
+              <span>
+                01 / DESIGN
+              </span>
             </div>
 
-            <div className="joki-visual-card joki-visual-print">
-              <span>02</span>
+            <div className="joki-home-art joki-home-art-print">
+              <img
+                src="/images/home/home-print.webp"
+                alt="Joki Holdings print work"
+              />
 
-              <strong>PRINT</strong>
+              <span>
+                02 / PRINT
+              </span>
             </div>
 
-            <div className="joki-visual-card joki-visual-web">
-              <span>03</span>
+            <div className="joki-home-art joki-home-art-web">
+              <img
+                src="/images/home/home-web.webp"
+                alt="Joki Holdings web development work"
+              />
 
-              <strong>WEB</strong>
+              <span>
+                03 / WEB
+              </span>
             </div>
 
           </div>
@@ -108,7 +129,13 @@ export default function Home() {
         </div>
       </section>
 
+
+      {/* =====================================================
+          INTRO
+      ====================================================== */}
+
       <section className="joki-intro">
+
         <div className="joki-container joki-intro-grid">
 
           <span className="joki-section-number">
@@ -116,6 +143,7 @@ export default function Home() {
           </span>
 
           <div>
+
             <h2>
               From the first idea
               <br />
@@ -133,12 +161,20 @@ export default function Home() {
             >
               More about Joki
             </Link>
+
           </div>
 
         </div>
+
       </section>
 
+
+      {/* =====================================================
+          SERVICES
+      ====================================================== */}
+
       <section className="joki-services">
+
         <div className="joki-container">
 
           <div className="joki-section-heading">
@@ -155,13 +191,19 @@ export default function Home() {
 
           </div>
 
+
           <div className="joki-services-grid">
+
+            {/* DESIGN */}
 
             <Link
               to="/design"
               className="joki-service-card"
             >
-              <span>01</span>
+
+              <span>
+                01
+              </span>
 
               <h3>
                 Design
@@ -175,13 +217,20 @@ export default function Home() {
               <strong>
                 Explore Design
               </strong>
+
             </Link>
+
+
+            {/* PRINT */}
 
             <Link
               to="/print"
               className="joki-service-card"
             >
-              <span>02</span>
+
+              <span>
+                02
+              </span>
 
               <h3>
                 Print
@@ -195,13 +244,20 @@ export default function Home() {
               <strong>
                 Explore Print
               </strong>
+
             </Link>
+
+
+            {/* WEB */}
 
             <Link
               to="/web"
               className="joki-service-card"
             >
-              <span>03</span>
+
+              <span>
+                03
+              </span>
 
               <h3>
                 Web
@@ -215,14 +271,22 @@ export default function Home() {
               <strong>
                 Explore Web
               </strong>
+
             </Link>
 
           </div>
 
         </div>
+
       </section>
 
+
+      {/* =====================================================
+          GOLD CTA
+      ====================================================== */}
+
       <section className="joki-gold-section">
+
         <div className="joki-container">
 
           <span className="joki-eyebrow">
@@ -243,7 +307,9 @@ export default function Home() {
           </Link>
 
         </div>
+
       </section>
+
     </>
   );
 }
