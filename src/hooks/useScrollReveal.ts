@@ -38,3 +38,4 @@ const useScrollReveal = () => {
 };
 
 export default useScrollReveal;
+

@@ -28,3 +28,15 @@ test('renders the Nyumba Dynamics homepage without crashing', () => {
   const taglineMatches = screen.getAllByText(/Hire The Right Professionals/i);
   expect(taglineMatches.length).toBeGreaterThan(0);
 });
+
+test('uses the required Joki header navigation order', () => {
+  render(<App />);
+
+  const nav = screen.getByRole('navigation');
+  const labels = Array.from(nav.querySelectorAll('a'))
+    .map((link) => link.textContent.replace(/\s+/g, ' ').trim())
+    .filter((label) => ['Home', 'About', 'Design', 'Print', 'Web', 'Contact'].includes(label));
+
+  expect(labels).toEqual(['Home', 'About', 'Design', 'Print', 'Web', 'Contact']);
+  expect(screen.getByRole('link', { name: /Talk to Us/i })).toHaveAttribute('href', '/contact');
+});
