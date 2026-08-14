@@ -1750,3 +1750,296 @@
     font-size: clamp(3rem, 14vw, 4.5rem);
   }
 }
+
+/* =========================================================
+   JOKI PRINT PAGE
+   ========================================================= */
+
+.joki-print-page {
+  overflow: hidden;
+}
+
+/* ---------------------------------------------------------
+   PRINT HERO
+   --------------------------------------------------------- */
+
+.joki-print-hero {
+  padding-bottom: 7rem;
+}
+
+.joki-print-hero p {
+  max-width: 680px;
+}
+
+/* ---------------------------------------------------------
+   PRINT INTRO
+   --------------------------------------------------------- */
+
+.joki-print-intro {
+  padding: 5rem 0 7rem;
+  border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-section-heading {
+  max-width: 760px;
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  line-height: 0.98;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.joki-section-heading span {
+  color: var(--joki-teal);
+}
+
+.joki-section-copy {
+  max-width: 650px;
+  margin: 0;
+  color: rgba(31, 31, 31, 0.68);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+/* ---------------------------------------------------------
+   PRINT SERVICES
+   --------------------------------------------------------- */
+
+.joki-print-services {
+  padding: 0 0 7rem;
+}
+
+.joki-section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-section-header p {
+  max-width: 430px;
+  margin: 0;
+  color: rgba(31, 31, 31, 0.62);
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   PRINT CARD GRID
+   --------------------------------------------------------- */
+
+.joki-print-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.joki-print-card {
+  min-width: 0;
+  background: var(--joki-offwhite);
+  border: 1px solid rgba(31, 31, 31, 0.1);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.joki-print-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(7, 91, 89, 0.35);
+}
+
+.joki-print-card-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #e8e5df;
+}
+
+.joki-print-card-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.joki-print-card:hover .joki-print-card-image img {
+  transform: scale(1.04);
+}
+
+.joki-print-card-image > span {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--joki-gold);
+  color: var(--joki-charcoal);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+.joki-print-card-content {
+  padding: 2rem;
+}
+
+.joki-print-card-content h3 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  line-height: 1.1;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+
+.joki-print-card-content p {
+  max-width: 520px;
+  margin: 0 0 1.5rem;
+  color: rgba(31, 31, 31, 0.65);
+  line-height: 1.7;
+}
+
+.joki-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--joki-teal);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.joki-card-link::after {
+  content: "↗";
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.joki-print-card:hover .joki-card-link::after {
+  transform: translate(3px, -3px);
+}
+
+/* ---------------------------------------------------------
+   PRINT APPLICATIONS
+   --------------------------------------------------------- */
+
+.joki-print-applications {
+  padding: 5rem 0 7rem;
+  border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-print-list {
+  border-top: 1px solid rgba(31, 31, 31, 0.12);
+}
+
+.joki-print-list > div {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  transition:
+    padding-left 0.25s ease,
+    color 0.25s ease;
+}
+
+.joki-print-list > div:hover {
+  padding-left: 0.75rem;
+  color: var(--joki-teal);
+}
+
+.joki-print-list > div > span {
+  color: var(--joki-gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* ---------------------------------------------------------
+   PRINT CTA
+   --------------------------------------------------------- */
+
+.joki-print-cta {
+  position: relative;
+  overflow: hidden;
+}
+
+.joki-print-cta h2 {
+  max-width: 700px;
+}
+
+.joki-print-cta p {
+  max-width: 580px;
+  margin: 0 auto 2rem;
+  color: rgba(31, 31, 31, 0.65);
+  line-height: 1.7;
+}
+
+/* ---------------------------------------------------------
+   TABLET
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .joki-print-intro,
+  .joki-print-applications {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .joki-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .joki-print-grid {
+    gap: 1.25rem;
+  }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .joki-print-hero {
+    padding-bottom: 4rem;
+  }
+
+  .joki-print-intro {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .joki-section-heading {
+    font-size: clamp(2.25rem, 11vw, 3.5rem);
+  }
+
+  .joki-print-services {
+    padding-bottom: 4.5rem;
+  }
+
+  .joki-print-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .joki-print-card-content {
+    padding: 1.5rem;
+  }
+
+  .joki-print-applications {
+    padding: 3.5rem 0 4.5rem;
+  }
+
+  .joki-print-list > div {
+    grid-template-columns: 2.5rem 1fr;
+    padding: 1rem 0;
+  }
+}
