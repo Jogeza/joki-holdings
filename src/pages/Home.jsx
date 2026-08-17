@@ -1,39 +1,74 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("design");
+  const [typedText, setTypedText] = useState("");
+
+  const heroText = "We make your business visible.";
+  const firstPartLength = "We make your".length;
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) {
+      setTypedText(heroText);
+      return;
+    }
+
+    let index = 0;
+
+    const timer = setInterval(() => {
+      index += 1;
+      setTypedText(heroText.slice(0, index));
+
+      if (index >= heroText.length) {
+        clearInterval(timer);
+      }
+    }, 65);
+
+    return () => clearInterval(timer);
+  }, []);
 
   const previews = {
     design: {
       number: "01",
       title: "Design",
-      tagline: "Brand Identity, Typography & Visual Strategy",
-      desc: "Creating distinct logos, packaging, and corporate guidelines that position your company as an industry leader.",
+      tagline: "Brand identity, graphics & visual communication",
+      desc: "From logos and brand materials to packaging and campaign artwork, we create visuals that help your business look consistent and recognisable.",
       image: "/images/home-design.svg",
       link: "/design",
     },
+
     print: {
       number: "02",
       title: "Print",
-      tagline: "Tangible, High-Precision Commercial Printing",
-      desc: "From 450 GSM gold-foiled stationery and corporate brochures to heavy-duty outdoor signage and pull-up banners.",
+      tagline: "Business printing & physical brand materials",
+      desc: "Business cards, brochures, flyers, banners, signage and other printed materials — from artwork to finished job.",
       image: "/images/home-print.svg",
       link: "/print",
     },
+
     web: {
       number: "03",
       title: "Web",
-      tagline: "High-Performance Modern Web Platforms",
-      desc: "Speed-optimized corporate websites, e-commerce storefronts with Mobile Money integration, and custom digital apps.",
+      tagline: "Websites built for real businesses",
+      desc: "Business websites, online shops and custom web applications built around what your customers actually need.",
       image: "/images/home-web.svg",
       link: "/web",
     },
   };
 
+  const currentPreview = previews[activeTab];
+
   return (
     <>
-      {/* HERO SECTION */}
+      {/* =====================================================
+          HERO
+      ====================================================== */}
+
       <section className="joki-hero">
         <div className="joki-container joki-hero-grid">
           <div className="joki-hero-copy">
@@ -41,83 +76,114 @@ export default function Home() {
               Joki Holdings Ltd &bull; Kampala, Uganda
             </span>
 
-            <h1>
-              We make your
-              <span> business visible.</span>
+            <h1 aria-label={heroText}>
+              {typedText.slice(0, firstPartLength)}
+
+              {typedText.length > firstPartLength && (
+                <span>{typedText.slice(firstPartLength)}</span>
+              )}
+
+              {typedText.length < heroText.length && (
+                <span
+                  className="joki-type-cursor"
+                  aria-hidden="true"
+                >
+                  |
+                </span>
+              )}
             </h1>
 
             <p>
               Design. Print. Web.
               <br />
-              One creative partner for ambitious businesses that want to
-              look professional, build authority, and communicate with confidence.
+              We help businesses look good, communicate clearly and show up
+              properly — wherever they are.
             </p>
 
             <div className="joki-hero-actions">
-              <Link to="/contact" className="joki-button joki-button-primary">
+              <Link
+                to="/contact"
+                className="joki-button joki-button-primary"
+              >
                 Talk to Us &rarr;
               </Link>
 
-              <Link to="/design" className="joki-button joki-button-link">
+              <Link
+                to="/design"
+                className="joki-button joki-button-link"
+              >
                 Explore Our Work &rarr;
               </Link>
             </div>
 
-            {/* Quick Trust Badges */}
+            {/* =================================================
+                TRUST / POSITIONING STRIP
+            ================================================== */}
+
             <div className="joki-hero-trust">
               <div className="joki-trust-item">
-                <strong>100%</strong>
-                <span>Quality Guarantee</span>
+                <strong>Local</strong>
+                <span>Kampala Based</span>
               </div>
+
               <div className="joki-trust-divider"></div>
+
               <div className="joki-trust-item">
-                <strong>Fast</strong>
-                <span>Kampala Delivery</span>
+                <strong>Remote</strong>
+                <span>Work Anywhere</span>
               </div>
+
               <div className="joki-trust-divider"></div>
+
               <div className="joki-trust-item">
-                <strong>3-in-1</strong>
-                <span>Design, Print &amp; Web</span>
+                <strong>3</strong>
+                <span>Design &bull; Print &bull; Web</span>
               </div>
             </div>
+
+            <p className="joki-hero-location">
+              Based in Kampala. Working with clients wherever they are.
+            </p>
           </div>
 
-          {/* INTERACTIVE HERO VISUAL TABS */}
+          {/* =================================================
+              INTERACTIVE HERO VISUAL
+          ================================================== */}
+
           <div className="joki-hero-visual-wrapper">
             <div className="joki-visual-tabs-nav">
-              <button
-                type="button"
-                className={`joki-tab-btn ${activeTab === "design" ? "is-active" : ""}`}
-                onClick={() => setActiveTab("design")}
-              >
-                01 Design
-              </button>
-              <button
-                type="button"
-                className={`joki-tab-btn ${activeTab === "print" ? "is-active" : ""}`}
-                onClick={() => setActiveTab("print")}
-              >
-                02 Print
-              </button>
-              <button
-                type="button"
-                className={`joki-tab-btn ${activeTab === "web" ? "is-active" : ""}`}
-                onClick={() => setActiveTab("web")}
-              >
-                03 Web
-              </button>
+              {Object.entries(previews).map(([key, preview]) => (
+                <button
+                  key={key}
+                  type="button"
+                  className={`joki-tab-btn ${activeTab === key ? "is-active" : ""
+                    }`}
+                  onClick={() => setActiveTab(key)}
+                  aria-pressed={activeTab === key}
+                >
+                  {preview.number} {preview.title}
+                </button>
+              ))}
             </div>
 
             <div className="joki-visual-display">
               <img
-                src={previews[activeTab].image}
-                alt={previews[activeTab].title}
+                key={activeTab}
+                src={currentPreview.image}
+                alt={`Joki Holdings ${currentPreview.title} work`}
                 className="joki-visual-img"
               />
+
               <div className="joki-visual-overlay">
-                <span className="joki-visual-tag">{previews[activeTab].tagline}</span>
-                <Link to={previews[activeTab].link} className="joki-visual-link">
-                  Explore {previews[activeTab].title} &rarr;
+                <span className="joki-visual-tag">
+                  {currentPreview.tagline}
+                </span>
+
+                <Link
+                  to={currentPreview.link}
+                  className="joki-visual-link"
+                >
+                  Explore {currentPreview.title} &rarr;
                 </Link>
               </div>
             </div>
@@ -125,29 +191,49 @@ export default function Home() {
         </div>
       </section>
 
-      {/* METRICS / STATS STRIP */}
+      {/* =====================================================
+          POSITIONING STRIP
+      ====================================================== */}
+
       <section className="joki-stats-strip">
         <div className="joki-container joki-stats-grid">
           <div className="joki-stat-card">
-            <h3>Creative Excellence</h3>
-            <p>From scratch concept design to production-ready master files.</p>
+            <h3>Good Design</h3>
+            <p>
+              Clear visual work that gives your business a consistent,
+              recognisable presence.
+            </p>
           </div>
+
           <div className="joki-stat-card">
-            <h3>Tangible Quality</h3>
-            <p>Commercial-grade materials, spot UV, embossing and gold foil finishes.</p>
+            <h3>Quality Print</h3>
+            <p>
+              From everyday business materials to larger promotional and
+              branded print jobs.
+            </p>
           </div>
+
           <div className="joki-stat-card">
-            <h3>Digital Growth</h3>
-            <p>Modern, responsive websites engineered for speed and conversion.</p>
+            <h3>Useful Websites</h3>
+            <p>
+              Websites that explain what you do, work across devices and make
+              it easy for people to get in touch.
+            </p>
           </div>
+
           <div className="joki-stat-card">
-            <h3>Local Expertise</h3>
-            <p>Based in Kampala, serving businesses across Uganda and East Africa.</p>
+            <h3>One Creative Partner</h3>
+            <p>
+              Bring us the whole project or just the part you need help with.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* WHAT WE DO / INTRO */}
+      {/* =====================================================
+          WHAT WE DO
+      ====================================================== */}
+
       <section className="joki-intro">
         <div className="joki-container joki-intro-grid">
           <span className="joki-section-number">
@@ -162,19 +248,24 @@ export default function Home() {
             </h2>
 
             <p className="joki-intro-lead">
-              Joki Holdings brings creative brand design, precision printing,
-              and modern web engineering together under one roof. No fragmented
-              agencies or mismatched contractors — just one dedicated team.
+              We handle the work businesses need to look good, communicate
+              clearly and stay consistent — from design and print to websites.
             </p>
 
-            <Link to="/about" className="joki-text-link">
+            <Link
+              to="/about"
+              className="joki-text-link"
+            >
               More about Joki Holdings &rarr;
             </Link>
           </div>
         </div>
       </section>
 
-      {/* THREE DISCIPLINES */}
+      {/* =====================================================
+          THREE DISCIPLINES
+      ====================================================== */}
+
       <section className="joki-services">
         <div className="joki-container">
           <div className="joki-section-heading">
@@ -185,122 +276,219 @@ export default function Home() {
             <h2>
               Three capabilities.
               <br />
-              One unified partner.
+              One creative partner.
             </h2>
           </div>
 
           <div className="joki-services-grid">
-            <Link to="/design" className="joki-service-card">
+            {/* DESIGN */}
+
+            <Link
+              to="/design"
+              className="joki-service-card"
+            >
               <div className="joki-card-header">
                 <span>01</span>
-                <span className="joki-card-badge">Creative</span>
+                <span className="joki-card-badge">
+                  Creative
+                </span>
               </div>
+
               <h3>Design</h3>
+
               <p>
-                Visual identity systems, logos, corporate guidelines, packaging,
-                marketing collateral, and high-impact social media artwork.
+                Logos, branding, business materials, packaging, social media
+                graphics and the visual work your business needs every day.
               </p>
+
               <div className="joki-card-tags">
                 <span>Brand Identity</span>
                 <span>Packaging</span>
                 <span>Graphics</span>
               </div>
-              <strong className="joki-card-cta">Explore Design &rarr;</strong>
+
+              <strong className="joki-card-cta">
+                Explore Design &rarr;
+              </strong>
             </Link>
 
-            <Link to="/print" className="joki-service-card">
+            {/* PRINT */}
+
+            <Link
+              to="/print"
+              className="joki-service-card"
+            >
               <div className="joki-card-header">
                 <span>02</span>
-                <span className="joki-card-badge">Production</span>
+                <span className="joki-card-badge">
+                  Production
+                </span>
               </div>
+
               <h3>Print</h3>
+
               <p>
-                Executive business stationery, flyers, brochures, custom packaging,
-                pull-up banners, and 3D acrylic outdoor signage.
+                Business cards, flyers, brochures, banners, signage, stickers
+                and other printed materials — from artwork to finished job.
               </p>
+
               <div className="joki-card-tags">
                 <span>Stationery</span>
                 <span>Large Format</span>
                 <span>Signage</span>
               </div>
-              <strong className="joki-card-cta">Explore Print &rarr;</strong>
+
+              <strong className="joki-card-cta">
+                Explore Print &rarr;
+              </strong>
             </Link>
 
-            <Link to="/web" className="joki-service-card">
+            {/* WEB */}
+
+            <Link
+              to="/web"
+              className="joki-service-card"
+            >
               <div className="joki-card-header">
                 <span>03</span>
-                <span className="joki-card-badge">Digital</span>
+                <span className="joki-card-badge">
+                  Digital
+                </span>
               </div>
+
               <h3>Web</h3>
+
               <p>
-                Modern, responsive websites, e-commerce stores with Mobile Money,
-                and custom web applications built for speed and conversions.
+                Business websites, online shops and custom web applications
+                built around what your customers actually need.
               </p>
+
               <div className="joki-card-tags">
-                <span>Custom Websites</span>
+                <span>Websites</span>
                 <span>E-Commerce</span>
                 <span>Web Apps</span>
               </div>
-              <strong className="joki-card-cta">Explore Web &rarr;</strong>
+
+              <strong className="joki-card-cta">
+                Explore Web &rarr;
+              </strong>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* PROCESS SECTION */}
+      {/* =====================================================
+          HOW WE WORK
+      ====================================================== */}
+
       <section className="joki-process-section">
         <div className="joki-container">
           <div className="joki-section-heading">
-            <span className="joki-eyebrow">Our Methodology</span>
-            <h2>How We Deliver Value</h2>
+            <span className="joki-eyebrow">
+              How We Work
+            </span>
+
+            <h2>
+              A straightforward
+              <br />
+              process.
+            </h2>
           </div>
 
           <div className="joki-process-grid">
             <div className="joki-process-step">
-              <span className="joki-step-num">01</span>
-              <h4>Discovery &amp; Brief</h4>
-              <p>We understand your business goals, target audience, and project scope.</p>
+              <span className="joki-step-num">
+                01
+              </span>
+
+              <h4>
+                Discovery &amp; Brief
+              </h4>
+
+              <p>
+                We understand what you need, who it is for and what the
+                finished job needs to achieve.
+              </p>
             </div>
+
             <div className="joki-process-step">
-              <span className="joki-step-num">02</span>
-              <h4>Creative Concept</h4>
-              <p>We design polished visual options, wireframes, and prototypes for your review.</p>
+              <span className="joki-step-num">
+                02
+              </span>
+
+              <h4>
+                Creative Concept
+              </h4>
+
+              <p>
+                We turn the brief into practical design directions, layouts,
+                concepts or website structures.
+              </p>
             </div>
+
             <div className="joki-process-step">
-              <span className="joki-step-num">03</span>
-              <h4>Refinement &amp; Build</h4>
-              <p>Precision execution — whether print production or web development.</p>
+              <span className="joki-step-num">
+                03
+              </span>
+
+              <h4>
+                Refinement &amp; Build
+              </h4>
+
+              <p>
+                We refine the work and prepare it for its final use, whether
+                that means print, production or the web.
+              </p>
             </div>
+
             <div className="joki-process-step">
-              <span className="joki-step-num">04</span>
-              <h4>Launch &amp; Delivery</h4>
-              <p>Final physical delivery in Kampala or live web deployment with complete assets.</p>
+              <span className="joki-step-num">
+                04
+              </span>
+
+              <h4>
+                Delivery
+              </h4>
+
+              <p>
+                You receive the finished work, production files or live
+                website ready for use.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* GOLD CALL TO ACTION */}
+      {/* =====================================================
+          GOLD CALL TO ACTION
+      ====================================================== */}
+
       <section className="joki-gold-section">
         <div className="joki-container">
           <span className="joki-eyebrow">
-            Ready to get started?
+            Have a project in mind?
           </span>
 
           <h2>
             Let's make
             <br />
-            something memorable.
+            something useful.
           </h2>
 
           <p className="joki-gold-desc">
-            Whether you need a fresh brand identity, 5,000 corporate brochures, or a high-converting website, we're ready to help.
+            Tell us what you're working on. Whether you need a new identity,
+            printed materials or a website, we'll help you work out the best
+            way to take it forward.
           </p>
 
           <div className="joki-gold-actions">
-            <Link to="/contact" className="joki-button joki-button-dark">
+            <Link
+              to="/contact"
+              className="joki-button joki-button-dark"
+            >
               Talk to Us &rarr;
             </Link>
+
             <a
               href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings,%20I'd%20like%20to%20discuss%20a%20project."
               target="_blank"
