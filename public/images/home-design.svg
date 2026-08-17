@@ -1,0 +1,33 @@
+<svg width="600" height="700" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="700" rx="20" fill="#075B59"/>
+  <circle cx="500" cy="150" r="140" fill="#FFC800" fill-opacity="0.2"/>
+  <circle cx="100" cy="600" r="180" fill="#0E3B3A" fill-opacity="0.8"/>
+  
+  <g transform="translate(60, 60)">
+    <text x="0" y="40" font-family="'Montserrat', sans-serif" font-weight="900" font-size="14" fill="#FFC800" letter-spacing="2">01 / CREATIVE DISCIPLINE</text>
+    <text x="0" y="85" font-family="'Montserrat', sans-serif" font-weight="900" font-size="38" fill="#FFFFFF">DESIGN</text>
+    <text x="0" y="115" font-family="'Poppins', sans-serif" font-size="14" fill="#F8F6F2" fill-opacity="0.85">Identity, graphics, campaigns &amp; visual communications.</text>
+
+    <!-- Visual Stack -->
+    <g transform="translate(40, 160)">
+      <!-- Palette Swatch -->
+      <rect x="0" y="40" width="160" height="220" rx="14" fill="#FFFFFF" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.3))"/>
+      <rect x="15" y="15" width="130" height="110" rx="8" fill="#075B59"/>
+      <text x="18" y="155" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" fill="#1F1F1F">JOKI TEAL</text>
+      <text x="18" y="175" font-family="'Montserrat', sans-serif" font-size="11" fill="#666666">#075B59</text>
+      <rect x="18" y="195" width="60" height="18" rx="9" fill="#FFC800"/>
+      <text x="48" y="208" font-family="'Montserrat', sans-serif" font-weight="700" font-size="9" fill="#1F1F1F" text-anchor="middle">PRIMARY</text>
+
+      <!-- Brand Guidelines Book -->
+      <g transform="translate(180, 0)">
+        <rect x="0" y="0" width="220" height="280" rx="14" fill="#1F1F1F" stroke="#333333" stroke-width="2" filter="drop-shadow(0 25px 50px rgba(0,0,0,0.5))"/>
+        <rect x="25" y="30" width="40" height="40" rx="8" fill="#FFC800"/>
+        <text x="80" y="55" font-family="'Montserrat', sans-serif" font-weight="800" font-size="16" fill="#FFFFFF">Brand Guide</text>
+        <rect x="25" y="90" width="170" height="6" rx="3" fill="#333333"/>
+        <rect x="25" y="105" width="130" height="6" rx="3" fill="#333333"/>
+        <rect x="25" y="140" width="170" height="80" rx="8" fill="#075B59"/>
+        <text x="110" y="185" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFC800" text-anchor="middle">Aa Bb Gg</text>
+      </g>
+    </g>
+  </g>
+</svg>

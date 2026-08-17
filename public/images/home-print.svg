@@ -1,0 +1,30 @@
+<svg width="600" height="700" viewBox="0 0 600 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="600" height="700" rx="20" fill="#1F1F1F"/>
+  <circle cx="500" cy="550" r="160" fill="#FFC800" fill-opacity="0.15"/>
+  <circle cx="100" cy="150" r="140" fill="#075B59" fill-opacity="0.3"/>
+  
+  <g transform="translate(60, 60)">
+    <text x="0" y="40" font-family="'Montserrat', sans-serif" font-weight="900" font-size="14" fill="#FFC800" letter-spacing="2">02 / TANGIBLE PRODUCTION</text>
+    <text x="0" y="85" font-family="'Montserrat', sans-serif" font-weight="900" font-size="38" fill="#FFFFFF">PRINT</text>
+    <text x="0" y="115" font-family="'Poppins', sans-serif" font-size="14" fill="#F8F6F2" fill-opacity="0.85">Business stationery, packaging, large format &amp; signage.</text>
+
+    <!-- Cards Stack -->
+    <g transform="translate(50, 160)">
+      <g transform="rotate(-6 150 100)">
+        <rect x="0" y="0" width="320" height="190" rx="14" fill="#075B59" stroke="#FFC800" stroke-width="2" filter="drop-shadow(0 25px 45px rgba(0,0,0,0.6))"/>
+        <text x="30" y="50" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF">JOKI HOLDINGS</text>
+        <text x="30" y="70" font-family="'Poppins', sans-serif" font-size="11" fill="#FFC800">Gold Foil &bull; 450 GSM Cotton</text>
+        <rect x="30" y="100" width="100" height="24" rx="12" fill="#FFC800"/>
+        <text x="80" y="116" font-family="'Montserrat', sans-serif" font-weight="800" font-size="10" fill="#1F1F1F" text-anchor="middle">OFFICIAL</text>
+      </g>
+      
+      <g transform="translate(40, 100) rotate(8 150 100)">
+        <rect x="0" y="0" width="320" height="190" rx="14" fill="#F8F6F2" filter="drop-shadow(0 30px 60px rgba(0,0,0,0.7))"/>
+        <text x="30" y="55" font-family="'Montserrat', sans-serif" font-weight="900" font-size="20" fill="#075B59">PREMIUM PRINT</text>
+        <text x="30" y="75" font-family="'Poppins', sans-serif" font-size="11" fill="#666666">Spot UV, Matte Lamination, Crisp Binding</text>
+        <rect x="30" y="110" width="120" height="24" rx="12" fill="#075B59"/>
+        <text x="90" y="126" font-family="'Montserrat', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF" text-anchor="middle">COMMERCIAL</text>
+      </g>
+    </g>
+  </g>
+</svg>

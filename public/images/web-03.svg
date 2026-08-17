@@ -1,0 +1,50 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="16" fill="#0E3B3A"/>
+  <circle cx="100" cy="500" r="180" fill="#075B59" fill-opacity="0.6"/>
+  <circle cx="700" cy="100" r="160" fill="#FFC800" fill-opacity="0.15"/>
+
+  <!-- Sleek SaaS Web Application Mockup -->
+  <g transform="translate(100, 70)">
+    <rect x="0" y="0" width="600" height="420" rx="14" fill="#1F1F1F" stroke="#333333" stroke-width="2" filter="drop-shadow(0 30px 60px rgba(0,0,0,0.6))"/>
+    
+    <!-- App Sidebar -->
+    <rect x="0" y="0" width="140" height="420" rx="14 0 0 14" fill="#141414"/>
+    <circle cx="35" cy="35" r="14" fill="#075B59"/>
+    <text x="35" y="40" font-family="'Montserrat', sans-serif" font-weight="900" font-size="12" fill="#FFC800" text-anchor="middle">J</text>
+    <text x="58" y="39" font-family="'Montserrat', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF">PORTAL</text>
+
+    <rect x="15" y="80" width="110" height="30" rx="6" fill="#075B59"/>
+    <text x="35" y="100" font-family="'Montserrat', sans-serif" font-weight="600" font-size="11" fill="#FFFFFF">Overview</text>
+    <text x="35" y="140" font-family="'Montserrat', sans-serif" font-weight="500" font-size="11" fill="#999999">Analytics</text>
+    <text x="35" y="175" font-family="'Montserrat', sans-serif" font-weight="500" font-size="11" fill="#999999">Orders</text>
+    <text x="35" y="210" font-family="'Montserrat', sans-serif" font-weight="500" font-size="11" fill="#999999">Settings</text>
+
+    <!-- Main Dashboard Area -->
+    <g transform="translate(160, 25)">
+      <text x="15" y="30" font-family="'Montserrat', sans-serif" font-weight="800" font-size="18" fill="#FFFFFF">Operations Dashboard</text>
+      
+      <!-- Stats Metric Cards -->
+      <g transform="translate(15, 55)">
+        <rect x="0" y="0" width="125" height="75" rx="8" fill="#292929"/>
+        <text x="12" y="25" font-family="'Poppins', sans-serif" font-size="10" fill="#AAAAAA">Revenue</text>
+        <text x="12" y="52" font-family="'Montserrat', sans-serif" font-weight="800" font-size="15" fill="#FFC800">+34.8%</text>
+
+        <rect x="140" y="0" width="125" height="75" rx="8" fill="#292929"/>
+        <text x="152" y="25" font-family="'Poppins', sans-serif" font-size="10" fill="#AAAAAA">Deliveries</text>
+        <text x="152" y="52" font-family="'Montserrat', sans-serif" font-weight="800" font-size="15" fill="#10B981">1,420</text>
+
+        <rect x="280" y="0" width="125" height="75" rx="8" fill="#292929"/>
+        <text x="292" y="25" font-family="'Poppins', sans-serif" font-size="10" fill="#AAAAAA">Active Users</text>
+        <text x="292" y="52" font-family="'Montserrat', sans-serif" font-weight="800" font-size="15" fill="#38BDF8">98.4%</text>
+      </g>
+
+      <!-- Chart Graphic -->
+      <rect x="15" y="150" width="390" height="190" rx="10" fill="#242424"/>
+      <text x="30" y="180" font-family="'Montserrat', sans-serif" font-weight="700" font-size="12" fill="#FFFFFF">Performance Trajectory</text>
+      
+      <!-- Chart line -->
+      <path d="M 40 290 Q 120 240 180 270 T 300 200 T 380 180" fill="none" stroke="#FFC800" stroke-width="3"/>
+      <circle cx="380" cy="180" r="5" fill="#075B59" stroke="#FFC800" stroke-width="2"/>
+    </g>
+  </g>
+</svg>

@@ -20,7 +20,7 @@ export default function NotFound() {
         </p>
 
         <Link to="/" className="joki-button joki-button-primary">
-          Back Home
+          Back to Home &rarr;
         </Link>
 
       </div>

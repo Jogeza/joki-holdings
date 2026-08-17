@@ -16,10 +16,10 @@ function Footer() {
 
           <div className="joki-footer-column">
             <h4>Explore</h4>
-            <Link to="/about">About</Link>
-            <Link to="/design">Design</Link>
-            <Link to="/print">Print</Link>
-            <Link to="/web">Web</Link>
+            <Link to="/about">About Joki</Link>
+            <Link to="/design">Design Solutions</Link>
+            <Link to="/print">Commercial Print</Link>
+            <Link to="/web">Web Experiences</Link>
           </div>
 
           <div className="joki-footer-column">
@@ -33,14 +33,16 @@ function Footer() {
 
           <div className="joki-footer-column">
             <h4>Start a Project</h4>
-            <span>Have an idea?</span>
-            <Link to="/contact">Talk to Us ?</Link>
+            <span>Have an idea or need a quote?</span>
+            <Link to="/contact" className="joki-footer-cta-link">
+              Talk to Us &rarr;
+            </Link>
           </div>
         </div>
 
         <div className="joki-footer-bottom">
-          <span>© {new Date().getFullYear()} Joki Holdings Ltd.</span>
-          <span>Creative • Print • Digital</span>
+          <span>&copy; {new Date().getFullYear()} Joki Holdings Ltd. All rights reserved.</span>
+          <span className="joki-footer-tagline">Design &bull; Print &bull; Digital</span>
         </div>
       </div>
     </footer>

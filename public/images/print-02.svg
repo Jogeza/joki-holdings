@@ -1,0 +1,29 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="16" fill="#F8F6F2"/>
+  <circle cx="200" cy="500" r="180" fill="#075B59" fill-opacity="0.1"/>
+  
+  <!-- Brochures, Booklets and Corporate Folders -->
+  <g transform="translate(100, 60)">
+    <!-- Folder Back -->
+    <rect x="80" y="40" width="380" height="420" rx="14" fill="#075B59" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.2))"/>
+    <text x="120" y="110" font-family="'Montserrat', sans-serif" font-weight="900" font-size="28" fill="#FFFFFF">ANNUAL REPORT</text>
+    <text x="120" y="135" font-family="'Montserrat', sans-serif" font-weight="600" font-size="14" fill="#FFC800">CORPORATE PORTFOLIO</text>
+    <rect x="120" y="170" width="180" height="4" rx="2" fill="#FFC800"/>
+    
+    <!-- Tri-fold Leaflet Overlay -->
+    <g transform="translate(260, 100) rotate(5)">
+      <rect x="0" y="0" width="220" height="340" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="drop-shadow(0 25px 45px rgba(0,0,0,0.25))"/>
+      <rect x="20" y="20" width="180" height="110" rx="6" fill="#FFC800"/>
+      <circle cx="110" cy="75" r="30" fill="#075B59"/>
+      <text x="110" y="82" font-family="'Montserrat', sans-serif" font-weight="900" font-size="18" fill="#FFFFFF" text-anchor="middle">JOKI</text>
+      
+      <text x="20" y="160" font-family="'Montserrat', sans-serif" font-weight="800" font-size="14" fill="#1F1F1F">Tri-Fold Brochure</text>
+      <rect x="20" y="180" width="180" height="6" rx="3" fill="#CBD5E1"/>
+      <rect x="20" y="195" width="140" height="6" rx="3" fill="#CBD5E1"/>
+      <rect x="20" y="210" width="160" height="6" rx="3" fill="#CBD5E1"/>
+      
+      <rect x="20" y="240" width="80" height="24" rx="12" fill="#075B59"/>
+      <text x="60" y="256" font-family="'Montserrat', sans-serif" font-weight="700" font-size="10" fill="#FFFFFF" text-anchor="middle">300 GSM</text>
+    </g>
+  </g>
+</svg>

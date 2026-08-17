@@ -1,0 +1,32 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" rx="16" fill="#1F1F1F"/>
+  <circle cx="650" cy="150" r="180" fill="#FFC800" fill-opacity="0.15"/>
+  
+  <!-- Large Format Banners & Signage Mockup -->
+  <g transform="translate(100, 70)">
+    <!-- Rollup Banner Stand Mockup -->
+    <g transform="translate(80, 20)">
+      <!-- Base Stand -->
+      <rect x="0" y="380" width="180" height="24" rx="4" fill="#64748B"/>
+      <!-- Banner Canvas -->
+      <rect x="15" y="10" width="150" height="370" rx="4" fill="#075B59" stroke="#FFC800" stroke-width="2" filter="drop-shadow(0 20px 40px rgba(0,0,0,0.6))"/>
+      <rect x="30" y="30" width="120" height="80" rx="6" fill="#FFC800"/>
+      <text x="90" y="75" font-family="'Montserrat', sans-serif" font-weight="900" font-size="16" fill="#1F1F1F" text-anchor="middle">SUMMIT 2026</text>
+      <text x="90" y="140" font-family="'Montserrat', sans-serif" font-weight="800" font-size="12" fill="#FFFFFF" text-anchor="middle">PULL-UP BANNER</text>
+      <text x="90" y="160" font-family="'Poppins', sans-serif" font-weight="400" font-size="9" fill="#E2E8F0" text-anchor="middle">Heavy-Duty Tearproof PVC</text>
+      <rect x="35" y="180" width="110" height="2" fill="#FFC800"/>
+    </g>
+
+    <!-- Billboard / Signage Board Mockup -->
+    <g transform="translate(280, 50)">
+      <rect x="0" y="0" width="340" height="220" rx="12" fill="#0E3B3A" stroke="#FFC800" stroke-width="3" filter="drop-shadow(0 25px 50px rgba(0,0,0,0.7))"/>
+      <text x="30" y="60" font-family="'Montserrat', sans-serif" font-weight="900" font-size="22" fill="#FFFFFF">3D ACRYLIC SIGNAGE</text>
+      <text x="30" y="90" font-family="'Montserrat', sans-serif" font-weight="700" font-size="14" fill="#FFC800">LED BACKLIT &amp; ILLUMINATED</text>
+      <rect x="30" y="120" width="280" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.3"/>
+      <rect x="30" y="140" width="200" height="6" rx="3" fill="#FFFFFF" fill-opacity="0.3"/>
+      
+      <rect x="30" y="170" width="110" height="28" rx="14" fill="#FFC800"/>
+      <text x="85" y="188" font-family="'Montserrat', sans-serif" font-weight="800" font-size="10" fill="#1F1F1F" text-anchor="middle">WEATHERPROOF</text>
+    </g>
+  </g>
+</svg>
