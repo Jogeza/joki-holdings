@@ -5,23 +5,26 @@ export default function Design() {
   const projects = [
     {
       id: "01",
-      title: "Corporate Brand Identity & Guidelines",
-      category: "Brand Systems",
-      desc: "Complete visual identity encompassing logo design, chromatic palette (Pantone & digital), bespoke typography rules, and master brand manual.",
+      title: "Brand Identity",
+      category: "Branding",
+      desc:
+        "Logos, colours, typography and brand guidelines that give your business a clear and consistent look.",
       image: "/images/design-01.svg",
     },
     {
       id: "02",
-      title: "Eco-Friendly Packaging & Collateral",
-      category: "Packaging & Print Prep",
-      desc: "Custom die-cut product packaging, lookbooks, and marketing collateral designed with soft-touch finishes and sustainable craft materials.",
+      title: "Packaging & Labels",
+      category: "Packaging",
+      desc:
+        "Labels, boxes, product packaging and other materials designed to make your products look ready for the shelf.",
       image: "/images/design-02.svg",
     },
     {
       id: "03",
-      title: "Digital Campaigns & Social Artworks",
-      category: "Digital Communication",
-      desc: "High-impact social media creatives, seasonal launch graphics, and promotional banners engineered for high click-through rates.",
+      title: "Marketing & Social Graphics",
+      category: "Marketing",
+      desc:
+        "Posters, social media artwork, adverts and promotional graphics for the things your business needs to communicate.",
       image: "/images/design-03.svg",
     },
   ];
@@ -29,36 +32,43 @@ export default function Design() {
   const packages = [
     {
       title: "Brand Starter",
-      tag: "For Startups & New Ventures",
+      tag: "For new businesses",
       features: [
-        "Primary & Secondary Logo Marks",
-        "Curated Color Palette & Typography",
-        "Business Card Design Master",
+        "Primary Logo",
+        "Secondary Logo Mark",
+        "Colour Palette",
+        "Typography Selection",
+        "Business Card Design",
         "Social Media Profile Assets",
-        "Vector Source Files (AI, SVG, PNG, PDF)",
+        "Print & Digital Logo Files",
       ],
     },
+
     {
-      title: "Corporate Suite",
-      tag: "Most Popular for Growing Companies",
+      title: "Brand Package",
+      tag: "For growing businesses",
       features: [
         "Everything in Brand Starter",
-        "Full Corporate Brand Guidelines Book",
-        "Stationery Suite (Letterheads, Invoices)",
-        "Company Profile / Brochure Layout",
-        "Packaging & Label Design",
-        "Print-Ready Production Files",
+        "Brand Guidelines",
+        "Business Stationery",
+        "Company Profile / Brochure",
+        "Social Media Templates",
+        "Packaging or Label Design",
+        "Print-Ready Files",
       ],
     },
+
     {
-      title: "Custom Retainer",
-      tag: "For Established Organizations",
+      title: "Ongoing Design",
+      tag: "For businesses with regular work",
       features: [
-        "Dedicated Monthly Design Hours",
-        "Campaign & Event Creatives",
-        "Marketing & Advertising Collateral",
-        "Priority Turnaround & Revision Support",
-        "Direct Art Direction Consultations",
+        "Regular Design Support",
+        "Social Media Graphics",
+        "Marketing Materials",
+        "Campaign Artwork",
+        "Event & Promotional Graphics",
+        "Priority Design Requests",
+        "Ongoing Creative Support",
       ],
     },
   ];
@@ -66,118 +76,219 @@ export default function Design() {
   return (
     <section className="joki-page">
       <div className="joki-container">
-        {/* HERO */}
+
+        {/* =====================================================
+            HERO
+        ====================================================== */}
+
         <div className="joki-page-hero">
-          <span className="joki-eyebrow">01 / Creative Discipline</span>
+          <span className="joki-eyebrow">
+            01 / Design
+          </span>
 
           <h1>
-            Ideas made
-            <span> visible &amp; memorable.</span>
+            Good design
+            <span> makes a difference.</span>
           </h1>
 
           <p>
-            We create visual identities, marketing collateral, and packaging that
-            help ambitious businesses look credible, communicate with clarity, and stand out.
+            We design the things your business needs to look
+            professional, stay consistent and communicate clearly.
           </p>
         </div>
 
-        {/* SHOWCASE GALLERY */}
+        {/* =====================================================
+            SHOWCASE
+        ====================================================== */}
+
         <div className="joki-showcase-section">
           <div className="joki-section-heading">
-            <span className="joki-eyebrow">Featured Work</span>
-            <h2>Design Showcase</h2>
+            <span className="joki-eyebrow">
+              What We Make
+            </span>
+
+            <h2>
+              Design for real business needs.
+            </h2>
           </div>
 
           <div className="joki-showcase-grid">
             {projects.map((project) => (
-              <div key={project.id} className="joki-showcase-card">
+              <div
+                key={project.id}
+                className="joki-showcase-card"
+              >
                 <div className="joki-showcase-img-wrap">
-                  <img src={project.image} alt={project.title} loading="lazy" />
-                  <span className="joki-showcase-badge">{project.category}</span>
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                  />
+
+                  <span className="joki-showcase-badge">
+                    {project.category}
+                  </span>
                 </div>
+
                 <div className="joki-showcase-body">
-                  <span className="joki-showcase-num">{project.id}</span>
-                  <h3>{project.title}</h3>
-                  <p>{project.desc}</p>
+                  <span className="joki-showcase-num">
+                    {project.id}
+                  </span>
+
+                  <h3>
+                    {project.title}
+                  </h3>
+
+                  <p>
+                    {project.desc}
+                  </p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* CAPABILITIES LIST */}
+        {/* =====================================================
+            WHAT WE DESIGN
+        ====================================================== */}
+
         <div className="joki-capabilities-box">
           <div className="joki-content-grid">
+
             <div>
-              <span className="joki-section-number">WHAT WE DESIGN</span>
-              <h3>Full-Spectrum Design Services</h3>
+              <span className="joki-section-number">
+                WHAT WE DESIGN
+              </span>
+
+              <h3>
+                From the logo to the little things.
+              </h3>
+
               <p>
-                Every asset is crafted vector-clean, scalable from a mobile screen to a 10-meter highway billboard.
+                Your business needs more than a logo. We create
+                the visual materials you need to present the
+                business properly, from your stationery and
+                packaging to your marketing graphics.
               </p>
             </div>
 
             <div className="joki-list">
-              <div>Brand Identity Systems</div>
-              <div>Logo Design &amp; Redesigns</div>
-              <div>Corporate Business Profiles</div>
-              <div>Social Media Campaign Graphics</div>
-              <div>Marketing &amp; Sales Collateral</div>
-              <div>Posters, Flyers &amp; Infographics</div>
-              <div>Packaging, Boxes &amp; Labels</div>
-              <div>Corporate Stationery &amp; Uniforms</div>
+              <div>Brand Identity</div>
+              <div>Logo Design & Redesign</div>
+              <div>Company Profiles</div>
+              <div>Business Cards & Stationery</div>
+              <div>Social Media Graphics</div>
+              <div>Posters & Flyers</div>
+              <div>Packaging & Labels</div>
+              <div>Signage & Promotional Materials</div>
             </div>
+
           </div>
         </div>
 
-        {/* PACKAGES TIERS */}
+        {/* =====================================================
+            DESIGN PACKAGES
+        ====================================================== */}
+
         <div className="joki-packages-section">
           <div className="joki-section-heading">
-            <span className="joki-eyebrow">Solutions Tailored To You</span>
-            <h2>Design Engagement Tiers</h2>
+            <span className="joki-eyebrow">
+              Design Options
+            </span>
+
+            <h2>
+              Start where you need to.
+            </h2>
           </div>
 
           <div className="joki-packages-grid">
             {packages.map((pkg, idx) => (
-              <div key={idx} className={`joki-package-card ${idx === 1 ? "is-featured" : ""}`}>
-                {idx === 1 && <span className="joki-popular-badge">Recommended</span>}
-                <h3>{pkg.title}</h3>
-                <span className="joki-package-tag">{pkg.tag}</span>
+              <div
+                key={idx}
+                className={`joki-package-card ${
+                  idx === 1 ? "is-featured" : ""
+                }`}
+              >
+                {idx === 1 && (
+                  <span className="joki-popular-badge">
+                    Popular
+                  </span>
+                )}
+
+                <h3>
+                  {pkg.title}
+                </h3>
+
+                <span className="joki-package-tag">
+                  {pkg.tag}
+                </span>
+
                 <ul className="joki-package-list">
-                  {pkg.features.map((feat, fIdx) => (
-                    <li key={fIdx}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <polyline points="20 6 9 17 4 12"></polyline>
+                  {pkg.features.map((feature, featureIndex) => (
+                    <li key={featureIndex}>
+                      <svg
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        aria-hidden="true"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      {feat}
+
+                      {feature}
                     </li>
                   ))}
                 </ul>
-                <Link to="/contact" className={`joki-button ${idx === 1 ? "joki-button-primary" : "joki-button-dark"}`}>
-                  Inquire Now &rarr;
+
+                <Link
+                  to="/contact"
+                  className={`joki-button ${
+                    idx === 1
+                      ? "joki-button-primary"
+                      : "joki-button-dark"
+                  }`}
+                >
+                  Talk to Us <span>→</span>
                 </Link>
               </div>
             ))}
           </div>
         </div>
 
-        {/* PAGE CTA */}
+        {/* =====================================================
+            DESIGN + PRINT CONNECTION
+        ====================================================== */}
+
         <div className="joki-page-cta">
-          <h2>Have a design project in mind?</h2>
-          <p>Let's collaborate to build a standout visual identity for your brand.</p>
+          <h2>
+            Need the design printed too?
+          </h2>
+
+          <p>
+            We can take your artwork from the screen to the
+            finished product. Design. Print. Web.
+          </p>
+
           <div className="joki-cta-btns">
-            <Link to="/contact" className="joki-button joki-button-primary">
-              Talk to Us &rarr;
+            <Link
+              to="/contact"
+              className="joki-button joki-button-primary"
+            >
+              Talk to Us <span>→</span>
             </Link>
-            <a
-              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings,%20I'd%20like%20to%20inquire%20about%20Design%20services."
-              target="_blank"
-              rel="noopener noreferrer"
+
+            <Link
+              to="/print"
               className="joki-button joki-button-outline-light"
             >
-              WhatsApp Us &rarr;
-            </a>
+              See Print Services <span>→</span>
+            </Link>
           </div>
         </div>
+
       </div>
     </section>
   );

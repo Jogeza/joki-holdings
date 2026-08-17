@@ -5,148 +5,370 @@ export default function Web() {
   const webProjects = [
     {
       id: "01",
-      title: "Corporate & Enterprise Platforms",
-      category: "Corporate Web",
-      desc: "Authority-building websites designed to position your enterprise, showcase your track record, and convert high-value corporate inquiries.",
+      title: "Business Websites",
+      category: "Business Web",
+      desc:
+        "Clear, professional websites that explain what your business does, show your services and make it easy for customers to get in touch.",
       image: "/images/web-01.svg",
     },
     {
       id: "02",
-      title: "E-Commerce & Digital Storefronts",
-      category: "Commerce & Payments",
-      desc: "High-converting online stores with built-in MTN Mobile Money, Airtel Money, and card payment gateways for frictionless Ugandan checkout.",
+      title: "Online Stores",
+      category: "E-Commerce",
+      desc:
+        "Online shops built to help you present your products, manage your catalogue and give customers a simple way to place orders.",
       image: "/images/web-02.svg",
     },
     {
       id: "03",
-      title: "Custom Web Applications & Portals",
-      category: "Web Applications",
-      desc: "Interactive client portals, booking engines, dashboard interfaces, and bespoke cloud applications built on modern JavaScript frameworks.",
+      title: "Custom Web Applications",
+      category: "Web Apps",
+      desc:
+        "Custom websites and web applications for businesses that need more than a standard company website.",
       image: "/images/web-03.svg",
+    },
+  ];
+
+  const webServices = [
+    {
+      number: "01",
+      title: "Business Websites",
+      text:
+        "Professional websites for companies, organisations, professionals and growing businesses.",
+    },
+    {
+      number: "02",
+      title: "Online Stores",
+      text:
+        "Product-focused websites that allow customers to browse your products and make enquiries or purchases online.",
+    },
+    {
+      number: "03",
+      title: "Landing Pages",
+      text:
+        "Focused pages for products, services, campaigns and specific marketing activities.",
+    },
+    {
+      number: "04",
+      title: "Custom Web Apps",
+      text:
+        "Web-based systems, portals and applications built around a specific business process or requirement.",
     },
   ];
 
   const pillars = [
     {
-      title: "Mobile-First Design",
-      desc: "Over 80% of East African traffic is mobile. Every page is tailored for seamless smartphone usability.",
+      number: "01",
+      title: "Works on Mobile",
+      desc:
+        "Your website should work properly on the phones, tablets and computers your customers already use.",
     },
     {
-      title: "Blazing Speed & Performance",
-      desc: "Optimized asset delivery, clean code, and fast load times that rank high on Google Core Web Vitals.",
+      number: "02",
+      title: "Easy to Understand",
+      desc:
+        "We keep the structure and content clear so visitors can quickly understand what you do and what to do next.",
     },
     {
-      title: "Local Payment Integrations",
-      desc: "Seamless integration with MTN MoMo, Airtel Money, Pesapal, Flutterwave, and Stripe.",
+      number: "03",
+      title: "Built for Your Business",
+      desc:
+        "We design around your business, customers and goals instead of forcing your content into a generic template.",
     },
     {
-      title: "Security & Reliable Hosting",
-      desc: "SSL certificates, regular backups, firewall protection, and 99.9% uptime cloud hosting.",
+      number: "04",
+      title: "Ready to Grow",
+      desc:
+        "We build with room for new pages, features and improvements as your business develops.",
     },
   ];
 
   return (
     <section className="joki-page">
       <div className="joki-container">
-        {/* HERO */}
+
+        {/* =====================================================
+            HERO
+        ====================================================== */}
+
         <div className="joki-page-hero">
-          <span className="joki-eyebrow">03 / Digital Discipline</span>
+
+          <span className="joki-eyebrow">
+            03 / Web
+          </span>
 
           <h1>
-            Your business
-            <span> online &amp; unstoppable.</span>
+            A website that
+            <span> works for your business.</span>
           </h1>
 
           <p>
-            Modern, lightning-fast websites engineered to present your brand
-            professionally, capture leads, and drive measurable business growth.
+            We build clear, responsive websites that help businesses
+            explain what they do, reach customers and have a proper
+            presence online.
           </p>
+
         </div>
 
-        {/* SHOWCASE GALLERY */}
+        {/* =====================================================
+            SHOWCASE
+        ====================================================== */}
+
         <div className="joki-showcase-section">
+
           <div className="joki-section-heading">
-            <span className="joki-eyebrow">Digital Portfolio</span>
-            <h2>Web Solutions Showcase</h2>
+
+            <span className="joki-eyebrow">
+              What We Build
+            </span>
+
+            <h2>
+              Websites for real businesses.
+            </h2>
+
           </div>
 
           <div className="joki-showcase-grid">
+
             {webProjects.map((project) => (
-              <div key={project.id} className="joki-showcase-card">
+              <div
+                key={project.id}
+                className="joki-showcase-card"
+              >
+
                 <div className="joki-showcase-img-wrap">
-                  <img src={project.image} alt={project.title} loading="lazy" />
-                  <span className="joki-showcase-badge">{project.category}</span>
+
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    loading="lazy"
+                  />
+
+                  <span className="joki-showcase-badge">
+                    {project.category}
+                  </span>
+
                 </div>
+
                 <div className="joki-showcase-body">
-                  <span className="joki-showcase-num">{project.id}</span>
-                  <h3>{project.title}</h3>
-                  <p>{project.desc}</p>
+
+                  <span className="joki-showcase-num">
+                    {project.id}
+                  </span>
+
+                  <h3>
+                    {project.title}
+                  </h3>
+
+                  <p>
+                    {project.desc}
+                  </p>
+
                 </div>
+
               </div>
             ))}
+
           </div>
         </div>
 
-        {/* CAPABILITIES LIST */}
+        {/* =====================================================
+            WEB SERVICES
+        ====================================================== */}
+
         <div className="joki-capabilities-box">
+
           <div className="joki-content-grid">
+
             <div>
-              <span className="joki-section-number">WHAT WE BUILD</span>
-              <h3>End-to-End Web Engineering</h3>
+
+              <span className="joki-section-number">
+                WEB SERVICES
+              </span>
+
+              <h3>
+                From simple websites to custom systems.
+              </h3>
+
               <p>
-                From simple high-converting landing pages to complex corporate portals, we build modern web experiences.
+                Whether you need a simple company website or a more
+                involved web application, we start with what the
+                business actually needs.
               </p>
+
             </div>
 
             <div className="joki-list">
-              <div>Corporate Business Websites</div>
-              <div>E-Commerce &amp; MoMo Storefronts</div>
-              <div>High-Converting Landing Pages</div>
-              <div>Portfolio &amp; Creative Showcase Sites</div>
-              <div>WordPress &amp; CMS Development</div>
-              <div>Custom Web Apps (React / Node)</div>
-              <div>Search Engine Optimization (SEO)</div>
-              <div>Website Maintenance &amp; Cloud Hosting</div>
+
+              {webServices.map((service) => (
+                <div key={service.number}>
+
+                  <strong>
+                    {service.number} &nbsp; {service.title}
+                  </strong>
+
+                  <p
+                    style={{
+                      margin: "8px 0 0 32px",
+                    }}
+                  >
+                    {service.text}
+                  </p>
+
+                </div>
+              ))}
+
             </div>
+
           </div>
+
         </div>
 
-        {/* PILLARS GRID */}
+        {/* =====================================================
+            WHAT MATTERS
+        ====================================================== */}
+
         <div className="joki-pillars-section">
+
           <div className="joki-section-heading">
-            <span className="joki-eyebrow">The Joki Standard</span>
-            <h2>Built For Real Results</h2>
+
+            <span className="joki-eyebrow">
+              What Matters
+            </span>
+
+            <h2>
+              A website should be useful.
+            </h2>
+
           </div>
 
           <div className="joki-pillars-grid">
-            {pillars.map((pillar, idx) => (
-              <div key={idx} className="joki-pillar-card">
-                <span className="joki-pillar-num">0{idx + 1}</span>
-                <h4>{pillar.title}</h4>
-                <p>{pillar.desc}</p>
+
+            {pillars.map((pillar) => (
+              <div
+                key={pillar.number}
+                className="joki-pillar-card"
+              >
+
+                <span className="joki-pillar-num">
+                  {pillar.number}
+                </span>
+
+                <h4>
+                  {pillar.title}
+                </h4>
+
+                <p>
+                  {pillar.desc}
+                </p>
+
               </div>
             ))}
+
           </div>
+
         </div>
 
-        {/* PAGE CTA */}
+        {/* =====================================================
+            HOW WE BUILD
+        ====================================================== */}
+
+        <div
+          className="joki-capabilities-box"
+          style={{
+            marginTop: "80px",
+          }}
+        >
+
+          <div className="joki-content-grid">
+
+            <div>
+
+              <span className="joki-section-number">
+                HOW WE BUILD
+              </span>
+
+              <h3>
+                Clear process. No unnecessary complexity.
+              </h3>
+
+              <p>
+                We keep the process practical and involve you at the
+                important stages so the finished website reflects
+                your business.
+              </p>
+
+            </div>
+
+            <div className="joki-list">
+
+              <div>
+                <strong>
+                  01 &nbsp; Understand the business
+                </strong>
+              </div>
+
+              <div>
+                <strong>
+                  02 &nbsp; Plan the website
+                </strong>
+              </div>
+
+              <div>
+                <strong>
+                  03 &nbsp; Design and build
+                </strong>
+              </div>
+
+              <div>
+                <strong>
+                  04 &nbsp; Test and launch
+                </strong>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* =====================================================
+            CTA
+        ====================================================== */}
+
         <div className="joki-page-cta">
-          <h2>Ready to launch your new website?</h2>
-          <p>Let's build a website that accurately reflects your business quality.</p>
+
+          <h2>
+            Need a website?
+          </h2>
+
+          <p>
+            Tell us what your business does and what you want the
+            website to achieve. We'll help you work out what you need.
+          </p>
+
           <div className="joki-cta-btns">
-            <Link to="/contact" className="joki-button joki-button-primary">
-              Start Web Project &rarr;
+
+            <Link
+              to="/contact"
+              className="joki-button joki-button-primary"
+            >
+              Talk to Us &rarr;
             </Link>
+
             <a
-              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings,%20I'd%20like%20to%20discuss%20a%20Web%20project."
+              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings%2C%20I'd%20like%20to%20discuss%20a%20Web%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="joki-button joki-button-outline-light"
             >
-              WhatsApp Web Team &rarr;
+              WhatsApp Us &rarr;
             </a>
+
           </div>
+
         </div>
+
       </div>
     </section>
   );

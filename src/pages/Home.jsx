@@ -5,8 +5,12 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("design");
   const [typedText, setTypedText] = useState("");
 
-  const heroText = "We make your business visible.";
-  const firstPartLength = "We make your".length;
+  const heroText = "We help businesses look the part.";
+  const firstPartLength = "We help businesses".length;
+
+  /* =========================================================
+     HERO TYPING EFFECT
+  ========================================================= */
 
   useEffect(() => {
     const reduceMotion = window.matchMedia(
@@ -32,36 +36,160 @@ export default function Home() {
     return () => clearInterval(timer);
   }, []);
 
+  /* =========================================================
+     SCROLL REVEAL
+  ========================================================= */
+
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-joki-reveal]");
+
+    if (!elements.length) return;
+
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    if (reduceMotion) {
+      elements.forEach((element) => {
+        element.classList.add("joki-reveal-visible");
+      });
+
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("joki-reveal-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+        rootMargin: "0px 0px -50px 0px",
+      }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
+  /* =========================================================
+     HERO SERVICE PREVIEWS
+  ========================================================= */
+
   const previews = {
     design: {
       number: "01",
       title: "Design",
-      tagline: "Brand identity, graphics & visual communication",
-      desc: "From logos and brand materials to packaging and campaign artwork, we create visuals that help your business look consistent and recognisable.",
+      shortTitle: "Creative",
+      tagline: "Brand identity, graphics and visual materials",
+      desc:
+        "Logos, brand identity, packaging and everyday artwork that help your business look consistent and recognisable.",
       image: "/images/home-design.svg",
       link: "/design",
+      accent: "Creative",
     },
 
     print: {
       number: "02",
       title: "Print",
-      tagline: "Business printing & physical brand materials",
-      desc: "Business cards, brochures, flyers, banners, signage and other printed materials — from artwork to finished job.",
+      shortTitle: "Production",
+      tagline: "Business printing and branded materials",
+      desc:
+        "Business cards, brochures, flyers, banners, stickers and signage, prepared properly and ready for production.",
       image: "/images/home-print.svg",
       link: "/print",
+      accent: "Production",
     },
 
     web: {
       number: "03",
       title: "Web",
-      tagline: "Websites built for real businesses",
-      desc: "Business websites, online shops and custom web applications built around what your customers actually need.",
+      shortTitle: "Digital",
+      tagline: "Websites built around your business",
+      desc:
+        "Business websites, online shops and web applications that make it easier for people to understand and use your business.",
       image: "/images/home-web.svg",
       link: "/web",
+      accent: "Digital",
     },
   };
 
   const currentPreview = previews[activeTab];
+
+  /* =========================================================
+     SERVICES
+  ========================================================= */
+
+  const services = [
+    {
+      number: "01",
+      title: "Design",
+      badge: "Creative",
+      text:
+        "Logos, brand identity, packaging, social graphics and the everyday artwork your business needs.",
+      tags: ["Brand Identity", "Packaging", "Graphics"],
+      link: "/design",
+    },
+
+    {
+      number: "02",
+      title: "Print",
+      badge: "Production",
+      text:
+        "Business cards, flyers, brochures, banners, stickers and signage, from artwork to finished job.",
+      tags: ["Stationery", "Large Format", "Signage"],
+      link: "/print",
+    },
+
+    {
+      number: "03",
+      title: "Web",
+      badge: "Digital",
+      text:
+        "Business websites and online shops that are easy to use, easy to find and built around your goals.",
+      tags: ["Websites", "E-Commerce", "Web Apps"],
+      link: "/web",
+    },
+  ];
+
+  /* =========================================================
+     PROCESS
+  ========================================================= */
+
+  const process = [
+    {
+      number: "01",
+      title: "Tell us what you need",
+      text:
+        "Give us the idea, the problem or simply tell us what you are trying to achieve.",
+    },
+
+    {
+      number: "02",
+      title: "We work out the direction",
+      text:
+        "We look at what is needed and come back with a clear and practical way forward.",
+    },
+
+    {
+      number: "03",
+      title: "We make it",
+      text:
+        "Design, print or development — this is where the actual work gets done.",
+    },
+
+    {
+      number: "04",
+      title: "You get the finished work",
+      text:
+        "We prepare everything you need and make sure it is ready to use.",
+    },
+  ];
 
   return (
     <>
@@ -69,18 +197,53 @@ export default function Home() {
           HERO
       ====================================================== */}
 
-      <section className="joki-hero">
+      <section className="joki-hero joki-v3-hero">
+        {/* Large Joki monogram background */}
+
+        <div className="joki-hero-mark" aria-hidden="true">
+          <img
+            src="/brand-assets/joki-monogram.svg"
+            alt=""
+          />
+        </div>
+
+        {/* Ambient decorative lights */}
+
+        <div
+          className="joki-hero-orb joki-hero-orb-one"
+          aria-hidden="true"
+        />
+
+        <div
+          className="joki-hero-orb joki-hero-orb-two"
+          aria-hidden="true"
+        />
+
+        <div
+          className="joki-hero-orb joki-hero-orb-three"
+          aria-hidden="true"
+        />
+
         <div className="joki-container joki-hero-grid">
-          <div className="joki-hero-copy">
-            <span className="joki-eyebrow">
-              Joki Holdings Ltd &bull; Kampala, Uganda
+          {/* =================================================
+              HERO COPY
+          ================================================== */}
+
+          <div
+            className="joki-hero-copy joki-v3-hero-copy"
+            data-joki-reveal
+          >
+            <span className="joki-eyebrow joki-glass-eyebrow">
+              Joki Holdings Ltd · Kampala
             </span>
 
             <h1 aria-label={heroText}>
               {typedText.slice(0, firstPartLength)}
 
               {typedText.length > firstPartLength && (
-                <span>{typedText.slice(firstPartLength)}</span>
+                <span>
+                  {typedText.slice(firstPartLength)}
+                </span>
               )}
 
               {typedText.length < heroText.length && (
@@ -96,53 +259,51 @@ export default function Home() {
             <p>
               Design. Print. Web.
               <br />
-              We help businesses look good, communicate clearly and show up
-              properly — wherever they are.
+              We help businesses look good, communicate clearly and
+              present themselves properly.
             </p>
 
             <div className="joki-hero-actions">
               <Link
                 to="/contact"
-                className="joki-button joki-button-primary"
+                className="joki-button joki-button-primary joki-v3-button"
               >
-                Talk to Us &rarr;
+                Talk to Us <span>→</span>
               </Link>
 
               <Link
                 to="/design"
                 className="joki-button joki-button-link"
               >
-                Explore Our Work &rarr;
+                See Our Work <span>→</span>
               </Link>
             </div>
 
-            {/* =================================================
-                TRUST / POSITIONING STRIP
-            ================================================== */}
+            {/* Trust strip */}
 
-            <div className="joki-hero-trust">
+            <div className="joki-hero-trust joki-glass-trust">
               <div className="joki-trust-item">
-                <strong>Local</strong>
-                <span>Kampala Based</span>
+                <strong>Kampala</strong>
+                <span>Based in Uganda</span>
               </div>
 
-              <div className="joki-trust-divider"></div>
-
-              <div className="joki-trust-item">
-                <strong>Remote</strong>
-                <span>Work Anywhere</span>
-              </div>
-
-              <div className="joki-trust-divider"></div>
+              <div className="joki-trust-divider" />
 
               <div className="joki-trust-item">
                 <strong>3</strong>
-                <span>Design &bull; Print &bull; Web</span>
+                <span>Core Services</span>
+              </div>
+
+              <div className="joki-trust-divider" />
+
+              <div className="joki-trust-item">
+                <strong>1</strong>
+                <span>Creative Partner</span>
               </div>
             </div>
 
             <p className="joki-hero-location">
-              Based in Kampala. Working with clients wherever they are.
+              Kampala based. Available for projects across Uganda and beyond.
             </p>
           </div>
 
@@ -150,20 +311,44 @@ export default function Home() {
               INTERACTIVE HERO VISUAL
           ================================================== */}
 
-          <div className="joki-hero-visual-wrapper">
+          <div
+            className="joki-hero-visual-wrapper joki-v3-glass-panel"
+            data-joki-reveal
+          >
+            <div className="joki-visual-panel-top">
+              <div>
+                <span className="joki-visual-kicker">
+                  Our services
+                </span>
+
+                <strong>
+                  What can we help with?
+                </strong>
+              </div>
+
+              <span className="joki-visual-status">
+                <i />
+                Taking projects
+              </span>
+            </div>
+
             <div className="joki-visual-tabs-nav">
-              {Object.entries(previews).map(([key, preview]) => (
-                <button
-                  key={key}
-                  type="button"
-                  className={`joki-tab-btn ${activeTab === key ? "is-active" : ""
+              {Object.entries(previews).map(
+                ([key, preview]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    className={`joki-tab-btn ${
+                      activeTab === key ? "is-active" : ""
                     }`}
-                  onClick={() => setActiveTab(key)}
-                  aria-pressed={activeTab === key}
-                >
-                  {preview.number} {preview.title}
-                </button>
-              ))}
+                    onClick={() => setActiveTab(key)}
+                    aria-pressed={activeTab === key}
+                  >
+                    <span>{preview.number}</span>
+                    {preview.title}
+                  </button>
+                )
+              )}
             </div>
 
             <div className="joki-visual-display">
@@ -174,18 +359,37 @@ export default function Home() {
                 className="joki-visual-img"
               />
 
+              <div className="joki-visual-gradient" />
+
               <div className="joki-visual-overlay">
-                <span className="joki-visual-tag">
-                  {currentPreview.tagline}
-                </span>
+                <div>
+                  <span className="joki-visual-tag">
+                    {currentPreview.tagline}
+                  </span>
+
+                  <span className="joki-visual-description">
+                    {currentPreview.desc}
+                  </span>
+                </div>
 
                 <Link
                   to={currentPreview.link}
                   className="joki-visual-link"
                 >
-                  Explore {currentPreview.title} &rarr;
+                  Explore {currentPreview.title}{" "}
+                  <span>→</span>
                 </Link>
               </div>
+            </div>
+
+            <div className="joki-visual-footer">
+              <span>
+                0{currentPreview.number} / {currentPreview.accent}
+              </span>
+
+              <span>
+                JOKI HOLDINGS
+              </span>
             </div>
           </div>
         </div>
@@ -195,184 +399,173 @@ export default function Home() {
           POSITIONING STRIP
       ====================================================== */}
 
-      <section className="joki-stats-strip">
+      <section className="joki-stats-strip joki-v3-dark-section">
         <div className="joki-container joki-stats-grid">
-          <div className="joki-stat-card">
+          <div
+            className="joki-stat-card joki-v3-stat"
+            data-joki-reveal
+          >
+            <span className="joki-stat-index">01</span>
+
             <h3>Good Design</h3>
+
             <p>
-              Clear visual work that gives your business a consistent,
-              recognisable presence.
+              Design that makes your business easier to recognise
+              and easier to trust.
             </p>
           </div>
 
-          <div className="joki-stat-card">
+          <div
+            className="joki-stat-card joki-v3-stat"
+            data-joki-reveal
+          >
+            <span className="joki-stat-index">02</span>
+
             <h3>Quality Print</h3>
+
             <p>
-              From everyday business materials to larger promotional and
-              branded print jobs.
+              From business stationery to banners and branded
+              materials, we handle the job from artwork to print.
             </p>
           </div>
 
-          <div className="joki-stat-card">
-            <h3>Useful Websites</h3>
+          <div
+            className="joki-stat-card joki-v3-stat"
+            data-joki-reveal
+          >
+            <span className="joki-stat-index">03</span>
+
+            <h3>Websites That Work</h3>
+
             <p>
-              Websites that explain what you do, work across devices and make
-              it easy for people to get in touch.
+              Websites that make it easy for customers to understand
+              your business and get in touch.
             </p>
           </div>
 
-          <div className="joki-stat-card">
-            <h3>One Creative Partner</h3>
+          <div
+            className="joki-stat-card joki-v3-stat"
+            data-joki-reveal
+          >
+            <span className="joki-stat-index">04</span>
+
+            <h3>One Partner</h3>
+
             <p>
-              Bring us the whole project or just the part you need help with.
+              Need design, print and web for the same project?
+              Keep it under one roof.
             </p>
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          WHAT WE DO
+          INTRO
       ====================================================== */}
 
-      <section className="joki-intro">
+      <section className="joki-intro joki-v3-intro">
         <div className="joki-container joki-intro-grid">
-          <span className="joki-section-number">
-            01 / WHAT WE DO
-          </span>
+          <div data-joki-reveal>
+            <span className="joki-section-number">
+              01 / WHAT WE DO
+            </span>
 
-          <div>
+            <div className="joki-intro-orbit">
+              <img
+                src="/brand-assets/joki-monogram.svg"
+                alt=""
+                aria-hidden="true"
+              />
+            </div>
+          </div>
+
+          <div data-joki-reveal>
             <h2>
-              From the first spark
+              You have a business.
               <br />
-              to the final deliverable.
+              We help you present it well.
             </h2>
 
             <p className="joki-intro-lead">
-              We handle the work businesses need to look good, communicate
-              clearly and stay consistent — from design and print to websites.
+              Good branding is more than a logo. Your cards, posters,
+              packaging, website and social media should all feel like
+              they belong to the same business. That is where we come in.
             </p>
 
             <Link
               to="/about"
               className="joki-text-link"
             >
-              More about Joki Holdings &rarr;
+              About Joki <span>→</span>
             </Link>
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          THREE DISCIPLINES
+          SERVICES
       ====================================================== */}
 
-      <section className="joki-services">
+      <section className="joki-services joki-v3-services">
         <div className="joki-container">
-          <div className="joki-section-heading">
+          <div
+            className="joki-section-heading joki-v3-section-heading"
+            data-joki-reveal
+          >
             <span className="joki-eyebrow">
-              Our Core Disciplines
+              What We Do
             </span>
 
             <h2>
-              Three capabilities.
+              The things your business
               <br />
-              One creative partner.
+              needs to show up well.
             </h2>
           </div>
 
           <div className="joki-services-grid">
-            {/* DESIGN */}
+            {services.map((service, index) => (
+              <Link
+                to={service.link}
+                className={`joki-service-card joki-v3-service-card service-${index + 1}`}
+                key={service.number}
+                data-joki-reveal
+              >
+                <div className="joki-card-glow" />
 
-            <Link
-              to="/design"
-              className="joki-service-card"
-            >
-              <div className="joki-card-header">
-                <span>01</span>
-                <span className="joki-card-badge">
-                  Creative
-                </span>
-              </div>
+                <div className="joki-card-header">
+                  <span>{service.number}</span>
 
-              <h3>Design</h3>
+                  <span className="joki-card-badge">
+                    {service.badge}
+                  </span>
+                </div>
 
-              <p>
-                Logos, branding, business materials, packaging, social media
-                graphics and the visual work your business needs every day.
-              </p>
+                <div className="joki-service-icon">
+                  <img
+                    src="/brand-assets/joki-monogram.svg"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                </div>
 
-              <div className="joki-card-tags">
-                <span>Brand Identity</span>
-                <span>Packaging</span>
-                <span>Graphics</span>
-              </div>
+                <h3>{service.title}</h3>
 
-              <strong className="joki-card-cta">
-                Explore Design &rarr;
-              </strong>
-            </Link>
+                <p>{service.text}</p>
 
-            {/* PRINT */}
+                <div className="joki-card-tags">
+                  {service.tags.map((tag) => (
+                    <span key={tag}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
 
-            <Link
-              to="/print"
-              className="joki-service-card"
-            >
-              <div className="joki-card-header">
-                <span>02</span>
-                <span className="joki-card-badge">
-                  Production
-                </span>
-              </div>
-
-              <h3>Print</h3>
-
-              <p>
-                Business cards, flyers, brochures, banners, signage, stickers
-                and other printed materials — from artwork to finished job.
-              </p>
-
-              <div className="joki-card-tags">
-                <span>Stationery</span>
-                <span>Large Format</span>
-                <span>Signage</span>
-              </div>
-
-              <strong className="joki-card-cta">
-                Explore Print &rarr;
-              </strong>
-            </Link>
-
-            {/* WEB */}
-
-            <Link
-              to="/web"
-              className="joki-service-card"
-            >
-              <div className="joki-card-header">
-                <span>03</span>
-                <span className="joki-card-badge">
-                  Digital
-                </span>
-              </div>
-
-              <h3>Web</h3>
-
-              <p>
-                Business websites, online shops and custom web applications
-                built around what your customers actually need.
-              </p>
-
-              <div className="joki-card-tags">
-                <span>Websites</span>
-                <span>E-Commerce</span>
-                <span>Web Apps</span>
-              </div>
-
-              <strong className="joki-card-cta">
-                Explore Web &rarr;
-              </strong>
-            </Link>
+                <strong className="joki-card-cta">
+                  Explore {service.title} <span>→</span>
+                </strong>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
@@ -381,121 +574,97 @@ export default function Home() {
           HOW WE WORK
       ====================================================== */}
 
-      <section className="joki-process-section">
+      <section className="joki-process-section joki-v3-process">
         <div className="joki-container">
-          <div className="joki-section-heading">
+          <div
+            className="joki-section-heading"
+            data-joki-reveal
+          >
             <span className="joki-eyebrow">
               How We Work
             </span>
 
             <h2>
-              A straightforward
+              Simple.
               <br />
-              process.
+              Clear. Practical.
             </h2>
           </div>
 
           <div className="joki-process-grid">
-            <div className="joki-process-step">
-              <span className="joki-step-num">
-                01
-              </span>
+            {process.map((step, index) => (
+              <div
+                className="joki-process-step joki-v3-process-step"
+                key={step.number}
+                data-joki-reveal
+                style={{
+                  "--joki-delay": `${index * 80}ms`,
+                }}
+              >
+                <div className="joki-process-top">
+                  <span className="joki-step-num">
+                    {step.number}
+                  </span>
 
-              <h4>
-                Discovery &amp; Brief
-              </h4>
+                  <span className="joki-process-line" />
+                </div>
 
-              <p>
-                We understand what you need, who it is for and what the
-                finished job needs to achieve.
-              </p>
-            </div>
+                <h4>{step.title}</h4>
 
-            <div className="joki-process-step">
-              <span className="joki-step-num">
-                02
-              </span>
-
-              <h4>
-                Creative Concept
-              </h4>
-
-              <p>
-                We turn the brief into practical design directions, layouts,
-                concepts or website structures.
-              </p>
-            </div>
-
-            <div className="joki-process-step">
-              <span className="joki-step-num">
-                03
-              </span>
-
-              <h4>
-                Refinement &amp; Build
-              </h4>
-
-              <p>
-                We refine the work and prepare it for its final use, whether
-                that means print, production or the web.
-              </p>
-            </div>
-
-            <div className="joki-process-step">
-              <span className="joki-step-num">
-                04
-              </span>
-
-              <h4>
-                Delivery
-              </h4>
-
-              <p>
-                You receive the finished work, production files or live
-                website ready for use.
-              </p>
-            </div>
+                <p>{step.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* =====================================================
-          GOLD CALL TO ACTION
+          FINAL CTA
       ====================================================== */}
 
-      <section className="joki-gold-section">
-        <div className="joki-container">
+      <section className="joki-gold-section joki-v3-gold-section">
+        <div
+          className="joki-cta-monogram"
+          aria-hidden="true"
+        >
+          <img
+            src="/brand-assets/joki-monogram.svg"
+            alt=""
+          />
+        </div>
+
+        <div
+          className="joki-container joki-v3-cta-content"
+          data-joki-reveal
+        >
           <span className="joki-eyebrow">
-            Have a project in mind?
+            Have something in mind?
           </span>
 
           <h2>
-            Let's make
-            <br />
-            something useful.
+            Let's get to work.
           </h2>
 
           <p className="joki-gold-desc">
-            Tell us what you're working on. Whether you need a new identity,
-            printed materials or a website, we'll help you work out the best
-            way to take it forward.
+            Need a logo, printed materials, a website or all three?
+            Tell us what you are working on and we'll take it from there.
           </p>
 
           <div className="joki-gold-actions">
             <Link
               to="/contact"
-              className="joki-button joki-button-dark"
+              className="joki-button joki-button-dark joki-v3-button"
             >
-              Talk to Us &rarr;
+              Talk to Us <span>→</span>
             </Link>
 
             <a
-              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings,%20I'd%20like%20to%20discuss%20a%20project."
+              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings%2C%20I'd%20like%20to%20discuss%20a%20project."
               target="_blank"
               rel="noopener noreferrer"
               className="joki-button joki-button-outline"
             >
-              Chat on WhatsApp &rarr;
+              Chat on WhatsApp <span>→</span>
             </a>
           </div>
         </div>
