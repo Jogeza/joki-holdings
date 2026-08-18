@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 export default function Print() {
   const printItems = [
@@ -84,278 +85,360 @@ export default function Print() {
   ];
 
   return (
-    <section className="joki-page">
-      <div className="joki-container">
+    <>
+      <Helmet>
+        <title>
+          Commercial Printing Services in Kampala | Joki Holdings
+        </title>
 
-        {/* =====================================================
-            HERO
-        ====================================================== */}
+        <meta
+          name="description"
+          content="Commercial printing services in Kampala, Uganda. Joki Holdings produces business cards, stationery, flyers, brochures, company profiles, banners, signage, labels and large-format print."
+        />
 
-        <div className="joki-page-hero">
-          <span className="joki-eyebrow">
-            02 / Print
-          </span>
+        <meta
+          name="robots"
+          content="index, follow"
+        />
 
-          <h1>
-            Print that
-            <span> works for your business.</span>
-          </h1>
+        <link
+          rel="canonical"
+          href="https://www.jokiholdings.com/print"
+        />
 
-          <p>
-            From business cards and flyers to banners and signage, we
-            produce the printed materials businesses need to get noticed,
-            stay consistent and look professional.
-          </p>
-        </div>
+        {/* Open Graph */}
 
-        {/* =====================================================
-            SHOWCASE
-        ====================================================== */}
+        <meta
+          property="og:type"
+          content="website"
+        />
 
-        <div className="joki-showcase-section">
+        <meta
+          property="og:title"
+          content="Commercial Printing Services in Kampala | Joki Holdings"
+        />
 
-          <div className="joki-section-heading">
+        <meta
+          property="og:description"
+          content="Business printing, marketing materials, large-format printing, banners, signage, labels and branded materials from Joki Holdings in Kampala."
+        />
+
+        <meta
+          property="og:url"
+          content="https://www.jokiholdings.com/print"
+        />
+
+        <meta
+          property="og:image"
+          content="https://www.jokiholdings.com/brand-assets/joki-logo.svg"
+        />
+
+        <meta
+          property="og:site_name"
+          content="Joki Holdings Ltd"
+        />
+
+        <meta
+          property="og:locale"
+          content="en_UG"
+        />
+
+        {/* Twitter / X */}
+
+        <meta
+          name="twitter:card"
+          content="summary_large_image"
+        />
+
+        <meta
+          name="twitter:title"
+          content="Commercial Printing Services in Kampala | Joki Holdings"
+        />
+
+        <meta
+          name="twitter:description"
+          content="Business printing, marketing materials, large-format printing, banners, signage, labels and branded materials from Joki Holdings in Kampala."
+        />
+
+        <meta
+          name="twitter:image"
+          content="https://www.jokiholdings.com/brand-assets/joki-logo.svg"
+        />
+      </Helmet>
+
+      <section className="joki-page">
+        <div className="joki-container">
+
+          {/* =====================================================
+              HERO
+          ====================================================== */}
+
+          <div className="joki-page-hero">
             <span className="joki-eyebrow">
-              What We Print
+              02 / Print
             </span>
 
-            <h2>
-              Print for everyday business.
-            </h2>
+            <h1>
+              Print that
+              <span> works for your business.</span>
+            </h1>
+
+            <p>
+              From business cards and flyers to banners and signage, we
+              produce the printed materials businesses need to get noticed,
+              stay consistent and look professional.
+            </p>
           </div>
 
-          <div className="joki-showcase-grid">
-            {printItems.map((item) => (
-              <div
-                key={item.id}
-                className="joki-showcase-card"
-              >
-                <div className="joki-showcase-img-wrap">
+          {/* =====================================================
+              SHOWCASE
+          ====================================================== */}
 
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    loading="lazy"
-                  />
+          <div className="joki-showcase-section">
 
-                  <span className="joki-showcase-badge">
-                    {item.category}
-                  </span>
-
-                </div>
-
-                <div className="joki-showcase-body">
-
-                  <span className="joki-showcase-num">
-                    {item.id}
-                  </span>
-
-                  <h3>
-                    {item.title}
-                  </h3>
-
-                  <p>
-                    {item.desc}
-                  </p>
-
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* =====================================================
-            SERVICES
-        ====================================================== */}
-
-        <div className="joki-capabilities-box">
-
-          <div className="joki-content-grid">
-
-            <div>
-              <span className="joki-section-number">
-                PRINT SERVICES
+            <div className="joki-section-heading">
+              <span className="joki-eyebrow">
+                What We Print
               </span>
 
-              <h3>
-                From small jobs to larger projects.
-              </h3>
-
-              <p>
-                We handle the printed materials businesses use every day,
-                whether you need a few items or a larger production run.
-              </p>
+              <h2>
+                Print for everyday business.
+              </h2>
             </div>
 
-            <div className="joki-list">
+            <div className="joki-showcase-grid">
+              {printItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="joki-showcase-card"
+                >
+                  <div className="joki-showcase-img-wrap">
 
-              {printServices.map((service) => (
-                <div key={service.number}>
-                  <span
-                    style={{
-                      display: "inline-block",
-                      marginRight: "12px",
-                      opacity: 0.45,
-                    }}
-                  >
-                    {service.number}
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      loading="lazy"
+                    />
+
+                    <span className="joki-showcase-badge">
+                      {item.category}
+                    </span>
+
+                  </div>
+
+                  <div className="joki-showcase-body">
+
+                    <span className="joki-showcase-num">
+                      {item.id}
+                    </span>
+
+                    <h3>
+                      {item.title}
+                    </h3>
+
+                    <p>
+                      {item.desc}
+                    </p>
+
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* =====================================================
+              SERVICES
+          ====================================================== */}
+
+          <div className="joki-capabilities-box">
+
+            <div className="joki-content-grid">
+
+              <div>
+                <span className="joki-section-number">
+                  PRINT SERVICES
+                </span>
+
+                <h3>
+                  From small jobs to larger projects.
+                </h3>
+
+                <p>
+                  We handle the printed materials businesses use every day,
+                  whether you need a few items or a larger production run.
+                </p>
+              </div>
+
+              <div className="joki-list">
+
+                {printServices.map((service) => (
+                  <div key={service.number}>
+                    <span
+                      style={{
+                        display: "inline-block",
+                        marginRight: "12px",
+                        opacity: 0.45,
+                      }}
+                    >
+                      {service.number}
+                    </span>
+
+                    <strong>
+                      {service.title}
+                    </strong>
+
+                    <p
+                      style={{
+                        margin: "8px 0 0 32px",
+                      }}
+                    >
+                      {service.text}
+                    </p>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+          </div>
+
+          {/* =====================================================
+              FINISHING
+          ====================================================== */}
+
+          <div className="joki-finishes-section">
+
+            <div className="joki-section-heading">
+
+              <span className="joki-eyebrow">
+                Finishing Options
+              </span>
+
+              <h2>
+                Choose how the final piece should look.
+              </h2>
+
+            </div>
+
+            <div className="joki-finishes-grid">
+
+              {finishes.map((finish) => (
+                <div
+                  key={finish.number}
+                  className="joki-finish-card"
+                >
+
+                  <span className="joki-finish-num">
+                    {finish.number}
                   </span>
 
-                  <strong>
-                    {service.title}
-                  </strong>
+                  <h4>
+                    {finish.title}
+                  </h4>
 
-                  <p
-                    style={{
-                      margin: "8px 0 0 32px",
-                    }}
-                  >
-                    {service.text}
+                  <p>
+                    {finish.desc}
                   </p>
+
                 </div>
               ))}
 
             </div>
-
-          </div>
-        </div>
-
-        {/* =====================================================
-            FINISHING
-        ====================================================== */}
-
-        <div className="joki-finishes-section">
-
-          <div className="joki-section-heading">
-
-            <span className="joki-eyebrow">
-              Finishing Options
-            </span>
-
-            <h2>
-              Choose how the final piece should look.
-            </h2>
-
           </div>
 
-          <div className="joki-finishes-grid">
+          {/* =====================================================
+              HOW WE WORK
+          ====================================================== */}
 
-            {finishes.map((finish) => (
-              <div
-                key={finish.number}
-                className="joki-finish-card"
-              >
+          <div
+            className="joki-capabilities-box"
+            style={{
+              marginTop: "80px",
+            }}
+          >
 
-                <span className="joki-finish-num">
-                  {finish.number}
+            <div className="joki-content-grid">
+
+              <div>
+
+                <span className="joki-section-number">
+                  HOW IT WORKS
                 </span>
 
-                <h4>
-                  {finish.title}
-                </h4>
+                <h3>
+                  Simple from start to finish.
+                </h3>
 
                 <p>
-                  {finish.desc}
+                  Send us what you need, and we'll help you choose the right
+                  format, size and print option before production starts.
                 </p>
 
               </div>
-            ))}
 
-          </div>
-        </div>
+              <div className="joki-list">
 
-        {/* =====================================================
-            HOW WE WORK
-        ====================================================== */}
+                <div>
+                  <strong>01 &nbsp; Tell us what you need</strong>
+                </div>
 
-        <div
-          className="joki-capabilities-box"
-          style={{
-            marginTop: "80px",
-          }}
-        >
+                <div>
+                  <strong>02 &nbsp; Confirm the artwork</strong>
+                </div>
 
-          <div className="joki-content-grid">
+                <div>
+                  <strong>03 &nbsp; We prepare it for print</strong>
+                </div>
 
-            <div>
+                <div>
+                  <strong>04 &nbsp; Collect or arrange delivery</strong>
+                </div>
 
-              <span className="joki-section-number">
-                HOW IT WORKS
-              </span>
-
-              <h3>
-                Simple from start to finish.
-              </h3>
-
-              <p>
-                Send us what you need, and we'll help you choose the right
-                format, size and print option before production starts.
-              </p>
-
-            </div>
-
-            <div className="joki-list">
-
-              <div>
-                <strong>01 &nbsp; Tell us what you need</strong>
-              </div>
-
-              <div>
-                <strong>02 &nbsp; Confirm the artwork</strong>
-              </div>
-
-              <div>
-                <strong>03 &nbsp; We prepare it for print</strong>
-              </div>
-
-              <div>
-                <strong>04 &nbsp; Collect or arrange delivery</strong>
               </div>
 
             </div>
 
           </div>
 
-        </div>
+          {/* =====================================================
+              PAGE CTA
+          ====================================================== */}
 
-        {/* =====================================================
-            PAGE CTA
-        ====================================================== */}
+          <div className="joki-page-cta">
 
-        <div className="joki-page-cta">
+            <h2>
+              Need something printed?
+            </h2>
 
-          <h2>
-            Need something printed?
-          </h2>
+            <p>
+              Tell us what you need, the size, quantity and when you need it.
+              We'll help you work out the next step.
+            </p>
 
-          <p>
-            Tell us what you need, the size, quantity and when you need it.
-            We'll help you work out the next step.
-          </p>
+            <div className="joki-cta-btns">
 
-          <div className="joki-cta-btns">
+              <Link
+                to="/contact"
+                className="joki-button joki-button-primary"
+              >
+                Talk to Us &rarr;
+              </Link>
 
-            <Link
-              to="/contact"
-              className="joki-button joki-button-primary"
-            >
-              Talk to Us &rarr;
-            </Link>
+              <a
+                href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings%2C%20I'd%20like%20to%20ask%20about%20Print%20services."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="joki-button joki-button-outline-light"
+              >
+                WhatsApp Us &rarr;
+              </a>
 
-            <a
-              href="https://wa.me/256778283522?text=Hello%20Joki%20Holdings%2C%20I'd%20like%20to%20ask%20about%20Print%20services."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="joki-button joki-button-outline-light"
-            >
-              WhatsApp Us &rarr;
-            </a>
+            </div>
 
           </div>
 
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
