@@ -297,7 +297,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", system-ui, sans-serif; line-heigh
 .print-benefits small { color: var(--muted-dark); font-size: 13px; }
 
 .work-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 54px 22px; }
-.project { grid-column: span 4; }
+.project { grid-column: span 4; min-width: 0; }
 .project:nth-child(5n + 1), .project:nth-child(5n + 2) { grid-column: span 6; }
 .project:nth-child(5n + 1) .project-media { aspect-ratio: 16 / 11; }
 .project-media { display: block; position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius); overflow: hidden; background: #ddd; }
@@ -595,7 +595,7 @@ h1, h2, h3, h4 { font-family: "Space Grotesk", system-ui, sans-serif; line-heigh
   .print-promise-images img:first-child { width: 86%; height: 360px; }
   .print-promise-images img:last-child { width: 48%; height: 210px; border-width: 5px; }
   .print-promise-copy h2 { font-size: clamp(40px, 12vw, 56px); }
-  .work-grid { gap: 42px; }
+  .work-grid { grid-template-columns: minmax(0, 1fr); gap: 42px; }
   .project, .project:nth-child(5n + 1), .project:nth-child(5n + 2) { grid-column: 1 / -1; }
   .project-meta { display: block; }
   .project p { text-align: left; margin-top: 8px; }
