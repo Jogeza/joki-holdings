@@ -48,7 +48,8 @@ export default function Nav() {
           aria-controls="primary-nav"
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? '✕' : '☰'}
+          <span className="menu-button-icon" aria-hidden="true">{open ? '✕' : '☰'}</span>
+          <span>{open ? 'Close' : 'Menu'}</span>
         </button>
         <div className={`nav-links${open ? ' open' : ''}`} id="primary-nav">
           {NAV_LINKS.map(({ to, label }) => (
