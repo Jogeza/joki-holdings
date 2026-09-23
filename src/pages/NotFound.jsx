@@ -1,29 +1,21 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import Seo from '../components/Seo';
 
 export default function NotFound() {
   return (
-    <section className="joki-not-found">
-      <div className="joki-container">
-
-        <span className="joki-eyebrow">
-          Error 404
-        </span>
-
-        <h1>
-          Lost?
-          <span> Let's go home.</span>
-        </h1>
-
-        <p>
-          The page you're looking for doesn't exist.
-        </p>
-
-        <Link to="/" className="joki-button joki-button-primary">
-          Back to Home &rarr;
-        </Link>
-
-      </div>
-    </section>
+    <>
+      <Seo title="Page not found | Joki Holdings" description="The page you requested does not exist." path="/404" noindex />
+      <header className="page-hero">
+        <div className="wrap">
+          <span className="eyebrow">404</span>
+          <h1>This page went to print.</h1>
+          <p>The address you followed does not exist. Head back home or start a project instead.</p>
+          <div className="hero-actions">
+            <Link className="btn btn-gold" to="/">Back home</Link>
+            <Link className="btn btn-outline" to="/contact">Start a project</Link>
+          </div>
+        </div>
+      </header>
+    </>
   );
 }

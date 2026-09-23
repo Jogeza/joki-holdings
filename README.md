@@ -1,70 +1,94 @@
-# Getting Started with Create React App
+# Joki Holdings website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The Joki Holdings website is a React single-page application built with Vite. It presents the studio's brand identity, print production and web design services, selected work, media archive and project enquiry form.
 
-## Available Scripts
+## Stack
 
-In the project directory, you can run:
+- React 18
+- React Router 6
+- Vite 5
+- Vercel serverless function for `/api/leads`
 
-### `npm start`
+## Local development
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Requirements: Node.js 18 or newer.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+npm install
+npm run dev
+```
 
-### `npm test`
+Open `http://localhost:5173`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To create and inspect a production build:
 
-### `npm run build`
+```bash
+npm run build
+npm run preview
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The production output is written to `dist/`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Site routes
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `/` — home
+- `/design` — brand and graphic design
+- `/print` — commercial print and production
+- `/web` — web design and digital experiences
+- `/work` — filterable portfolio and media archive
+- `/about` — studio story and approach
+- `/contact` — project enquiry form
 
-### `npm run eject`
+Navigation is rendered by React in `src/components/Nav.jsx`. On small screens it becomes an accessible menu with keyboard Escape support, outside-click dismissal and body-scroll locking while open.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Project structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```text
+src/
+  components/   Shared navigation, layout, content and SEO components
+  data/         Services, projects, media and site configuration
+  pages/        Route-level page components
+  styles/       Global responsive styles
+  App.jsx       React Router route map
+  main.jsx      BrowserRouter and application entry
+assets/
+  images/       Brand and project imagery copied into the build
+  media/        Portfolio images and process videos
+  robots.txt    Crawler directives
+  sitemap.xml   Public sitemap for the canonical domain
+api/
+  leads.js      Enquiry endpoint
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Vite uses `src/` as the application root and `assets/` as its public directory. That is why public URLs such as `/images/...`, `/media/...`, `/robots.txt` and `/sitemap.xml` resolve from the `assets/` folder in this repository.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Enquiry form
 
-## Learn More
+The contact form posts JSON to `/api/leads`. Copy `.env.example` to `.env.local` and provide the email provider values required by `api/leads.js` when testing delivery locally. The honeypot field and server-side validation are kept in place for basic spam protection.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The repository is configured for Vercel:
 
-### Code Splitting
+- Build command: `npm run build`
+- Output directory: `dist`
+- Client-side routes are rewritten to `index.html` in `vercel.json`
+- `/api/leads` remains a serverless function
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+After deploying, verify the home page, each route above, `/robots.txt`, `/sitemap.xml` and a direct refresh on `/work` or `/contact`. Direct refreshes are important because those pages are handled by React Router rather than separate static HTML files.
 
-### Analyzing the Bundle Size
+## Google Search Console
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+After the domain is deployed, add `https://www.jokiholdings.com` as a Domain or URL-prefix property in Google Search Console, complete verification, then submit:
 
-### Making a Progressive Web App
+```text
+https://www.jokiholdings.com/sitemap.xml
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The sitemap is generated from [`assets/sitemap.xml`](assets/sitemap.xml) and is published at the site root. [`assets/robots.txt`](assets/robots.txt) is also published at `/robots.txt`; Google reads it automatically, so it does not need to be uploaded separately to Search Console. Use URL Inspection to request indexing for the home page and the main service pages after the first deploy.
 
-### Advanced Configuration
+Route-level titles, descriptions, canonical URLs, Open Graph/Twitter previews, breadcrumb JSON-LD and page JSON-LD are managed by `src/components/Seo.jsx`. The base document also includes the Joki Holdings ProfessionalService and WebSite schema.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Repository hygiene
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Generated output, local environment files, the legacy React/static snapshots and the uncurated `Joki videos and pics/` working folder are ignored by `.gitignore`. Only media referenced by the current React site belongs in `assets/`.

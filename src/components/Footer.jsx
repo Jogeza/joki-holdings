@@ -1,52 +1,38 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { SITE } from '../data/site';
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer className="joki-footer">
-      <div className="joki-container">
-        <div className="joki-footer-top">
-          <div className="joki-footer-brand">
-            <img src="/brand-assets/joki-logo.svg" alt="Joki Holdings Ltd" />
-            <p>
-              Creative, print and digital solutions built to help businesses
-              look better, communicate clearly and grow.
-            </p>
-          </div>
-
-          <div className="joki-footer-column">
-            <h4>Explore</h4>
-            <Link to="/about">About Joki</Link>
-            <Link to="/design">Design Solutions</Link>
-            <Link to="/print">Commercial Print</Link>
-            <Link to="/web">Web Experiences</Link>
-          </div>
-
-          <div className="joki-footer-column">
-            <h4>Contact</h4>
-            <a href="mailto:info@jokiholdings.com">
-              info@jokiholdings.com
-            </a>
-            <a href="tel:+256778283522">+256 778 283522</a>
-            <span>Kampala, Uganda</span>
-          </div>
-
-          <div className="joki-footer-column">
-            <h4>Start a Project</h4>
-            <span>Have an idea or need a quote?</span>
-            <Link to="/contact" className="joki-footer-cta-link">
-              Talk to Us &rarr;
-            </Link>
+    <footer className="footer">
+      <div className="wrap footer-grid">
+        <div>
+          <Link className="logo" to="/" aria-label="Joki Holdings home">
+            <img className="logo-image" src="/images/joki-logo.svg" alt="" width="74" height="56" />
+          </Link>
+          <p>Design, print and web work built in Kampala for businesses here and worldwide.</p>
+          <div className="legacy-line">Previously operated as {SITE.legacyNames.join(' / ')}.</div>
+        </div>
+        <div>
+          <h4>Studio</h4>
+          <div className="footer-links">
+            <Link to="/work">Work</Link>
+            <Link to="/about">About</Link>
+            <Link to="/contact">Contact</Link>
           </div>
         </div>
-
-        <div className="joki-footer-bottom">
-          <span>&copy; {new Date().getFullYear()} Joki Holdings Ltd. All rights reserved.</span>
-          <span className="joki-footer-tagline">Design &bull; Print &bull; Digital</span>
+        <div>
+          <h4>Contact</h4>
+          <div className="footer-links">
+            <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+            <a href={SITE.phoneHref}>{SITE.phone}</a>
+            <span>{SITE.location}</span>
+          </div>
         </div>
+      </div>
+      <div className="wrap footer-bottom">
+        <span>© 2026 {SITE.name}</span>
+        <span>Design · Print · Web</span>
       </div>
     </footer>
   );
 }
-
-export default Footer;

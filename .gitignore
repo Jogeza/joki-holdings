@@ -1,7 +1,12 @@
 node_modules/
 .next/
 build/
+dist/
+Joki videos and pics/
+_legacy-react/
+_legacy-static/
 .env
 .env.local
 .vercel
 .env*
+!.env.example
