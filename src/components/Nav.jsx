@@ -49,7 +49,6 @@ export default function Nav() {
           onClick={() => setOpen((value) => !value)}
         >
           <span className="menu-button-icon" aria-hidden="true">{open ? '✕' : '☰'}</span>
-          <span>{open ? 'Close' : 'Menu'}</span>
         </button>
         <div className={`nav-links${open ? ' open' : ''}`} id="primary-nav">
           {NAV_LINKS.map(({ to, label }) => (
