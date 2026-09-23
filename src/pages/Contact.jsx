@@ -77,15 +77,15 @@ export default function Contact() {
       />
       <PageHero
         eyebrow="Start a project"
-        title="Tell us what needs to work better."
-        copy="A useful brief can be short. Share the goal, the deliverables you know about and any timing or budget constraints."
+        title="Tell us about your project."
+        copy="Tell us what you need, when you need it and what you have budgeted."
       />
       <section className="section">
         <div className="wrap contact-layout">
           <div className="contact-copy">
             <span className="eyebrow">Contact</span>
-            <h2>Let’s make the next step clear.</h2>
-            <p>We review each enquiry and respond with questions, a recommended scope or a clear explanation if another specialist would be a better fit.</p>
+            <h2>Get in touch.</h2>
+            <p>Send your brief through the form or contact us directly by email or phone.</p>
             <div className="contact-links">
               <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
               <a href={SITE.phoneHref}>{SITE.phone}</a>

@@ -18,7 +18,7 @@ export default function Home() {
     <>
       <Seo
         title="Joki Holdings | Design, Print & Web Studio"
-        description="Joki Holdings is a Kampala studio creating design, print and web experiences for ambitious businesses."
+        description="Joki Holdings designs brands, printed materials and websites in Kampala, Uganda."
         path="/"
         image="/images/hero-kampala-studio-v2.png"
       />
@@ -30,7 +30,7 @@ export default function Home() {
           <div className="hero-copy">
             <span className="eyebrow">Design · Print · Web</span>
             <TypewriterHeadline />
-            <p>Brand identity, commercial print and websites—designed and delivered by one Kampala studio.</p>
+            <p>Brand identity, printed materials and websites from our studio in Kampala.</p>
             <div className="hero-actions">
               <Link className="btn btn-gold" to="/work">View our work</Link>
               <Link className="btn btn-outline" to="/contact">Request a quote</Link>
@@ -47,8 +47,8 @@ export default function Home() {
           <div className="section-head">
             <span className="eyebrow">What we do</span>
             <div>
-              <h2>Everything your brand needs to show up well.</h2>
-              <p>Choose one service or bring the whole project to one team.</p>
+              <h2>Design, print and web under one roof.</h2>
+              <p>Come to us for one job or a project that needs all three.</p>
             </div>
           </div>
           <div className="cards">
@@ -64,8 +64,8 @@ export default function Home() {
           <div className="section-head">
             <span className="eyebrow">Selected work</span>
             <div>
-              <h2>Work you can inspect.</h2>
-              <p>Open any project image for a closer look, or visit the full archive.</p>
+              <h2>Selected projects.</h2>
+              <p>See examples of our print, identity and website work.</p>
             </div>
           </div>
           <div className="work-grid">
@@ -80,9 +80,9 @@ export default function Home() {
       </Reveal>
       <ImageStoryBand
         image="/media/joki-holdings-print-portfolio-09.jpeg"
-        eyebrow="Designed through production"
-        title="From screen to finished piece."
-        copy="Design, proofing and production stay connected under one studio, so the final work feels as considered as the first idea."
+        eyebrow="Print production"
+        title="From artwork to finished print."
+        copy="We check artwork, materials and finishes before a print job goes into production."
         position="center 44%"
       />
       <Reveal as="section" className="section why">
@@ -90,8 +90,8 @@ export default function Home() {
           <div className="section-head">
             <span className="eyebrow">Why Joki</span>
             <div>
-              <h2>Fewer handoffs. Better finished work.</h2>
-              <p>Strategy, design and production stay connected, so decisions carry through to the final result.</p>
+              <h2>One team from brief to delivery.</h2>
+              <p>We plan the work, prepare the files and follow the job through to completion.</p>
             </div>
           </div>
           <div className="outcomes">
@@ -116,7 +116,7 @@ export default function Home() {
             <span className="eyebrow">How we work</span>
             <div>
               <h2>From brief to delivery.</h2>
-              <p>A visible, disciplined process keeps decisions clear and avoids expensive surprises late in the project.</p>
+              <p>We agree on the scope, review the work with you and prepare the final deliverables.</p>
             </div>
           </div>
           <ProcessSteps steps={HOME_PROCESS} />
@@ -124,11 +124,11 @@ export default function Home() {
       </Reveal>
       <Reveal as="section" className="section kampala">
         <div className="wrap">
-          <h2>Built in Kampala.<br />Working worldwide.</h2>
-          <p>Local roots, global standard — we work with clients across time zones as easily as across town.</p>
+          <h2>Based in Kampala.<br />Available beyond Uganda.</h2>
+          <p>We handle print work locally and collaborate on design and web projects remotely.</p>
         </div>
       </Reveal>
-      <CtaBand title="Have something worth making?" copy="Tell us what the project needs to achieve." />
+      <CtaBand title="Tell us about your project." copy="Share what you need, your deadline and any budget you have in mind." />
     </>
   );
 }

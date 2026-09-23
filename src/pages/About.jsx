@@ -6,14 +6,14 @@ import { CURATED_MEDIA } from '../data/media';
 import ImageStoryBand from '../components/ImageStoryBand';
 
 const VALUES = [
-  ['Clarity before decoration', 'Every design decision should help the audience understand, trust or act.'],
-  ['Making is part of design', 'Materials, production and technical constraints shape the solution from the start.'],
-  ['Small by intention', 'A focused studio keeps communication direct and accountability visible.'],
+  ['Keep it clear', 'People should be able to read and use what we make.'],
+  ['Plan for production', 'Paper, finishes, installation and screen sizes matter from the start.'],
+  ['Stay involved', 'The people planning the job follow it through to delivery.'],
 ];
 
 const TEAM = [
-  ['Creative direction', 'Strategy, identity and visual systems', 'The same thinking carries from concept through final application.'],
-  ['Production network', 'Print, fabrication and digital delivery', 'Specialist capability is brought in around a clear creative direction.'],
+  ['Creative direction', 'Identity and graphic design', 'We develop the design and prepare it for the places it will be used.'],
+  ['Production network', 'Print, fabrication and websites', 'We bring in specialist support when a project needs it.'],
 ];
 
 export default function About() {
@@ -21,26 +21,26 @@ export default function About() {
     <>
       <Seo
         title="About the Studio | Joki Holdings"
-        description="Meet Joki Holdings, a Kampala-rooted design, print and web studio working with businesses locally and worldwide."
+        description="Learn about Joki Holdings, a design, print and web studio based in Kampala, Uganda."
         path="/about"
         image="/media/IMG-20260409-WA0010.jpeg"
       />
       <PageHero
         eyebrow="About Joki"
-        title="Rooted in Kampala. Built to travel."
-        copy="We are a focused creative studio bringing brand identity, print production and web design under one roof."
+        title="A design and production studio in Kampala."
+        copy="We make brand identities, printed materials and websites for businesses in Uganda and beyond."
       />
       <Reveal as="section" className="section">
         <div className="wrap">
           <div className="story">
             <div>
               <span className="eyebrow">Our story</span>
-              <h2>Close to the idea. Close to the making.</h2>
+              <h2>From graphics and print to web.</h2>
             </div>
             <div className="story-copy">
-              <p>Joki Holdings grew from hands-on graphics and production work into a broader studio practice. The principle stayed the same: strong design only matters when it survives contact with the real world.</p>
-              <p>That is why we think beyond the presentation. We consider how a menu will be handled, how signage will be installed, how a website will respond on a small screen and how a visual identity will remain recognisable as it grows.</p>
-              <p>Kampala is home. Digital collaboration lets us work comfortably across borders, while print production remains closely managed from Uganda.</p>
+              <p>Joki Holdings began with graphics and print production. Today we also design brand identities and websites.</p>
+              <p>We think about how each piece will be used: whether a menu can take daily handling, a sign fits its space, or a website works on a phone.</p>
+              <p>Our studio is in Kampala. We manage print work locally and collaborate on design and web projects remotely.</p>
             </div>
           </div>
           <div className="values">
@@ -66,8 +66,8 @@ export default function About() {
       <ImageStoryBand
         image="/media/joki-holdings-print-portfolio-23.jpeg"
         eyebrow="Inside Joki"
-        title="Close to the work."
-        copy="Ideas are tested where they will live — on paper, fabric, walls and screens — before they leave the studio."
+        title="Made in the studio."
+        copy="We test materials, check proofs and review the finished work before delivery."
         position="center"
       />
       <Reveal as="section" className="section dark-section">
@@ -75,8 +75,8 @@ export default function About() {
           <div className="section-head">
             <span className="eyebrow">The studio</span>
             <div>
-              <h2>A compact core, expanded when the work needs it.</h2>
-              <p>Projects stay closely directed while trusted specialists join for development, photography, fabrication or production.</p>
+              <h2>A small team with specialist support.</h2>
+              <p>Depending on the job, we work with developers, photographers, fabricators and print specialists.</p>
             </div>
           </div>
           <div className="team">
@@ -90,7 +90,7 @@ export default function About() {
           </div>
         </div>
       </Reveal>
-      <CtaBand title="Working from Kampala, worldwide." copy="Start with a clear brief and we can take it from there." label="Talk to the studio →" />
+      <CtaBand title="Work with Joki." copy="Tell us what you need and when you need it." label="Contact the studio →" />
     </>
   );
 }

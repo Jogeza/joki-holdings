@@ -2,9 +2,9 @@ import Reveal from './Reveal';
 
 const MOCKUPS = [
   ['/images/design-mockups/football-brand.png', 'Football identity', 'Club identity, match-day graphics and branded apparel.'],
-  ['/images/design-mockups/hotel-brand.png', 'Hospitality identity', 'Guest touchpoints designed as one calm, premium system.'],
+  ['/images/design-mockups/hotel-brand.png', 'Hospitality identity', 'Signs, stationery and guest materials for a hotel.'],
   ['/images/design-mockups/school-brand.png', 'School identity', 'Admissions, wayfinding and everyday student materials.'],
-  ['/images/design-mockups/event-brand.png', 'Event campaign', 'A flexible visual language from promotion to the venue.'],
+  ['/images/design-mockups/event-brand.png', 'Event campaign', 'Graphics for promotion, tickets and the venue.'],
   ['/images/design-mockups/church-brand.png', 'Church identity', 'Welcoming communications for services and community life.'],
 ];
 

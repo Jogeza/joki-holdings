@@ -22,8 +22,8 @@ export default function Work() {
       />
       <PageHero
         eyebrow="Selected work"
-        title="Work made for real use."
-        copy="A portfolio of print production, identity applications and digital work, shown clearly and without presentation-only mock-ups."
+        title="Selected work."
+        copy="Browse printed materials, brand identity projects and websites by category."
       />
       <Reveal as="section" className="section">
         <div className="wrap">
@@ -49,13 +49,13 @@ export default function Work() {
       </Reveal>
       <ImageStoryBand
         image="/media/joki-holdings-print-portfolio-25.jpeg"
-        eyebrow="Made for real use"
-        title="Details that hold up beyond the mock-up."
-        copy="From personalised pieces to full production runs, every finish is chosen for the place, person and purpose it needs to serve."
+        eyebrow="Print details"
+        title="Materials and finishes matter."
+        copy="See examples of our paper, apparel, signage and personalised print work."
         position="center 46%"
       />
       <MediaArchive />
-      <CtaBand title="Ready to make your next project?" copy="Share the goal, timing and deliverables. We’ll recommend a clear way forward." />
+      <CtaBand title="Have a project in mind?" copy="Send us the details, deadline and budget to get started." />
     </>
   );
 }

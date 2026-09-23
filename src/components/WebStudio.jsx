@@ -8,7 +8,7 @@ export default function WebStudio({ deliverables }) {
           <div className="web-studio-intro">
             <div>
               <span className="eyebrow">Design + development</span>
-              <h2>Built where design meets code.</h2>
+              <h2>Designed and built for the browser.</h2>
             </div>
             <div>
               <p>We design in the browser, test on real screen sizes and build reusable components that keep the finished site fast, consistent and easy to maintain.</p>
@@ -61,7 +61,7 @@ export default function WebStudio({ deliverables }) {
         <div className="wrap">
           <div className="section-head">
             <span className="eyebrow">What we build</span>
-            <div><h2>Useful websites, carefully engineered.</h2><p>Every screen is designed around the information people need and the action the business wants them to take.</p></div>
+            <div><h2>Websites people can use.</h2><p>We organise each page around the information visitors need and make it easy to contact the business.</p></div>
           </div>
           <div className="web-service-list">
             {deliverables.map(([title, copy], index) => (

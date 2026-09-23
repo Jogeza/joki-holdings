@@ -35,7 +35,7 @@ export default function DisciplinePage({ service }) {
             <div className="wrap">
               <div className="section-head">
                 <span className="eyebrow">In the studio</span>
-                <div><h2>Made, tested and delivered.</h2><p>Real project details, materials and production work—not stock decoration.</p></div>
+                <div><h2>From the studio.</h2><p>See the materials and production work behind our projects.</p></div>
               </div>
               <div className="proof-grid">
                 {CURATED_MEDIA[service.slug].map((item, index) => (
@@ -56,8 +56,8 @@ export default function DisciplinePage({ service }) {
           <div className="section-head">
             <span className="eyebrow">Our approach</span>
             <div>
-              <h2>Built around the result.</h2>
-              <p>Every project starts with its audience and purpose. Scope, review points and delivery are agreed before production begins.</p>
+              <h2>How the work gets done.</h2>
+              <p>We agree on the scope, review points and delivery before production begins.</p>
             </div>
           </div>
           <ProcessSteps steps={service.process} />

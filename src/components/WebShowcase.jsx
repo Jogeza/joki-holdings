@@ -8,10 +8,10 @@ export default function WebShowcase() {
         <div className="web-showcase-copy">
           <span className="eyebrow">Web design</span>
           <h2>Designed for every screen.</h2>
-          <p>Clear navigation, fast loading and responsive layouts that keep the same polished experience from desktop to mobile.</p>
+          <p>Clear navigation and layouts that adjust to desktop and mobile screens.</p>
           <ul className="web-points">
             <li>Responsive on phones, tablets and desktops</li>
-            <li>Focused journeys that lead clients to act</li>
+            <li>Clear service information and contact links</li>
             <li>Built for speed, clarity and easy updates</li>
           </ul>
           <Link className="btn btn-gold" to="/web">Explore web design →</Link>

@@ -14,7 +14,7 @@ export const PROJECTS = [
     category: 'print',
     image: '/media/joki-holdings-print-portfolio-01.jpg',
     alt: 'Finished restaurant menu photographed in service',
-    outcome: 'A durable, tactile menu designed for everyday hospitality service.',
+    outcome: 'A printed menu made for daily restaurant use.',
   },
   {
     slug: 'dimensional-lettering',
@@ -22,7 +22,7 @@ export const PROJECTS = [
     category: 'branding',
     image: '/media/joki-holdings-print-portfolio-12.jpeg',
     alt: 'Gold dimensional lettering prepared for installation',
-    outcome: 'Letterforms, material and finish aligned for a strong physical presence.',
+    outcome: 'Gold dimensional letters prepared for installation.',
   },
   {
     slug: 'nyumba-dynamics-website',
@@ -30,7 +30,7 @@ export const PROJECTS = [
     category: 'web',
     image: '/images/nyumba-dynamics-website.png',
     alt: 'Responsive Nyumba Dynamics website interface',
-    outcome: 'A service-led digital experience designed for clear discovery and enquiry.',
+    outcome: 'A responsive website presenting services and contact information.',
   },
   {
     slug: 'corporate-uniform-range',
@@ -38,7 +38,7 @@ export const PROJECTS = [
     category: 'print',
     image: '/media/joki-holdings-print-portfolio-18.jpeg',
     alt: 'Colour coordinated corporate polo shirt production',
-    outcome: 'A consistent branded apparel range prepared across multiple colourways.',
+    outcome: 'Branded polo shirts produced in multiple colours.',
   },
   {
     slug: 'personalised-id-series',
@@ -46,7 +46,7 @@ export const PROJECTS = [
     category: 'print',
     image: '/images/id-cards.jpeg',
     alt: 'Printed personalised identification cards',
-    outcome: 'Consistent output across a variable-data production run.',
+    outcome: 'Personalised ID cards printed as a series.',
   },
   {
     slug: 'identity-craft-study',
@@ -54,6 +54,6 @@ export const PROJECTS = [
     category: 'branding',
     image: '/images/design-craft.png',
     alt: 'Identity craft study shown across printed matter',
-    outcome: 'Colour, typography and printed matter shown as one system.',
+    outcome: 'A study of colour, typography and printed applications.',
   },
 ];

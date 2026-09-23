@@ -9,7 +9,7 @@ export default function Footer() {
           <Link className="logo" to="/" aria-label="Joki Holdings home">
             <img className="logo-image" src="/images/joki-logo.svg" alt="" width="74" height="56" />
           </Link>
-          <p>Design, print and web work built in Kampala for businesses here and worldwide.</p>
+          <p>Design, print and web services from our Kampala studio.</p>
           <div className="legacy-line">Previously operated as {SITE.legacyNames.join(' / ')}.</div>
         </div>
         <div>
